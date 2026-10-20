@@ -17,8 +17,12 @@ model ConferenceAttendance {
     updatedAt  DateTime  @updatedAt @map("updated_at")
     attendedAt DateTime? @map("attended_at")
 
-    doctor   Doctor   @relation(fields: [doctorId], references: [id])
-    activity Activity @relation(fields: [activityId], references: [id])
+    certificate Certificate?
+    payment     Payment[]
+
+    doctor    Doctor   @relation(fields: [doctorId], references: [id])
+    activity  Activity @relation(fields: [activityId], references: [id])
+    paymentId BigInt
 
     @@unique([doctorId, activityId])
     @@map("conference_attendance")

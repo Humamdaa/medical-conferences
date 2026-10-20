@@ -3,7 +3,8 @@ model Specialist {
     name        String
     description String? @db.Text
 
-    doctors Doctor[]
+    doctors    Doctor[]
+    activities Activity[]
 
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")

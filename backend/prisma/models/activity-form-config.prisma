@@ -4,6 +4,8 @@ model ActivityFormConfig {
     formName     String @map("form_name")
     fieldsSchema Json   @map("fields_schema") @db.JsonB
 
+    activities Activity[]
+
     supervisor User @relation(fields: [supervisorId], references: [id])
 
     createdAt DateTime @default(now()) @map("created_at")
