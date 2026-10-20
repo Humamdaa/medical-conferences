@@ -1,0 +1,12 @@
+model ActivityFormConfig {
+    id           BigInt @id @default(autoincrement())
+    supervisorId BigInt @map("supervisor_id")
+    formName     String @map("form_name")
+    fieldsSchema Json   @map("fields_schema") @db.JsonB
+
+    supervisor User @relation(fields: [supervisorId], references: [id])
+
+    createdAt DateTime @default(now()) @map("created_at")
+
+    @@map("activity_form_configs")
+}
