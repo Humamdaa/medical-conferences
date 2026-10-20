@@ -5,6 +5,7 @@ model Doctor {
 
     user       User       @relation(fields: [userId], references: [id])
     specialist Specialist @relation(fields: [specialistId], references: [id])
+attendances ConferenceAttendance[]
 
     @@map("doctors")
 }

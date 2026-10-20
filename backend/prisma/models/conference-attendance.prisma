@@ -1,0 +1,25 @@
+enum AttendanceStatus {
+    REGISTERED
+    ATTENDED
+    CANCELLED
+}
+
+model ConferenceAttendance {
+    id         BigInt @id @default(autoincrement())
+    doctorId   BigInt @map("doctor_id")
+    activityId BigInt @map("activity_id")
+
+    status            AttendanceStatus @default(REGISTERED)
+    participationRole String?          @map("participation_role")
+    pointsAwarded     Int              @default(0) @map("points_awarded")
+
+    createdAt  DateTime  @default(now()) @map("created_at")
+    updatedAt  DateTime  @updatedAt @map("updated_at")
+    attendedAt DateTime? @map("attended_at")
+
+    doctor   Doctor   @relation(fields: [doctorId], references: [id])
+    activity Activity @relation(fields: [activityId], references: [id])
+
+    @@unique([doctorId, activityId])
+    @@map("conference_attendance")
+}
