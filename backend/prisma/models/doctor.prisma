@@ -1,0 +1,8 @@
+model Doctor {
+    id     BigInt @id @default(autoincrement())
+    userId BigInt @unique @map("user_id")
+
+    user User @relation(fields: [userId], references: [id])
+
+    @@map("doctors")
+}
