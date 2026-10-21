@@ -1,0 +1,25 @@
+enum PaymentStatus {
+    PENDING
+    SUCCESS
+    FAILED
+    REFUNDED
+}
+
+model Payment {
+    id           BigInt @id @default(autoincrement())
+    attendanceId BigInt @map("attendance_id")
+
+    provider          String        @db.VarChar(30)
+    amount            Decimal       @db.Decimal(12, 2)
+    currency          String        @db.VarChar(3)
+    status            PaymentStatus @default(PENDING)
+    merchantReference String        @unique @map("merchant_reference") @db.Uuid
+
+    attendance ConferenceAttendance @relation(fields: [attendanceId], references: [id])
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@index([attendanceId])
+    @@map("payments")
+}

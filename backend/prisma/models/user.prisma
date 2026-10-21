@@ -1,0 +1,22 @@
+enum Role {
+    SUPERVISOR
+    ADMIN
+    DOCTOR
+}
+
+model User {
+    id        BigInt @id @default(autoincrement())
+    firstName String @map("first_name")
+    lastName  String @map("last_name")
+    email     String @unique
+    password  String
+    role      Role   @default(DOCTOR)
+
+    doctor      Doctor?
+    formConfigs ActivityFormConfig[]
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("users")
+}

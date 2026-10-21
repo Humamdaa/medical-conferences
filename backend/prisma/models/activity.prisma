@@ -1,0 +1,33 @@
+model Activity {
+    id           BigInt @id @default(autoincrement())
+    name         String
+    activityType String @map("activity_type")
+
+    startAt DateTime @map("start_at")
+    endAt   DateTime @map("end_at")
+
+    location    String
+    institution String
+    latitude    Decimal? @db.Decimal(10, 7)
+    longitude   Decimal? @db.Decimal(10, 7)
+
+    description String @db.Text
+    points      Int    @default(0)
+
+    specialistId BigInt @map("specialist_id")
+    formConfigId BigInt @map("form_config_id")
+
+    attendances ConferenceAttendance[]
+
+    specialist Specialist         @relation(fields: [specialistId], references: [id])
+    formConfig ActivityFormConfig @relation(fields: [formConfigId], references: [id])
+
+    customFields       Json @map("custom_fields") @db.JsonB
+    formSchemaSnapshot Json @map("form_schema_snapshot") @db.JsonB
+
+    createdAt DateTime  @default(now()) @map("created_at")
+    updatedAt DateTime  @updatedAt @map("updated_at")
+    deletedAt DateTime? @map("deleted_at")
+
+    @@map("activities")
+}

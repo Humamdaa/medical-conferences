@@ -1,0 +1,15 @@
+model Certificate {
+    id                     BigInt @id @default(autoincrement())
+    conferenceAttendanceId BigInt @unique @map("conference_attendance_id")
+
+    certificateNumber String   @unique @map("certificate_number")
+    filePath          String   @map("file_path")
+    issuedAt          DateTime @default(now()) @map("issued_at") @db.Date
+
+    attendance ConferenceAttendance @relation(fields: [conferenceAttendanceId], references: [id])
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("certificates")
+}

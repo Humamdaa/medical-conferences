@@ -1,0 +1,24 @@
+model Doctor {
+    id           BigInt @id @default(autoincrement())
+    userId       BigInt @unique @map("user_id")
+    specialistId BigInt @map("specialist_id")
+
+    nationalId          String   @unique @map("national_id")
+    residence           String
+    clinicAddress       String   @map("clinic_address")
+    phoneNumber         String   @map("phone_number")
+    certificateIssuedAt DateTime @map("certificate_issued_at") @db.Date
+    certificateNumber   String   @map("certificate_number")
+    fatherName          String   @map("father_name")
+
+    user       User       @relation(fields: [userId], references: [id])
+    specialist Specialist @relation(fields: [specialistId], references: [id])
+
+    attendances ConferenceAttendance[]
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@index([specialistId])
+    @@map("doctors")
+}
