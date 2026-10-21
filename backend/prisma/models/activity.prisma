@@ -18,15 +18,16 @@ model Activity {
     formConfigId BigInt @map("form_config_id")
 
     attendances ConferenceAttendance[]
-    
-    specialist  Specialist             @relation(fields: [specialistId], references: [id])
-    formConfig  ActivityFormConfig     @relation(fields: [formConfigId], references: [id])
+
+    specialist Specialist         @relation(fields: [specialistId], references: [id])
+    formConfig ActivityFormConfig @relation(fields: [formConfigId], references: [id])
 
     customFields       Json @map("custom_fields") @db.JsonB
     formSchemaSnapshot Json @map("form_schema_snapshot") @db.JsonB
 
-    createdAt DateTime @default(now()) @map("created_at")
-    updatedAt DateTime @updatedAt @map("updated_at")
+    createdAt DateTime  @default(now()) @map("created_at")
+    updatedAt DateTime  @updatedAt @map("updated_at")
+    deletedAt DateTime? @map("deleted_at")
 
     @@map("activities")
 }

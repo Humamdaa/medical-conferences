@@ -1,6 +1,6 @@
 model Specialist {
     id          BigInt  @id @default(autoincrement())
-    name        String
+    name        String  @unique
     description String? @db.Text
 
     doctors    Doctor[]
