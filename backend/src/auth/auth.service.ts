@@ -5,6 +5,7 @@ import { hash } from 'argon2';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
 import { AppError } from '../common/errors/app-error';
+import { Role } from '../generated/prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -35,7 +36,7 @@ export class AuthService {
                 lastName: dto.lastName.trim(),
                 email,
                 password: hashedPassword,
-                role: 'DOCTOR',
+                role: Role.DOCTOR,
             },
             select: {
                 id: true,
@@ -49,7 +50,7 @@ export class AuthService {
 
         return {
             message: 'Registration successful',
-           
+
         };
     }
 }
