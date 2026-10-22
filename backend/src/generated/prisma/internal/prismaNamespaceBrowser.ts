@@ -51,7 +51,14 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-
+  ActivityFormConfig: 'ActivityFormConfig',
+  Activity: 'Activity',
+  Certificate: 'Certificate',
+  ConferenceAttendance: 'ConferenceAttendance',
+  Doctor: 'Doctor',
+  Payment: 'Payment',
+  Specialist: 'Specialist',
+  User: 'User'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -68,4 +75,165 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const ActivityFormConfigScalarFieldEnum = {
+  id: 'id',
+  supervisorId: 'supervisorId',
+  formName: 'formName',
+  fieldsSchema: 'fieldsSchema',
+  createdAt: 'createdAt'
+} as const
+
+export type ActivityFormConfigScalarFieldEnum = (typeof ActivityFormConfigScalarFieldEnum)[keyof typeof ActivityFormConfigScalarFieldEnum]
+
+
+export const ActivityScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  activityType: 'activityType',
+  startAt: 'startAt',
+  endAt: 'endAt',
+  location: 'location',
+  institution: 'institution',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  description: 'description',
+  points: 'points',
+  specialistId: 'specialistId',
+  formConfigId: 'formConfigId',
+  customFields: 'customFields',
+  formSchemaSnapshot: 'formSchemaSnapshot',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type ActivityScalarFieldEnum = (typeof ActivityScalarFieldEnum)[keyof typeof ActivityScalarFieldEnum]
+
+
+export const CertificateScalarFieldEnum = {
+  id: 'id',
+  conferenceAttendanceId: 'conferenceAttendanceId',
+  certificateNumber: 'certificateNumber',
+  filePath: 'filePath',
+  issuedAt: 'issuedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CertificateScalarFieldEnum = (typeof CertificateScalarFieldEnum)[keyof typeof CertificateScalarFieldEnum]
+
+
+export const ConferenceAttendanceScalarFieldEnum = {
+  id: 'id',
+  doctorId: 'doctorId',
+  activityId: 'activityId',
+  status: 'status',
+  participationRole: 'participationRole',
+  pointsAwarded: 'pointsAwarded',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  attendedAt: 'attendedAt'
+} as const
+
+export type ConferenceAttendanceScalarFieldEnum = (typeof ConferenceAttendanceScalarFieldEnum)[keyof typeof ConferenceAttendanceScalarFieldEnum]
+
+
+export const DoctorScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  specialistId: 'specialistId',
+  nationalId: 'nationalId',
+  residence: 'residence',
+  clinicAddress: 'clinicAddress',
+  phoneNumber: 'phoneNumber',
+  certificateIssuedAt: 'certificateIssuedAt',
+  certificateNumber: 'certificateNumber',
+  fatherName: 'fatherName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DoctorScalarFieldEnum = (typeof DoctorScalarFieldEnum)[keyof typeof DoctorScalarFieldEnum]
+
+
+export const PaymentScalarFieldEnum = {
+  id: 'id',
+  attendanceId: 'attendanceId',
+  provider: 'provider',
+  amount: 'amount',
+  currency: 'currency',
+  status: 'status',
+  merchantReference: 'merchantReference',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+export const SpecialistScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SpecialistScalarFieldEnum = (typeof SpecialistScalarFieldEnum)[keyof typeof SpecialistScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  password: 'password',
+  role: 'role',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+} as const
+
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
