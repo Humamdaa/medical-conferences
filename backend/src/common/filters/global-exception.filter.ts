@@ -36,6 +36,11 @@ export class GlobalExceptionFilter implements ExceptionFilter {
                     message = exception.message;
                     code = exception.code;
                     break;
+                case 'USER_NOT_FOUND':
+                    status = HttpStatus.UNAUTHORIZED;
+                    message = 'Session is no longer valid';
+                    code = exception.code;
+                    break;
             }
         } else if (exception instanceof HttpException) {
             status = exception.getStatus();

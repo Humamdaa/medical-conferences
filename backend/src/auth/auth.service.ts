@@ -90,4 +90,34 @@ export class AuthService {
         return user.id.toString();
     }
 
+
+    async getCurrentUser(userId: string) {
+        const user = await this.prisma.user.findUnique({
+            where: {
+                id: BigInt(userId),
+            },
+            select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                email: true,
+                role: true,
+                createdAt: true,
+            },
+        });
+
+        if (!user) {
+            throw new AppError(
+                'USER_NOT_FOUND',
+                'User not found',
+            );
+        }
+
+        return {
+            ...user,
+            id: user.id.toString(),
+        };
+    }
+
+
 }

@@ -1,7 +1,9 @@
 import {
     Body,
     Controller,
+    Get,
     Post,
+    UseGuards,
 } from '@nestjs/common';
 
 import { AuthService } from './auth.service';
@@ -10,10 +12,12 @@ import {
     HttpCode,
     HttpStatus,
     Req,
+
 } from '@nestjs/common';
 
 import type { Request } from 'express';
 import { LoginDto } from './dto/login.dto';
+import { SessionAuthGuard } from './guards/session-auth/session-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -56,6 +60,15 @@ export class AuthController {
         return {
             message: 'Login successful',
         };
+    }
+
+
+    @UseGuards(SessionAuthGuard)
+    @Get('me')
+    getCurrentUser(@Req() request: Request) {
+        return this.authService.getCurrentUser(
+            request.session.userId!,
+        );
     }
 
 }
