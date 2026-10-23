@@ -17,4 +17,43 @@ import * as Prisma from './internal/prismaNamespaceBrowser.js'
 export { Prisma }
 export * as $Enums from './enums.js'
 export * from './enums.js';
-
+/**
+ * Model ActivityFormConfig
+ * 
+ */
+export type ActivityFormConfig = Prisma.ActivityFormConfigModel
+/**
+ * Model Activity
+ * 
+ */
+export type Activity = Prisma.ActivityModel
+/**
+ * Model Certificate
+ * 
+ */
+export type Certificate = Prisma.CertificateModel
+/**
+ * Model ConferenceAttendance
+ * 
+ */
+export type ConferenceAttendance = Prisma.ConferenceAttendanceModel
+/**
+ * Model Doctor
+ * 
+ */
+export type Doctor = Prisma.DoctorModel
+/**
+ * Model Payment
+ * 
+ */
+export type Payment = Prisma.PaymentModel
+/**
+ * Model Specialist
+ * 
+ */
+export type Specialist = Prisma.SpecialistModel
+/**
+ * Model User
+ * 
+ */
+export type User = Prisma.UserModel

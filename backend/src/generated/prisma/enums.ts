@@ -9,7 +9,37 @@
 * 🟢 You can import this file directly.
 */
 
+export const AttendanceStatus = {
+  REGISTERED: 'REGISTERED',
+  ATTENDED: 'ATTENDED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type AttendanceStatus = (typeof AttendanceStatus)[keyof typeof AttendanceStatus]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const ParticipationRole = {
+  ATTENDEE: 'ATTENDEE',
+  PARTICIPANT: 'PARTICIPANT'
+} as const
+
+export type ParticipationRole = (typeof ParticipationRole)[keyof typeof ParticipationRole]
+
+
+export const PaymentStatus = {
+  PENDING: 'PENDING',
+  SUCCESS: 'SUCCESS',
+  FAILED: 'FAILED',
+  REFUNDED: 'REFUNDED'
+} as const
+
+export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]
+
+
+export const Role = {
+  SUPERVISOR: 'SUPERVISOR',
+  ADMIN: 'ADMIN',
+  DOCTOR: 'DOCTOR'
+} as const
+
+export type Role = (typeof Role)[keyof typeof Role]

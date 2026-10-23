@@ -8,4 +8,12 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/ActivityFormConfig.js'
+export type * from './models/Activity.js'
+export type * from './models/Certificate.js'
+export type * from './models/ConferenceAttendance.js'
+export type * from './models/Doctor.js'
+export type * from './models/Payment.js'
+export type * from './models/Specialist.js'
+export type * from './models/User.js'
 export type * from './commonInputTypes.js'
