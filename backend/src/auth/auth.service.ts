@@ -6,6 +6,8 @@ import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
 import { AppError } from '../common/errors/app-error';
 import { Role } from '../generated/prisma/client';
+import { verify } from 'argon2';
+import { LoginDto } from './dto/login.dto';
 
 @Injectable()
 export class AuthService {
@@ -53,4 +55,39 @@ export class AuthService {
 
         };
     }
+
+
+    async login(dto: LoginDto): Promise<string> {
+        const email = dto.email.trim().toLowerCase();
+
+        const user = await this.prisma.user.findUnique({
+            where: { email },
+            select: {
+                id: true,
+                password: true,
+            },
+        });
+
+        if (!user) {
+            throw new AppError(
+                'INVALID_CREDENTIALS',
+                'Invalid email or password',
+            );
+        }
+
+        const validPassword = await verify(
+            user.password,
+            dto.password,
+        );
+
+        if (!validPassword) {
+            throw new AppError(
+                'INVALID_CREDENTIALS',
+                'Invalid email or password',
+            );
+        }
+
+        return user.id.toString();
+    }
+
 }

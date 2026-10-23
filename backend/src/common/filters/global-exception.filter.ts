@@ -31,6 +31,11 @@ export class GlobalExceptionFilter implements ExceptionFilter {
                     message = exception.message;
                     code = exception.code;
                     break;
+                case 'INVALID_CREDENTIALS':
+                    status = HttpStatus.UNAUTHORIZED;
+                    message = exception.message;
+                    code = exception.code;
+                    break;
             }
         } else if (exception instanceof HttpException) {
             status = exception.getStatus();
