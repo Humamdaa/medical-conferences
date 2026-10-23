@@ -3,6 +3,7 @@ import {
     Controller,
     Get,
     Post,
+    Res,
     UseGuards,
 } from '@nestjs/common';
 
@@ -15,7 +16,7 @@ import {
 
 } from '@nestjs/common';
 
-import type { Request } from 'express';
+import type { Request, Response } from 'express';
 import { LoginDto } from './dto/login.dto';
 import { SessionAuthGuard } from './guards/session-auth/session-auth.guard';
 
@@ -69,6 +70,33 @@ export class AuthController {
         return this.authService.getCurrentUser(
             request.session.userId!,
         );
+    }
+
+
+    @UseGuards(SessionAuthGuard)
+    @Post('logout')
+    @HttpCode(HttpStatus.OK)
+    async logout(
+        @Req() request: Request,
+        @Res({ passthrough: true }) response: Response,
+    ) {
+        await new Promise<void>((resolve, reject) => {
+            request.session.destroy((error) => {
+                if (error) {
+                    return reject(error);
+                }
+
+                resolve();
+            });
+        });
+
+        response.clearCookie('medical.sid', {
+            path: '/',
+        });
+
+        return {
+            message: 'Logout successful',
+        };
     }
 
 }
