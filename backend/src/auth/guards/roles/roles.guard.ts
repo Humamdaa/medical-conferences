@@ -34,11 +34,7 @@ export class RolesGuard implements CanActivate {
     }
 
     const request = context.switchToHttp().getRequest<Request>();
-    const userId = request.session?.userId;
-
-    if (!userId) {
-      throw new UnauthorizedException('Unauthenticated');
-    }
+    const userId = request.session?.userId!;
 
     const user = await this.prisma.user.findUnique({
       where: { id: BigInt(userId) },
