@@ -10,11 +10,20 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { GlobalExceptionFilter } from './common/filters/global-exception.filter';
 
+import { APP_GUARD } from '@nestjs/core';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule,
     AuthModule,
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60_000,
+        limit: 60,
+      },
+    ]),
   ],
   controllers: [AppController],
   providers: [
@@ -22,6 +31,10 @@ import { GlobalExceptionFilter } from './common/filters/global-exception.filter'
     {
       provide: APP_FILTER,
       useClass: GlobalExceptionFilter,
+    },
+    {
+      provide: APP_GUARD,//apply throttling globally
+      useClass: ThrottlerGuard,
     },
   ],
 })

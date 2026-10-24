@@ -15,6 +15,8 @@ async function bootstrap() {
 
   const isProduction = config.get<string>('NODE_ENV') === 'production';
 
+  app.enableCsrfProtection();
+
   // Trust the reverse proxy only when configured for deployment.
   if (isProduction) {
     app.getHttpAdapter().getInstance().set('trust proxy', 1);
