@@ -19,10 +19,7 @@ import {
 import type { Request, Response } from 'express';
 import { LoginDto } from './dto/login.dto';
 import { SessionAuthGuard } from './guards/session-auth/session-auth.guard';
-
-import { Role } from '../generated/prisma/client';
-import { Roles } from './decorators/roles.decorator';
-import { RolesGuard } from './guards/roles/roles.guard';
+import { Throttle } from '@nestjs/throttler';
 
 @Controller('auth')
 export class AuthController {
@@ -30,12 +27,13 @@ export class AuthController {
         private readonly authService: AuthService,
     ) { }
 
+    @Throttle({ default: { limit: 5, ttl: 60_000 } })
     @Post('register')
     register(@Body() dto: RegisterDto) {
         return this.authService.register(dto);
     }
 
-
+    @Throttle({ default: { limit: 5, ttl: 60_000 } })
     @Post('login')
     @HttpCode(HttpStatus.OK)
     async login(
