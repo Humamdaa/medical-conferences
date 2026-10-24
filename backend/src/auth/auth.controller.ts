@@ -20,6 +20,10 @@ import type { Request, Response } from 'express';
 import { LoginDto } from './dto/login.dto';
 import { SessionAuthGuard } from './guards/session-auth/session-auth.guard';
 
+import { Role } from '../generated/prisma/client';
+import { Roles } from './decorators/roles.decorator';
+import { RolesGuard } from './guards/roles/roles.guard';
+
 @Controller('auth')
 export class AuthController {
     constructor(
@@ -98,5 +102,6 @@ export class AuthController {
             message: 'Logout successful',
         };
     }
+
 
 }
