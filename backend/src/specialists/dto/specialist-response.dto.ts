@@ -14,9 +14,4 @@ export class SpecialistResponseDto {
     })
     description: string | null;
 
-    @ApiProperty({ type: String, format: 'date-time' })
-    createdAt: string;
-
-    @ApiProperty({ type: String, format: 'date-time' })
-    updatedAt: string;
 }
