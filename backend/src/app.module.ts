@@ -12,6 +12,7 @@ import { GlobalExceptionFilter } from './common/filters/global-exception.filter'
 
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { SpecialistsModule } from './specialists/specialists.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
         limit: 60,
       },
     ]),
+    SpecialistsModule,
   ],
   controllers: [AppController],
   providers: [
