@@ -15,7 +15,8 @@ export class AuthService {
         private readonly prisma: PrismaService,
     ) { }
 
-    async register(dto: RegisterDto) {
+
+    async register(dto: RegisterDto): Promise<AuthUser> {
         const email = dto.email.trim().toLowerCase();
 
         const existingUser = await this.prisma.user.findUnique({
@@ -30,14 +31,12 @@ export class AuthService {
             );
         }
 
-        const hashedPassword = await hash(dto.password);
-
         const user = await this.prisma.user.create({
             data: {
                 firstName: dto.firstName.trim(),
                 lastName: dto.lastName.trim(),
                 email,
-                password: hashedPassword,
+                password: await hash(dto.password),
                 role: Role.DOCTOR,
             },
             select: {
@@ -46,16 +45,11 @@ export class AuthService {
                 lastName: true,
                 email: true,
                 role: true,
-                createdAt: true,
             },
         });
 
-        return {
-            message: 'Registration successful',
-
-        };
+        return this.toAuthUser(user);
     }
-
 
     async login(dto: LoginDto): Promise<AuthUser> {
         const email = dto.email.trim().toLowerCase();
@@ -91,13 +85,8 @@ export class AuthService {
             );
         }
 
-        return {
-            id: user.id.toString(),
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            role: user.role,
-        };
+        return this.toAuthUser(user);
+
     }
 
 
@@ -129,7 +118,21 @@ export class AuthService {
         };
     }
 
-
+    private toAuthUser(user: {
+        id: bigint;
+        firstName: string;
+        lastName: string;
+        email: string;
+        role: Role;
+    }): AuthUser {
+        return {
+            id: user.id.toString(),
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            role: user.role,
+        };
+    }
 }
 
 

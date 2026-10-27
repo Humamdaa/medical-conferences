@@ -28,13 +28,46 @@ export class AuthController {
         private readonly authService: AuthService,
     ) { }
 
+
+    private async createSession(
+        request: Request,
+        userId: string,
+    ): Promise<void> {
+        await new Promise<void>((resolve, reject) => {
+            request.session.regenerate((error) => {
+                if (error) return reject(error);
+                resolve();
+            });
+        });
+
+        request.session.userId = userId;
+
+        await new Promise<void>((resolve, reject) => {
+            request.session.save((error) => {
+                if (error) return reject(error);
+                resolve();
+            });
+        });
+    }
+
+
     @Throttle({ default: { limit: 5, ttl: 60_000 } })
-    @Post('register')
-    register(@Body() dto: RegisterDto) {
-        return this.authService.register(dto);
+    async register(
+        @Body() dto: RegisterDto,
+        @Req() request: Request,
+    ) {
+        const user = await this.authService.register(dto);
+
+        await this.createSession(request, user.id);
+
+        return {
+            message: 'Registration successful',
+            user,
+        };
     }
 
     @Throttle({ default: { limit: 5, ttl: 60_000 } })
+    @HttpCode(HttpStatus.OK)
     @Post('login')
     @HttpCode(HttpStatus.OK)
     async login(
@@ -43,27 +76,11 @@ export class AuthController {
     ) {
         const user = await this.authService.login(dto);
 
-        // Create a new session ID after authentication
-        await new Promise<void>((resolve, reject) => {
-            request.session.regenerate((error) => {
-                if (error) return reject(error);
-                resolve();
-            });
-        });
-
-        request.session.userId = user.id;
-
-        // Ensure session is saved before responding
-        await new Promise<void>((resolve, reject) => {
-            request.session.save((error) => {
-                if (error) return reject(error);
-                resolve();
-            });
-        });
+        await this.createSession(request, user.id);
 
         return {
             message: 'Login successful',
-            user
+            user,
         };
     }
 
