@@ -20,6 +20,7 @@ import type { Request, Response } from 'express';
 import { LoginDto } from './dto/login.dto';
 import { SessionAuthGuard } from './guards/session-auth/session-auth.guard';
 import { Throttle } from '@nestjs/throttler';
+import type { Role } from '../generated/prisma/client';
 
 @Controller('auth')
 export class AuthController {
@@ -40,7 +41,7 @@ export class AuthController {
         @Body() dto: LoginDto,
         @Req() request: Request,
     ) {
-        const userId = await this.authService.login(dto);
+        const user = await this.authService.login(dto);
 
         // Create a new session ID after authentication
         await new Promise<void>((resolve, reject) => {
@@ -50,7 +51,7 @@ export class AuthController {
             });
         });
 
-        request.session.userId = userId;
+        request.session.userId = user.id;
 
         // Ensure session is saved before responding
         await new Promise<void>((resolve, reject) => {
@@ -62,6 +63,7 @@ export class AuthController {
 
         return {
             message: 'Login successful',
+            user
         };
     }
 

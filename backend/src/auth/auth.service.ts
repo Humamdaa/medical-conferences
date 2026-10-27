@@ -57,14 +57,18 @@ export class AuthService {
     }
 
 
-    async login(dto: LoginDto): Promise<string> {
+    async login(dto: LoginDto): Promise<AuthUser> {
         const email = dto.email.trim().toLowerCase();
 
         const user = await this.prisma.user.findUnique({
             where: { email },
             select: {
                 id: true,
+                firstName: true,
+                lastName: true,
+                email: true,
                 password: true,
+                role: true,
             },
         });
 
@@ -87,7 +91,13 @@ export class AuthService {
             );
         }
 
-        return user.id.toString();
+        return {
+            id: user.id.toString(),
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            role: user.role,
+        };
     }
 
 
@@ -121,3 +131,12 @@ export class AuthService {
 
 
 }
+
+
+export type AuthUser = {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    role: Role;
+};
