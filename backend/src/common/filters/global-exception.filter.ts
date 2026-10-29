@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 
 import type { Request, Response } from 'express';
+import { Prisma } from '../../generated/prisma/client';
 import { AppError } from '../errors/app-error';
 
 @Catch()
@@ -20,33 +21,58 @@ export class GlobalExceptionFilter implements ExceptionFilter {
         const request = ctx.getRequest<Request>();
         const response = ctx.getResponse<Response>();
 
-        let status = HttpStatus.INTERNAL_SERVER_ERROR;
+        let status: number = HttpStatus.INTERNAL_SERVER_ERROR;
         let message: string | string[] = 'Internal server error';
         let code = 'INTERNAL_SERVER_ERROR';
 
         if (exception instanceof AppError) {
+            code = exception.code;
+            message = exception.message;
+
             switch (exception.code) {
+                // Authentication
                 case 'EMAIL_ALREADY_EXISTS':
                     status = HttpStatus.CONFLICT;
-                    message = exception.message;
-                    code = exception.code;
                     break;
+
                 case 'INVALID_CREDENTIALS':
-                    status = HttpStatus.UNAUTHORIZED;
-                    message = exception.message;
-                    code = exception.code;
-                    break;
                 case 'USER_NOT_FOUND':
                     status = HttpStatus.UNAUTHORIZED;
-                    message = 'Session is no longer valid';
-                    code = exception.code;
+
+                    if (exception.code === 'USER_NOT_FOUND') {
+                        message = 'Session is no longer valid';
+                    }
                     break;
+
+                // Doctor Profile validation
+                case 'INVALID_PROFILE':
+                case 'INCOMPLETE_DOCTOR_PROFILE':
+                case 'EMPTY_UPDATE':
+                    status = HttpStatus.BAD_REQUEST;
+                    break;
+
+                // Doctor Profile references
+                case 'SPECIALIST_NOT_FOUND':
+                    status = HttpStatus.NOT_FOUND;
+                    break;
+
+                default:
+                    status = HttpStatus.INTERNAL_SERVER_ERROR;
+                    message = 'Internal server error';
+                    break;
+            }
+        } else if (
+            exception instanceof Prisma.PrismaClientKnownRequestError
+        ) {
+            if (exception.code === 'P2002') {
+                status = HttpStatus.CONFLICT;
+                code = 'DUPLICATE_RECORD';
+                message = 'A record with the same unique value already exists';
             }
         } else if (exception instanceof HttpException) {
             status = exception.getStatus();
 
             const body = exception.getResponse();
-
             code = 'HTTP_ERROR';
 
             if (typeof body === 'string') {
@@ -70,7 +96,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 
         if (status >= 500) {
             this.logger.error(
-                `${request.method} ${request.url}`,
+                `${request.method} ${request.path}`,
                 exception instanceof Error
                     ? exception.stack
                     : String(exception),
@@ -82,7 +108,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
             statusCode: status,
             code,
             message,
-            path: request.url,
+            path: request.path,
             timestamp: new Date().toISOString(),
         });
     }
