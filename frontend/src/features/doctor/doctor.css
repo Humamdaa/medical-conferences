@@ -1131,3 +1131,21 @@
 .doctor-alert.danger {
     white-space: pre-line;
 }
+
+/* Add to the end of frontend/src/features/doctor/doctor.css */
+.doctor-field .doctor-text-input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #dce7ec;
+    border-radius: 12px;
+    background: #fff;
+    color: #15313e;
+    font: inherit;
+}
+
+.doctor-field .doctor-text-input:focus {
+    outline: 2px solid #0ea5a3;
+    outline-offset: 2px;
+}
