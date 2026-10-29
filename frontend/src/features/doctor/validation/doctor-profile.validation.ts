@@ -40,8 +40,11 @@ export function validateDoctorProfile(
         }
     }
 
-    if ((values.phoneNumber?.trim().length ?? 0) > 12) {
-        errors.phoneNumber = 'رقم الهاتف يجب ألا يتجاوز 12 رقماً';
+    const phone = values.phoneNumber?.trim();
+
+    if (phone && !/^963[0-9]{9}$/.test(phone)) {
+        errors.phoneNumber =
+            'رقم الهاتف يجب أن يبدأ بـ 963 ويتكون من 12 رقماً بالضبط';
     }
 
     for (const field of ['firstName', 'lastName'] as const) {
@@ -65,6 +68,18 @@ export function validateDoctorProfile(
         ) {
             errors.certificateIssuedAt = 'تاريخ إصدار الشهادة غير صحيح';
         }
+    }
+    const today = new Intl.DateTimeFormat('sv-SE', {
+        timeZone: 'Asia/Damascus',
+    }).format(new Date());
+
+    if (
+        date &&
+        !errors.certificateIssuedAt &&
+        date >= today
+    ) {
+        errors.certificateIssuedAt =
+            'تاريخ إصدار الشهادة يجب أن يكون قبل تاريخ اليوم';
     }
 
     return errors;

@@ -1,9 +1,26 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsISO8601, IsNotEmpty, IsString, Matches, MaxLength, ValidateIf } from 'class-validator';
+import { IsISO8601, IsNotEmpty, IsString, Matches, MaxLength, MinLength, ValidateBy, ValidateIf } from 'class-validator';
 
 const trimString = ({ value }: { value: unknown }) =>
   typeof value === 'string' ? value.trim() : value;
+
+const IsPastDate = ValidateBy({
+  name: 'isPastDate',
+  validator: {
+    validate(value: unknown) {
+      if (typeof value !== 'string') return false;
+
+      const today = new Intl.DateTimeFormat('sv-SE', {
+        timeZone: 'Asia/Damascus',
+      }).format(new Date());
+
+      return value < today;
+    },
+    defaultMessage: () =>
+      'Certificate issue date must be before today',
+  },
+});
 
 export class UpdateDoctorProfileDto {
   @ApiPropertyOptional({ example: 'Ahmad' })
@@ -37,11 +54,16 @@ export class UpdateDoctorProfileDto {
   clinicAddress?: string;
 
 
-  @ApiPropertyOptional({ example: '2020-07-15', description: 'YYYY-MM-DD' })
+  @ApiPropertyOptional({
+    example: '2020-07-15',
+    description: 'YYYY-MM-DD, must be before today',
+  })
   @Transform(trimString)
   @ValidateIf((_, value: unknown) => value !== undefined)
-  @IsString() @Matches(/^\d{4}-\d{2}-\d{2}$/)
+  @IsString()
+  @Matches(/^\d{4}-\d{2}-\d{2}$/)
   @IsISO8601({ strict: true })
+  @IsPastDate
   certificateIssuedAt?: string;
 
 
@@ -52,16 +74,12 @@ export class UpdateDoctorProfileDto {
   fatherName?: string;
 
 
-  @ApiPropertyOptional({ example: '963995215057', maxLength: 12 })
+  @ApiPropertyOptional({ example: '963111111111' })
   @Transform(trimString)
   @ValidateIf((_, value: unknown) => value !== undefined)
   @IsString()
-  @IsNotEmpty()
-  @MaxLength(12, {
-    message: 'Phone number cannot exceed 12 digits',
-  })
-  @Matches(/^[0-9]+$/, {
-    message: 'Phone number must contain digits only',
+  @Matches(/^963[0-9]{9}$/, {
+    message: 'Phone number must start with 963 and contain exactly 12 digits',
   })
   phoneNumber?: string;
 
