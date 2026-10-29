@@ -4,13 +4,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowLeft, LockKeyhole, Mail, ShieldCheck } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthShell } from '../components/AuthShell';
-import { authApi } from '../api/auth.api';
+import { useAuth } from '../context/useAuth';
+import { ROLE_HOME } from '../routing/role-paths';
 import { loginSchema } from '../schemas/auth.schemas';
 import type { LoginValues } from '../schemas/auth.schemas';
 import { TextField } from '../../../shared/ui/TextField';
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const { signIn } = useAuth();
   const location = useLocation();
   const registered = Boolean((location.state as { registered?: boolean } | null)?.registered);
   const [serverError, setServerError] = useState('');
@@ -22,8 +24,8 @@ export function LoginPage() {
   const onSubmit = handleSubmit(async (values) => {
     setServerError('');
     try {
-      await authApi.login({ email: values.email, password: values.password });
-      navigate('/dashboard', { replace: true });
+      const user = await signIn({ email: values.email, password: values.password });
+      navigate(ROLE_HOME[user.role], { replace: true });
     } catch (error) {
       setServerError(error instanceof Error ? error.message : 'تعذّر تسجيل الدخول.');
     }
