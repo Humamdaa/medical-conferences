@@ -13,12 +13,16 @@ import { GlobalExceptionFilter } from './common/filters/global-exception.filter'
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { SpecialistsModule } from './specialists/specialists.module';
+import { DoctorProfileModule } from './doctor-profile/doctor-profile.module';
+import { ActivitiesModule } from './activities/activities.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule,
     AuthModule,
+    DoctorProfileModule,
+    ActivitiesModule,
     ThrottlerModule.forRoot([
       {
         ttl: 60_000,

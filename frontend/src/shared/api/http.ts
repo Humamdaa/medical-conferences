@@ -34,23 +34,33 @@ export async function http<T>(path: string, init: RequestInit = {}): Promise<T> 
     throw new ApiError(0, 'NETWORK_ERROR', 'تعذّر الاتصال بالخادم. تحقق من تشغيل الـ Backend.');
   }
 
+
   const payload: unknown = await response.json().catch(() => null);
 
   if (!response.ok) {
-    const data = payload as { message?: unknown; code?: unknown } | null;
-    const message = typeof data?.message === 'string'
-      ? data.message
-      : 'حدث خطأ أثناء تنفيذ الطلب.';
+    const data =
+      payload !== null && typeof payload === 'object'
+        ? payload as { code?: unknown; message?: unknown }
+        : null;
 
-    console.error('API Error:', {
-      status: response.status,
-      code: data?.code,
-      message: data?.message,
-    });
+    const messages = data?.message;
 
-    const code = typeof data?.code === 'string' ? data.code : 'HTTP_ERROR';
-    throw new ApiError(response.status, code, message);
+    const message = Array.isArray(messages)
+      ? messages.filter((m): m is string => typeof m === 'string').join('\n')
+      : typeof messages === 'string'
+        ? messages
+        : '';
+
+    const code =
+      typeof data?.code === 'string' ? data.code : 'HTTP_ERROR';
+
+    throw new ApiError(
+      response.status,
+      code,
+      message.trim() || `تعذّر تنفيذ الطلب (HTTP ${response.status})`,
+    );
   }
 
   return payload as T;
+
 }

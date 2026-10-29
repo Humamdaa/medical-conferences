@@ -4,13 +4,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowLeft, LockKeyhole, Mail, UserRound } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthShell } from '../components/AuthShell';
-import { authApi } from '../api/auth.api';
+import { useAuth } from '../context/useAuth';
+import { ROLE_HOME } from '../routing/role-paths';
 import { registerSchema } from '../schemas/auth.schemas';
 import type { RegisterValues } from '../schemas/auth.schemas';
 import { TextField } from '../../../shared/ui/TextField';
 
 export function RegisterPage() {
   const navigate = useNavigate();
+  const { signUp } = useAuth();
   const [serverError, setServerError] = useState('');
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<RegisterValues>({
     resolver: zodResolver(registerSchema),
@@ -20,13 +22,13 @@ export function RegisterPage() {
   const onSubmit = handleSubmit(async (values) => {
     setServerError('');
     try {
-      await authApi.register({
+      const user = await signUp({
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
         password: values.password,
       });
-      navigate('/login', { replace: true, state: { registered: true } });
+      navigate(ROLE_HOME[user.role], { replace: true });
     } catch (error) {
       setServerError(error instanceof Error ? error.message : 'تعذّر إنشاء الحساب.');
     }
