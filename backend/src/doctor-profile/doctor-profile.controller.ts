@@ -13,7 +13,7 @@ import { UpdateDoctorProfileDto } from './dto/update-doctor-profile.dto';
 @UseGuards(SessionAuthGuard, RolesGuard)
 @Roles(Role.DOCTOR)
 export class DoctorProfileController {
-  constructor(private readonly profile: DoctorProfileService) {}
+  constructor(private readonly profile: DoctorProfileService) { }
 
   @Get('me')
   @ApiOperation({ summary: 'Get current doctor profile with completion status' })
@@ -26,4 +26,14 @@ export class DoctorProfileController {
   updateMe(@Req() request: Request, @Body() dto: UpdateDoctorProfileDto) {
     return this.profile.updateMe(request.session.userId!, dto);
   }
+
+
+  @Get('me/points')
+  @ApiOperation({ summary: 'Get current doctor points' })
+  getMyPoints(@Req() request: Request) {
+    return this.profile.getMyPoints(
+      request.session.userId!,
+    );
+  }
+
 }

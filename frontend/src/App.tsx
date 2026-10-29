@@ -7,6 +7,7 @@ import { DoctorProfilePage } from './features/doctor/pages/DoctorProfilePage';
 import { DoctorActivitiesPage } from './features/doctor/pages/DoctorActivitiesPage';
 import { RoleDashboard } from './features/auth/pages/RoleDashboard';
 import { DoctorActivityDetailsPage } from './features/doctor/pages/DoctorActivityDetailsPage';
+import { DoctorMyActivitiesPage } from './features/doctor/pages/DoctorMyActivitiesPage';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route index element={<Navigate to="profile" replace />} />
           <Route path="profile" element={<DoctorProfilePage />} />
           <Route path="activities" element={<DoctorActivitiesPage />} />
+          <Route path="my-activities" element={<DoctorMyActivitiesPage />} />
         </Route>
       </Route>
       <Route element={<ProtectedRoute role="ADMIN" />}>
