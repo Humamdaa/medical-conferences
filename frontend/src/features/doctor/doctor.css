@@ -1247,3 +1247,165 @@
         padding: 20px;
     }
 }
+
+
+/* My Activities summary */
+
+.doctor-my-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.doctor-my-stat {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.doctor-my-stat svg {
+    color: #11958c;
+}
+
+.doctor-my-stat>span {
+    color: #738a99;
+    font-size: 12px;
+}
+
+.doctor-my-stat>strong {
+    color: #17374b;
+    font-size: 32px;
+}
+
+.doctor-my-stat>small {
+    color: #96a8b3;
+}
+
+/* Activity list */
+
+.doctor-my-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.doctor-my-section-heading h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.doctor-my-section-heading a,
+.doctor-my-activity-footer a {
+    color: #098983;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.doctor-my-activities-list {
+    display: grid;
+    gap: 15px;
+}
+
+.doctor-my-activity {
+    padding: 24px;
+}
+
+.doctor-my-activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.doctor-my-activity-header h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #19344b;
+}
+
+.doctor-my-meta {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #8a9daa;
+    font-size: 12px;
+}
+
+.doctor-my-status {
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.doctor-my-status--attended {
+    background: #e5f7ee;
+    color: #16825b;
+}
+
+.doctor-my-status--registered {
+    background: #fff4dc;
+    color: #a17314;
+}
+
+.doctor-my-status--cancelled {
+    background: #fff0f0;
+    color: #ba4c58;
+}
+
+.doctor-my-activity-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+    padding: 18px 0;
+    border-block: 1px solid #edf1f3;
+}
+
+.doctor-my-activity-info>span {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: #8195a3;
+}
+
+.doctor-my-activity-info strong {
+    color: #244359;
+}
+
+.doctor-my-activity-info .doctor-earned-points {
+    color: #12947a;
+}
+
+.doctor-my-activity-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.doctor-my-certificate {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #98a6b1;
+    font-size: 11px;
+}
+
+@media (max-width: 760px) {
+    .doctor-my-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .doctor-my-activity-info {
+        gap: 15px;
+    }
+}

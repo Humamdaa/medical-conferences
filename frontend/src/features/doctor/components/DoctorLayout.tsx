@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Activity, CalendarDays, CheckCircle2, CircleAlert, ClipboardList, LogOut, Menu, Stethoscope, UserRound, X } from 'lucide-react';
+import { Activity, Award, CalendarDays, CheckCircle2, CircleAlert, ClipboardList, LogOut, Menu, Stethoscope, UserRound, X } from 'lucide-react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../auth/context/useAuth';
 import { doctorApi } from '../api/doctor.api';
@@ -45,7 +45,16 @@ export function DoctorLayout() {
         <nav aria-label="تنقل الطبيب" className="doctor-nav">
           <NavLink to="/doctor/profile" onClick={() => setMenuOpen(false)} className={({ isActive }) => `doctor-nav-link ${isActive ? 'doctor-nav-link--active' : ''}`}><UserRound size={20} /> ملفي الشخصي</NavLink>
           <NavLink to="/doctor/activities" onClick={() => setMenuOpen(false)} className={({ isActive }) => `doctor-nav-link ${isActive ? 'doctor-nav-link--active' : ''}`}><CalendarDays size={20} /> الأنشطة العلمية</NavLink>
-        </nav>
+          <NavLink
+            to="/doctor/my-activities"
+            className={({ isActive }) =>
+              `doctor-nav-link${isActive ? ' doctor-nav-link--active' : ''}`
+            }
+          >
+            <Award size={19} />
+            <span>نشاطاتي ونقاطي</span>
+          </NavLink>
+          </nav>
         <div className="doctor-sidebar-bottom">
           <div className="doctor-help"><Stethoscope size={22} /><strong>تجربتك المهنية تبدأ هنا</strong><p>أكمل بياناتك لتكون جاهزاً للأنشطة القادمة.</p></div>
           <button className="doctor-logout" type="button" onClick={logout}><LogOut size={18} /> تسجيل الخروج</button>

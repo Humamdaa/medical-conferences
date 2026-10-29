@@ -29,7 +29,7 @@ function hasCompleteDoctorDetails(
 
 @Injectable()
 export class DoctorProfileService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async getMe(userId: string) {
     const user = await this.prisma.user.findUnique({
@@ -86,9 +86,9 @@ export class DoctorProfileService {
       doctorExists: doctor !== null,
       specialist: doctor
         ? {
-            id: doctor.specialist.id.toString(),
-            name: doctor.specialist.name,
-          }
+          id: doctor.specialist.id.toString(),
+          name: doctor.specialist.name,
+        }
         : null,
       nationalId: fields.nationalId,
       residence: fields.residence,
@@ -188,4 +188,65 @@ export class DoctorProfileService {
 
     return this.getMe(userId);
   }
+
+
+  async getMyPoints(userId: string) {
+    const doctor = await this.prisma.doctor.findUnique({
+      where: { userId: BigInt(userId) },
+      select: { id: true },
+    });
+
+    if (!doctor) {
+      return {
+        totalPoints: 0,
+        activities: [],
+      };
+    }
+
+    const records = await this.prisma.conferenceAttendance.findMany({
+      where: { doctorId: doctor.id },
+      select: {
+        status: true,
+        participationRole: true,
+        pointsAwarded: true,
+        activity: {
+          select: {
+            id: true,
+            name: true,
+            startAt: true,
+            points: true,
+          },
+        },
+      },
+    });
+
+    const activities = records.map((record) => ({
+      activityId: record.activity.id.toString(),
+      activityName: record.activity.name,
+      date: record.activity.startAt,
+      participationRole: record.participationRole,
+      status: record.status,
+      availablePoints: record.activity.points,
+      earnedPoints:
+        record.status === 'ATTENDED'
+          ? Number(record.pointsAwarded ?? 0)
+          : 0,
+    }));
+
+    activities.sort(
+      (a, b) => b.date.getTime() - a.date.getTime(),
+    );
+
+    const totalPoints = activities.reduce(
+      (sum, activity) => sum + activity.earnedPoints,
+      0,
+    );
+
+    return {
+      totalPoints,
+      activities,
+    };
+  }
+
+
 }
