@@ -6,6 +6,7 @@ import { DoctorLayout } from './features/doctor/components/DoctorLayout';
 import { DoctorProfilePage } from './features/doctor/pages/DoctorProfilePage';
 import { DoctorActivitiesPage } from './features/doctor/pages/DoctorActivitiesPage';
 import { RoleDashboard } from './features/auth/pages/RoleDashboard';
+import { DoctorActivityDetailsPage } from './features/doctor/pages/DoctorActivityDetailsPage';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       </Route>
       <Route element={<ProtectedRoute role="DOCTOR" />}>
         <Route path="/doctor" element={<DoctorLayout />}>
+          <Route path="activities/:id" element={<DoctorActivityDetailsPage />} />
           <Route index element={<Navigate to="profile" replace />} />
           <Route path="profile" element={<DoctorProfilePage />} />
           <Route path="activities" element={<DoctorActivitiesPage />} />

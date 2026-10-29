@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { AppError } from '../common/errors/app-error';
+import { NotFoundException } from '@nestjs/common';
 import { ListActivitiesQueryDto } from './dto/list-activities-query.dto';
 
 @Injectable()
 export class ActivitiesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async findAll({ page, pageSize }: ListActivitiesQueryDto) {
     const [total, activities] = await this.prisma.$transaction([
@@ -36,25 +36,43 @@ export class ActivitiesService {
     };
   }
 
+
   async findOne(id: bigint) {
     const activity = await this.prisma.activity.findUnique({
       where: { id },
       select: {
-        id: true, name: true, activityType: true, startAt: true,
-        endAt: true, location: true, institution: true,
-        description: true, points: true,
-        specialist: { select: { id: true, name: true } },
+        id: true,
+        name: true,
+        activityType: true,
+        startAt: true,
+        endAt: true,
+        location: true,
+        institution: true,
+        description: true,
+        points: true,
+        customFields: true,
+        formSchemaSnapshot: true,
+        specialist: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
       },
     });
+
     if (!activity) {
-      // Use the existing centralized AppError -> HTTP status mapping.
-      throw new AppError('ACTIVITY_NOT_FOUND', 'Activity not found');
+      throw new NotFoundException('Activity not found');
     }
-    const { id: activityId, specialist, ...fields } = activity;
+
     return {
-      ...fields,
-      id: activityId.toString(),
-      specialist: { id: specialist.id.toString(), name: specialist.name },
+      ...activity,
+      id: activity.id.toString(),
+      specialist: {
+        id: activity.specialist.id.toString(),
+        name: activity.specialist.name,
+      },
     };
   }
+
 }

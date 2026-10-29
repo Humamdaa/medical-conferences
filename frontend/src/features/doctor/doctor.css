@@ -1149,3 +1149,101 @@
     outline: 2px solid #0ea5a3;
     outline-offset: 2px;
 }
+
+
+/* Activity details link */
+.doctor-details-link,
+.doctor-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #0b827a;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.doctor-details-link {
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border: 1px solid #cce8e2;
+    border-radius: 10px;
+    background: #effaf7;
+}
+
+.doctor-details-link:hover {
+    background: #dff5ed;
+}
+
+/* Activity details page */
+.doctor-back-link {
+    margin-bottom: 18px;
+}
+
+.doctor-activity-details {
+    padding: 28px;
+    display: grid;
+    gap: 26px;
+}
+
+.doctor-activity-details h2,
+.doctor-detail-section h3 {
+    margin: 0;
+    color: #19344b;
+}
+
+.doctor-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.doctor-detail-item {
+    min-width: 0;
+    padding: 17px;
+    border: 1px solid #e4edf0;
+    border-radius: 12px;
+    background: #f8fafb;
+    overflow-wrap: anywhere;
+}
+
+.doctor-detail-item span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+    color: #8195a3;
+    font-size: 12px;
+}
+
+.doctor-detail-item strong {
+    color: #234256;
+    font-size: 14px;
+}
+
+.doctor-detail-section {
+    display: grid;
+    gap: 16px;
+    padding-top: 22px;
+    border-top: 1px solid #edf1f3;
+}
+
+.doctor-detail-description {
+    margin: 0;
+    color: #516e7d;
+    font-size: 13px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+    .doctor-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .doctor-activity-details {
+        padding: 20px;
+    }
+}
