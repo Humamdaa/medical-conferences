@@ -3,6 +3,7 @@ import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { SessionAuthGuard } from '../auth/guards/session-auth/session-auth.guard';
 import { ActivitiesService } from './activities.service';
 import { ListActivitiesQueryDto } from './dto/list-activities-query.dto';
+import { ParseBigIntPipe } from '../common/pipes/parse-bigint.pipe';
 
 @ApiTags('Activities')
 @Controller('activities')
@@ -16,13 +17,11 @@ export class ActivitiesController {
     return this.activities.findAll(query);
   }
 
-  @Get(':id')
-  @ApiOperation({ summary: 'Get activity details (read only)' })
-  @ApiParam({ name: 'id', type: String })
-  findOne(@Param('id') id: string) {
-    if (!/^[1-9]\d*$/.test(id) || BigInt(id) > 9223372036854775807n) {
-      throw new BadRequestException('Invalid activity ID');
-    }
-    return this.activities.findOne(BigInt(id));
-  }
+
+@Get(':id')
+@ApiOperation({ summary: 'Get activity details (read only)' })
+@ApiParam({ name: 'id', type: String })
+findOne(@Param('id', ParseBigIntPipe) id: bigint) { 
+  return this.activities.findOne(id); 
+}
 }
