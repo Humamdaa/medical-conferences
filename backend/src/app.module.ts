@@ -15,6 +15,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { SpecialistsModule } from './specialists/specialists.module';
 import { DoctorProfileModule } from './doctor-profile/doctor-profile.module';
 import { ActivitiesModule } from './activities/activities.module';
+import { AdminProfileModule } from './admin-profile/admin-profile.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { ActivitiesModule } from './activities/activities.module';
       },
     ]),
     SpecialistsModule,
+    AdminProfileModule
   ],
   controllers: [AppController],
   providers: [
