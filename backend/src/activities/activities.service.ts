@@ -58,6 +58,7 @@ export class ActivitiesService {
             name: true,
           },
         },
+
       },
     });
 
