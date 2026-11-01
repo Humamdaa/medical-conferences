@@ -4,7 +4,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173, strictPort: true,
-    proxy: Object.fromEntries(['/auth', '/specialists', '/doctor-profile', '/activities'].map(prefix => [prefix, {
+    proxy: Object.fromEntries(['/auth', '/specialists', '/doctor-profile', '/activities', '/activity-form-template'].map(prefix => [prefix, {
       target: 'http://localhost:3000', changeOrigin: true,
     }])),
   },

@@ -79,10 +79,13 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const ActivityFormConfigScalarFieldEnum = {
   id: 'id',
+  templateKey: 'templateKey',
+  version: 'version',
   supervisorId: 'supervisorId',
   formName: 'formName',
   fieldsSchema: 'fieldsSchema',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ActivityFormConfigScalarFieldEnum = (typeof ActivityFormConfigScalarFieldEnum)[keyof typeof ActivityFormConfigScalarFieldEnum]

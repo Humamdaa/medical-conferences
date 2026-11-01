@@ -16,6 +16,7 @@ import { SpecialistsModule } from './specialists/specialists.module';
 import { DoctorProfileModule } from './doctor-profile/doctor-profile.module';
 import { ActivitiesModule } from './activities/activities.module';
 import { AdminProfileModule } from './admin-profile/admin-profile.module';
+import { ActivityFormTemplateModule } from './activity-form-template/activity-form-template.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { AdminProfileModule } from './admin-profile/admin-profile.module';
     AuthModule,
     DoctorProfileModule,
     ActivitiesModule,
+    ActivityFormTemplateModule,
     ThrottlerModule.forRoot([
       {
         ttl: 60_000,
