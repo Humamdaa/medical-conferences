@@ -1,5 +1,7 @@
 model ActivityFormConfig {
     id           BigInt @id @default(autoincrement())
+    templateKey  String @unique @map("template_key")
+    version      Int    @default(1)
     supervisorId BigInt @map("supervisor_id")
     formName     String @map("form_name")
     fieldsSchema Json   @map("fields_schema") @db.JsonB
@@ -9,6 +11,7 @@ model ActivityFormConfig {
     supervisor User @relation(fields: [supervisorId], references: [id])
 
     createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
 
     @@map("activity_form_configs")
 }
