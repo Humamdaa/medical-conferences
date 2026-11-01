@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { http } from '../../../shared/api/http';
+import { http } from '../api/http';
 
 export const fieldTypes = ['text', 'number', 'date', 'textarea', 'select', 'checkbox'] as const;
 const fieldDefinition = z.object({

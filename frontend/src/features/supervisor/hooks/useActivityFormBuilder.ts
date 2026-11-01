@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ApiError } from '../../../shared/api/http';
-import { activityFormTemplateApi } from '../api/activity-form-template.api';
-import type { ActivityFormTemplate, FieldType, FormSchema } from '../api/activity-form-template.api';
+import { activityFormTemplateApi } from '../../../shared/activity-forms/activity-form-template.api';
+import type { ActivityFormTemplate, FieldType, FormSchema } from '../../../shared/activity-forms/activity-form-template.api';
 
 export type DraftField = { id: string; name: string; label: string; type: FieldType; required: boolean; options: string };
 function draft(schema: FormSchema): DraftField[] {

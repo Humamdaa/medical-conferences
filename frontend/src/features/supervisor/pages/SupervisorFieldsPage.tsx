@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ClipboardCopy, Eye, LayoutTemplate, Plus, RefreshCw, Save, Trash2 } from 'lucide-react';
-import { formSchema } from '../api/activity-form-template.api';
-import type { FieldType } from '../api/activity-form-template.api';
+import { formSchema } from '../../../shared/activity-forms/activity-form-template.api';
+import type { FieldType } from '../../../shared/activity-forms/activity-form-template.api';
 import { schemaFromDraft, useActivityFormBuilder } from '../hooks/useActivityFormBuilder';
 import type { DraftField } from '../hooks/useActivityFormBuilder';
 import { FixedActivityFields } from '../components/FixedActivityFields';
