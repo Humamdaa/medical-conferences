@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ClipboardCopy, X } from 'lucide-react';
-import type { FormSchema } from '../api/activity-form-template.api';
+import type { FormSchema } from '../../../shared/activity-forms/activity-form-template.api';
 import { FixedActivityFields } from './FixedActivityFields';
 
 export function FormPreviewDialog({ schema, onClose }: { schema: FormSchema; onClose: () => void }) {

@@ -3,7 +3,6 @@ import { ArrowRight, CalendarDays, MapPin } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { adminApi } from '../api/admin.api';
 import type { AdminActivityDetails } from '../api/admin.api';
-import { findLocalActivity } from '../../../shared/activity-forms/localActivityData';
 
 type FieldDefinition = { name?: string; label?: string };
 
@@ -40,27 +39,18 @@ function displayDate(value: string) {
 
 export function AdminActivityDetailsPage() {
   const { id } = useParams<{ id: string }>();
-  const [activity, setActivity] = useState<AdminActivityDetails | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [result, setResult] = useState<{ id: string; activity: AdminActivityDetails | null; error: string } | null>(null);
+  const validId = !!id && /^[1-9]\d*$/.test(id);
+  const loading = validId && result?.id !== id;
+  const activity = result?.id === id ? result?.activity : null;
+  const error = !validId ? 'معرّف النشاط غير صالح.' : result?.id === id ? result?.error : '';
 
   useEffect(() => {
+    if (!id || !/^[1-9]\d*$/.test(id)) return;
     let active = true;
-    if (id?.startsWith('local-')) {
-      const local = findLocalActivity(id);
-      if (local) { setActivity(local); setError(''); }
-      else { setActivity(null); setError('تعذّر العثور على النشاط التجريبي في هذا المتصفح.'); }
-      setLoading(false);
-      return;
-    }
-    if (!id || !/^[1-9]\d*$/.test(id)) {
-      setError('معرّف النشاط غير صالح.'); setLoading(false); return;
-    }
-    setError(''); setLoading(true);
     adminApi.getActivity(id)
-      .then((data) => { if (active) setActivity(data); })
-      .catch((err: unknown) => { if (active) setError(err instanceof Error ? err.message : 'تعذّر تحميل النشاط.'); })
-      .finally(() => { if (active) setLoading(false); });
+      .then((data) => { if (active) setResult({ id, activity: data, error: '' }); })
+      .catch((err: unknown) => { if (active) setResult({ id, activity: null, error: err instanceof Error ? err.message : 'تعذّر تحميل النشاط.' }); });
     return () => { active = false; };
   }, [id]);
 
@@ -72,7 +62,7 @@ export function AdminActivityDetailsPage() {
       <Link to="/admin/activities" className="admin-back"><ArrowRight size={18} /> العودة إلى الأنشطة</Link>
       {loading ? <p className="admin-muted">جارٍ تحميل تفاصيل النشاط...</p> : error ? <div className="admin-alert admin-alert--error" role="alert">{error}</div> : activity && (
         <>
-          <div className="admin-page-heading"><div><span className="admin-eyebrow">تفاصيل النشاط</span><h1>{activity.name}</h1><p>{activity.institution}</p>{id?.startsWith('local-') && <div className="admin-alert admin-alert--info">نشاط تجريبي محفوظ محلياً فقط — لم يُرسل إلى قاعدة البيانات.</div>}</div><span className="admin-heading-icon"><CalendarDays size={26} /></span></div>
+          <div className="admin-page-heading"><div><span className="admin-eyebrow">تفاصيل النشاط</span><h1>{activity.name}</h1><p>{activity.institution}</p></div><span className="admin-heading-icon"><CalendarDays size={26} /></span></div>
           <section className="admin-panel admin-detail-panel"><h2>المعلومات الأساسية</h2>
             <div className="admin-detail-grid">
               <div><small>نوع النشاط</small><strong>{activity.activityType}</strong></div>
