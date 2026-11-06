@@ -28,20 +28,34 @@ export type AggregateActivity = {
 
 export type ActivityAvgAggregateOutputType = {
   id: number | null
+  governorateId: number | null
   latitude: runtime.Decimal | null
   longitude: runtime.Decimal | null
-  points: number | null
+  capacity: number | null
+  registrationFeeSyp: runtime.Decimal | null
+  attendanceCpdPoints: runtime.Decimal | null
+  participationCpdPoints: runtime.Decimal | null
+  minAttendancePercentage: runtime.Decimal | null
   specialistId: number | null
   formConfigId: number | null
+  activitySeriesId: number | null
+  annualSequence: number | null
 }
 
 export type ActivitySumAggregateOutputType = {
   id: bigint | null
+  governorateId: number | null
   latitude: runtime.Decimal | null
   longitude: runtime.Decimal | null
-  points: number | null
+  capacity: number | null
+  registrationFeeSyp: runtime.Decimal | null
+  attendanceCpdPoints: runtime.Decimal | null
+  participationCpdPoints: runtime.Decimal | null
+  minAttendancePercentage: runtime.Decimal | null
   specialistId: bigint | null
   formConfigId: bigint | null
+  activitySeriesId: bigint | null
+  annualSequence: number | null
 }
 
 export type ActivityMinAggregateOutputType = {
@@ -50,17 +64,25 @@ export type ActivityMinAggregateOutputType = {
   activityType: string | null
   startAt: Date | null
   endAt: Date | null
+  governorateId: number | null
   location: string | null
-  institution: string | null
   latitude: runtime.Decimal | null
   longitude: runtime.Decimal | null
+  institution: string | null
   description: string | null
-  points: number | null
+  capacity: number | null
+  registrationFeeSyp: runtime.Decimal | null
+  attendanceCpdPoints: runtime.Decimal | null
+  participationCpdPoints: runtime.Decimal | null
+  minAttendancePercentage: runtime.Decimal | null
+  activityPresidentName: string | null
   specialistId: bigint | null
   formConfigId: bigint | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
+  activitySeriesId: bigint | null
+  annualSequence: number | null
 }
 
 export type ActivityMaxAggregateOutputType = {
@@ -69,17 +91,25 @@ export type ActivityMaxAggregateOutputType = {
   activityType: string | null
   startAt: Date | null
   endAt: Date | null
+  governorateId: number | null
   location: string | null
-  institution: string | null
   latitude: runtime.Decimal | null
   longitude: runtime.Decimal | null
+  institution: string | null
   description: string | null
-  points: number | null
+  capacity: number | null
+  registrationFeeSyp: runtime.Decimal | null
+  attendanceCpdPoints: runtime.Decimal | null
+  participationCpdPoints: runtime.Decimal | null
+  minAttendancePercentage: runtime.Decimal | null
+  activityPresidentName: string | null
   specialistId: bigint | null
   formConfigId: bigint | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
+  activitySeriesId: bigint | null
+  annualSequence: number | null
 }
 
 export type ActivityCountAggregateOutputType = {
@@ -88,12 +118,18 @@ export type ActivityCountAggregateOutputType = {
   activityType: number
   startAt: number
   endAt: number
+  governorateId: number
   location: number
-  institution: number
   latitude: number
   longitude: number
+  institution: number
   description: number
-  points: number
+  capacity: number
+  registrationFeeSyp: number
+  attendanceCpdPoints: number
+  participationCpdPoints: number
+  minAttendancePercentage: number
+  activityPresidentName: number
   specialistId: number
   formConfigId: number
   customFields: number
@@ -101,26 +137,42 @@ export type ActivityCountAggregateOutputType = {
   createdAt: number
   updatedAt: number
   deletedAt: number
+  activitySeriesId: number
+  annualSequence: number
   _all: number
 }
 
 
 export type ActivityAvgAggregateInputType = {
   id?: true
+  governorateId?: true
   latitude?: true
   longitude?: true
-  points?: true
+  capacity?: true
+  registrationFeeSyp?: true
+  attendanceCpdPoints?: true
+  participationCpdPoints?: true
+  minAttendancePercentage?: true
   specialistId?: true
   formConfigId?: true
+  activitySeriesId?: true
+  annualSequence?: true
 }
 
 export type ActivitySumAggregateInputType = {
   id?: true
+  governorateId?: true
   latitude?: true
   longitude?: true
-  points?: true
+  capacity?: true
+  registrationFeeSyp?: true
+  attendanceCpdPoints?: true
+  participationCpdPoints?: true
+  minAttendancePercentage?: true
   specialistId?: true
   formConfigId?: true
+  activitySeriesId?: true
+  annualSequence?: true
 }
 
 export type ActivityMinAggregateInputType = {
@@ -129,17 +181,25 @@ export type ActivityMinAggregateInputType = {
   activityType?: true
   startAt?: true
   endAt?: true
+  governorateId?: true
   location?: true
-  institution?: true
   latitude?: true
   longitude?: true
+  institution?: true
   description?: true
-  points?: true
+  capacity?: true
+  registrationFeeSyp?: true
+  attendanceCpdPoints?: true
+  participationCpdPoints?: true
+  minAttendancePercentage?: true
+  activityPresidentName?: true
   specialistId?: true
   formConfigId?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  activitySeriesId?: true
+  annualSequence?: true
 }
 
 export type ActivityMaxAggregateInputType = {
@@ -148,17 +208,25 @@ export type ActivityMaxAggregateInputType = {
   activityType?: true
   startAt?: true
   endAt?: true
+  governorateId?: true
   location?: true
-  institution?: true
   latitude?: true
   longitude?: true
+  institution?: true
   description?: true
-  points?: true
+  capacity?: true
+  registrationFeeSyp?: true
+  attendanceCpdPoints?: true
+  participationCpdPoints?: true
+  minAttendancePercentage?: true
+  activityPresidentName?: true
   specialistId?: true
   formConfigId?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  activitySeriesId?: true
+  annualSequence?: true
 }
 
 export type ActivityCountAggregateInputType = {
@@ -167,12 +235,18 @@ export type ActivityCountAggregateInputType = {
   activityType?: true
   startAt?: true
   endAt?: true
+  governorateId?: true
   location?: true
-  institution?: true
   latitude?: true
   longitude?: true
+  institution?: true
   description?: true
-  points?: true
+  capacity?: true
+  registrationFeeSyp?: true
+  attendanceCpdPoints?: true
+  participationCpdPoints?: true
+  minAttendancePercentage?: true
+  activityPresidentName?: true
   specialistId?: true
   formConfigId?: true
   customFields?: true
@@ -180,6 +254,8 @@ export type ActivityCountAggregateInputType = {
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  activitySeriesId?: true
+  annualSequence?: true
   _all?: true
 }
 
@@ -275,12 +351,18 @@ export type ActivityGroupByOutputType = {
   activityType: string
   startAt: Date
   endAt: Date
+  governorateId: number
   location: string
-  institution: string
   latitude: runtime.Decimal | null
   longitude: runtime.Decimal | null
+  institution: string
   description: string
-  points: number
+  capacity: number
+  registrationFeeSyp: runtime.Decimal
+  attendanceCpdPoints: runtime.Decimal
+  participationCpdPoints: runtime.Decimal
+  minAttendancePercentage: runtime.Decimal
+  activityPresidentName: string
   specialistId: bigint
   formConfigId: bigint
   customFields: runtime.JsonValue
@@ -288,6 +370,8 @@ export type ActivityGroupByOutputType = {
   createdAt: Date
   updatedAt: Date
   deletedAt: Date | null
+  activitySeriesId: bigint
+  annualSequence: number
   _count: ActivityCountAggregateOutputType | null
   _avg: ActivityAvgAggregateOutputType | null
   _sum: ActivitySumAggregateOutputType | null
@@ -319,12 +403,18 @@ export type ActivityWhereInput = {
   activityType?: Prisma.StringFilter<"Activity"> | string
   startAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   endAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
+  governorateId?: Prisma.IntFilter<"Activity"> | number
   location?: Prisma.StringFilter<"Activity"> | string
-  institution?: Prisma.StringFilter<"Activity"> | string
   latitude?: Prisma.DecimalNullableFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.DecimalNullableFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFilter<"Activity"> | string
   description?: Prisma.StringFilter<"Activity"> | string
-  points?: Prisma.IntFilter<"Activity"> | number
+  capacity?: Prisma.IntFilter<"Activity"> | number
+  registrationFeeSyp?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFilter<"Activity"> | string
   specialistId?: Prisma.BigIntFilter<"Activity"> | bigint | number
   formConfigId?: Prisma.BigIntFilter<"Activity"> | bigint | number
   customFields?: Prisma.JsonFilter<"Activity">
@@ -332,9 +422,15 @@ export type ActivityWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Activity"> | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceListRelationFilter
+  activitySeriesId?: Prisma.BigIntFilter<"Activity"> | bigint | number
+  annualSequence?: Prisma.IntFilter<"Activity"> | number
   specialist?: Prisma.XOR<Prisma.SpecialistScalarRelationFilter, Prisma.SpecialistWhereInput>
   formConfig?: Prisma.XOR<Prisma.ActivityFormConfigScalarRelationFilter, Prisma.ActivityFormConfigWhereInput>
+  governorate?: Prisma.XOR<Prisma.GovernorateScalarRelationFilter, Prisma.GovernorateWhereInput>
+  sessions?: Prisma.ActivitySessionListRelationFilter
+  registrations?: Prisma.ActivityRegistrationListRelationFilter
+  organizations?: Prisma.ActivityOrganizationListRelationFilter
+  activitySeries?: Prisma.XOR<Prisma.ActivitySeriesScalarRelationFilter, Prisma.ActivitySeriesWhereInput>
 }
 
 export type ActivityOrderByWithRelationInput = {
@@ -343,12 +439,18 @@ export type ActivityOrderByWithRelationInput = {
   activityType?: Prisma.SortOrder
   startAt?: Prisma.SortOrder
   endAt?: Prisma.SortOrder
+  governorateId?: Prisma.SortOrder
   location?: Prisma.SortOrder
-  institution?: Prisma.SortOrder
   latitude?: Prisma.SortOrderInput | Prisma.SortOrder
   longitude?: Prisma.SortOrderInput | Prisma.SortOrder
+  institution?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  points?: Prisma.SortOrder
+  capacity?: Prisma.SortOrder
+  registrationFeeSyp?: Prisma.SortOrder
+  attendanceCpdPoints?: Prisma.SortOrder
+  participationCpdPoints?: Prisma.SortOrder
+  minAttendancePercentage?: Prisma.SortOrder
+  activityPresidentName?: Prisma.SortOrder
   specialistId?: Prisma.SortOrder
   formConfigId?: Prisma.SortOrder
   customFields?: Prisma.SortOrder
@@ -356,9 +458,15 @@ export type ActivityOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  attendances?: Prisma.ConferenceAttendanceOrderByRelationAggregateInput
+  activitySeriesId?: Prisma.SortOrder
+  annualSequence?: Prisma.SortOrder
   specialist?: Prisma.SpecialistOrderByWithRelationInput
   formConfig?: Prisma.ActivityFormConfigOrderByWithRelationInput
+  governorate?: Prisma.GovernorateOrderByWithRelationInput
+  sessions?: Prisma.ActivitySessionOrderByRelationAggregateInput
+  registrations?: Prisma.ActivityRegistrationOrderByRelationAggregateInput
+  organizations?: Prisma.ActivityOrganizationOrderByRelationAggregateInput
+  activitySeries?: Prisma.ActivitySeriesOrderByWithRelationInput
 }
 
 export type ActivityWhereUniqueInput = Prisma.AtLeast<{
@@ -370,12 +478,18 @@ export type ActivityWhereUniqueInput = Prisma.AtLeast<{
   activityType?: Prisma.StringFilter<"Activity"> | string
   startAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   endAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
+  governorateId?: Prisma.IntFilter<"Activity"> | number
   location?: Prisma.StringFilter<"Activity"> | string
-  institution?: Prisma.StringFilter<"Activity"> | string
   latitude?: Prisma.DecimalNullableFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.DecimalNullableFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFilter<"Activity"> | string
   description?: Prisma.StringFilter<"Activity"> | string
-  points?: Prisma.IntFilter<"Activity"> | number
+  capacity?: Prisma.IntFilter<"Activity"> | number
+  registrationFeeSyp?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFilter<"Activity"> | string
   specialistId?: Prisma.BigIntFilter<"Activity"> | bigint | number
   formConfigId?: Prisma.BigIntFilter<"Activity"> | bigint | number
   customFields?: Prisma.JsonFilter<"Activity">
@@ -383,9 +497,15 @@ export type ActivityWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Activity"> | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceListRelationFilter
+  activitySeriesId?: Prisma.BigIntFilter<"Activity"> | bigint | number
+  annualSequence?: Prisma.IntFilter<"Activity"> | number
   specialist?: Prisma.XOR<Prisma.SpecialistScalarRelationFilter, Prisma.SpecialistWhereInput>
   formConfig?: Prisma.XOR<Prisma.ActivityFormConfigScalarRelationFilter, Prisma.ActivityFormConfigWhereInput>
+  governorate?: Prisma.XOR<Prisma.GovernorateScalarRelationFilter, Prisma.GovernorateWhereInput>
+  sessions?: Prisma.ActivitySessionListRelationFilter
+  registrations?: Prisma.ActivityRegistrationListRelationFilter
+  organizations?: Prisma.ActivityOrganizationListRelationFilter
+  activitySeries?: Prisma.XOR<Prisma.ActivitySeriesScalarRelationFilter, Prisma.ActivitySeriesWhereInput>
 }, "id">
 
 export type ActivityOrderByWithAggregationInput = {
@@ -394,12 +514,18 @@ export type ActivityOrderByWithAggregationInput = {
   activityType?: Prisma.SortOrder
   startAt?: Prisma.SortOrder
   endAt?: Prisma.SortOrder
+  governorateId?: Prisma.SortOrder
   location?: Prisma.SortOrder
-  institution?: Prisma.SortOrder
   latitude?: Prisma.SortOrderInput | Prisma.SortOrder
   longitude?: Prisma.SortOrderInput | Prisma.SortOrder
+  institution?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  points?: Prisma.SortOrder
+  capacity?: Prisma.SortOrder
+  registrationFeeSyp?: Prisma.SortOrder
+  attendanceCpdPoints?: Prisma.SortOrder
+  participationCpdPoints?: Prisma.SortOrder
+  minAttendancePercentage?: Prisma.SortOrder
+  activityPresidentName?: Prisma.SortOrder
   specialistId?: Prisma.SortOrder
   formConfigId?: Prisma.SortOrder
   customFields?: Prisma.SortOrder
@@ -407,6 +533,8 @@ export type ActivityOrderByWithAggregationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  activitySeriesId?: Prisma.SortOrder
+  annualSequence?: Prisma.SortOrder
   _count?: Prisma.ActivityCountOrderByAggregateInput
   _avg?: Prisma.ActivityAvgOrderByAggregateInput
   _max?: Prisma.ActivityMaxOrderByAggregateInput
@@ -423,12 +551,18 @@ export type ActivityScalarWhereWithAggregatesInput = {
   activityType?: Prisma.StringWithAggregatesFilter<"Activity"> | string
   startAt?: Prisma.DateTimeWithAggregatesFilter<"Activity"> | Date | string
   endAt?: Prisma.DateTimeWithAggregatesFilter<"Activity"> | Date | string
+  governorateId?: Prisma.IntWithAggregatesFilter<"Activity"> | number
   location?: Prisma.StringWithAggregatesFilter<"Activity"> | string
-  institution?: Prisma.StringWithAggregatesFilter<"Activity"> | string
   latitude?: Prisma.DecimalNullableWithAggregatesFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.DecimalNullableWithAggregatesFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringWithAggregatesFilter<"Activity"> | string
   description?: Prisma.StringWithAggregatesFilter<"Activity"> | string
-  points?: Prisma.IntWithAggregatesFilter<"Activity"> | number
+  capacity?: Prisma.IntWithAggregatesFilter<"Activity"> | number
+  registrationFeeSyp?: Prisma.DecimalWithAggregatesFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalWithAggregatesFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalWithAggregatesFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalWithAggregatesFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringWithAggregatesFilter<"Activity"> | string
   specialistId?: Prisma.BigIntWithAggregatesFilter<"Activity"> | bigint | number
   formConfigId?: Prisma.BigIntWithAggregatesFilter<"Activity"> | bigint | number
   customFields?: Prisma.JsonWithAggregatesFilter<"Activity">
@@ -436,6 +570,8 @@ export type ActivityScalarWhereWithAggregatesInput = {
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Activity"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Activity"> | Date | string
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Activity"> | Date | string | null
+  activitySeriesId?: Prisma.BigIntWithAggregatesFilter<"Activity"> | bigint | number
+  annualSequence?: Prisma.IntWithAggregatesFilter<"Activity"> | number
 }
 
 export type ActivityCreateInput = {
@@ -445,19 +581,29 @@ export type ActivityCreateInput = {
   startAt: Date | string
   endAt: Date | string
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  attendances?: Prisma.ConferenceAttendanceCreateNestedManyWithoutActivityInput
+  annualSequence: number
   specialist: Prisma.SpecialistCreateNestedOneWithoutActivitiesInput
   formConfig: Prisma.ActivityFormConfigCreateNestedOneWithoutActivitiesInput
+  governorate: Prisma.GovernorateCreateNestedOneWithoutActivitiesInput
+  sessions?: Prisma.ActivitySessionCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationCreateNestedManyWithoutActivityInput
+  activitySeries: Prisma.ActivitySeriesCreateNestedOneWithoutActivitiesInput
 }
 
 export type ActivityUncheckedCreateInput = {
@@ -466,12 +612,18 @@ export type ActivityUncheckedCreateInput = {
   activityType: string
   startAt: Date | string
   endAt: Date | string
+  governorateId: number
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   specialistId: bigint | number
   formConfigId: bigint | number
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -479,7 +631,11 @@ export type ActivityUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUncheckedCreateNestedManyWithoutActivityInput
+  activitySeriesId: bigint | number
+  annualSequence: number
+  sessions?: Prisma.ActivitySessionUncheckedCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationUncheckedCreateNestedManyWithoutActivityInput
 }
 
 export type ActivityUpdateInput = {
@@ -489,19 +645,29 @@ export type ActivityUpdateInput = {
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUpdateManyWithoutActivityNestedInput
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
   specialist?: Prisma.SpecialistUpdateOneRequiredWithoutActivitiesNestedInput
   formConfig?: Prisma.ActivityFormConfigUpdateOneRequiredWithoutActivitiesNestedInput
+  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutActivitiesNestedInput
+  sessions?: Prisma.ActivitySessionUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUpdateManyWithoutActivityNestedInput
+  activitySeries?: Prisma.ActivitySeriesUpdateOneRequiredWithoutActivitiesNestedInput
 }
 
 export type ActivityUncheckedUpdateInput = {
@@ -510,12 +676,18 @@ export type ActivityUncheckedUpdateInput = {
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -523,7 +695,11 @@ export type ActivityUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUncheckedUpdateManyWithoutActivityNestedInput
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.ActivitySessionUncheckedUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUncheckedUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivityCreateManyInput = {
@@ -532,12 +708,18 @@ export type ActivityCreateManyInput = {
   activityType: string
   startAt: Date | string
   endAt: Date | string
+  governorateId: number
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   specialistId: bigint | number
   formConfigId: bigint | number
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -545,6 +727,8 @@ export type ActivityCreateManyInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
 }
 
 export type ActivityUpdateManyMutationInput = {
@@ -554,16 +738,22 @@ export type ActivityUpdateManyMutationInput = {
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ActivityUncheckedUpdateManyInput = {
@@ -572,12 +762,18 @@ export type ActivityUncheckedUpdateManyInput = {
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -585,6 +781,8 @@ export type ActivityUncheckedUpdateManyInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ActivityListRelationFilter = {
@@ -597,18 +795,29 @@ export type ActivityOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type ActivityScalarRelationFilter = {
+  is?: Prisma.ActivityWhereInput
+  isNot?: Prisma.ActivityWhereInput
+}
+
 export type ActivityCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   activityType?: Prisma.SortOrder
   startAt?: Prisma.SortOrder
   endAt?: Prisma.SortOrder
+  governorateId?: Prisma.SortOrder
   location?: Prisma.SortOrder
-  institution?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
+  institution?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  points?: Prisma.SortOrder
+  capacity?: Prisma.SortOrder
+  registrationFeeSyp?: Prisma.SortOrder
+  attendanceCpdPoints?: Prisma.SortOrder
+  participationCpdPoints?: Prisma.SortOrder
+  minAttendancePercentage?: Prisma.SortOrder
+  activityPresidentName?: Prisma.SortOrder
   specialistId?: Prisma.SortOrder
   formConfigId?: Prisma.SortOrder
   customFields?: Prisma.SortOrder
@@ -616,15 +825,24 @@ export type ActivityCountOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  activitySeriesId?: Prisma.SortOrder
+  annualSequence?: Prisma.SortOrder
 }
 
 export type ActivityAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  governorateId?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
-  points?: Prisma.SortOrder
+  capacity?: Prisma.SortOrder
+  registrationFeeSyp?: Prisma.SortOrder
+  attendanceCpdPoints?: Prisma.SortOrder
+  participationCpdPoints?: Prisma.SortOrder
+  minAttendancePercentage?: Prisma.SortOrder
   specialistId?: Prisma.SortOrder
   formConfigId?: Prisma.SortOrder
+  activitySeriesId?: Prisma.SortOrder
+  annualSequence?: Prisma.SortOrder
 }
 
 export type ActivityMaxOrderByAggregateInput = {
@@ -633,17 +851,25 @@ export type ActivityMaxOrderByAggregateInput = {
   activityType?: Prisma.SortOrder
   startAt?: Prisma.SortOrder
   endAt?: Prisma.SortOrder
+  governorateId?: Prisma.SortOrder
   location?: Prisma.SortOrder
-  institution?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
+  institution?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  points?: Prisma.SortOrder
+  capacity?: Prisma.SortOrder
+  registrationFeeSyp?: Prisma.SortOrder
+  attendanceCpdPoints?: Prisma.SortOrder
+  participationCpdPoints?: Prisma.SortOrder
+  minAttendancePercentage?: Prisma.SortOrder
+  activityPresidentName?: Prisma.SortOrder
   specialistId?: Prisma.SortOrder
   formConfigId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  activitySeriesId?: Prisma.SortOrder
+  annualSequence?: Prisma.SortOrder
 }
 
 export type ActivityMinOrderByAggregateInput = {
@@ -652,31 +878,41 @@ export type ActivityMinOrderByAggregateInput = {
   activityType?: Prisma.SortOrder
   startAt?: Prisma.SortOrder
   endAt?: Prisma.SortOrder
+  governorateId?: Prisma.SortOrder
   location?: Prisma.SortOrder
-  institution?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
+  institution?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  points?: Prisma.SortOrder
+  capacity?: Prisma.SortOrder
+  registrationFeeSyp?: Prisma.SortOrder
+  attendanceCpdPoints?: Prisma.SortOrder
+  participationCpdPoints?: Prisma.SortOrder
+  minAttendancePercentage?: Prisma.SortOrder
+  activityPresidentName?: Prisma.SortOrder
   specialistId?: Prisma.SortOrder
   formConfigId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  activitySeriesId?: Prisma.SortOrder
+  annualSequence?: Prisma.SortOrder
 }
 
 export type ActivitySumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  governorateId?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
-  points?: Prisma.SortOrder
+  capacity?: Prisma.SortOrder
+  registrationFeeSyp?: Prisma.SortOrder
+  attendanceCpdPoints?: Prisma.SortOrder
+  participationCpdPoints?: Prisma.SortOrder
+  minAttendancePercentage?: Prisma.SortOrder
   specialistId?: Prisma.SortOrder
   formConfigId?: Prisma.SortOrder
-}
-
-export type ActivityScalarRelationFilter = {
-  is?: Prisma.ActivityWhereInput
-  isNot?: Prisma.ActivityWhereInput
+  activitySeriesId?: Prisma.SortOrder
+  annualSequence?: Prisma.SortOrder
 }
 
 export type ActivityCreateNestedManyWithoutFormConfigInput = {
@@ -721,6 +957,90 @@ export type ActivityUncheckedUpdateManyWithoutFormConfigNestedInput = {
   deleteMany?: Prisma.ActivityScalarWhereInput | Prisma.ActivityScalarWhereInput[]
 }
 
+export type ActivityCreateNestedOneWithoutOrganizationsInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutOrganizationsInput, Prisma.ActivityUncheckedCreateWithoutOrganizationsInput>
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutOrganizationsInput
+  connect?: Prisma.ActivityWhereUniqueInput
+}
+
+export type ActivityUpdateOneRequiredWithoutOrganizationsNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutOrganizationsInput, Prisma.ActivityUncheckedCreateWithoutOrganizationsInput>
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutOrganizationsInput
+  upsert?: Prisma.ActivityUpsertWithoutOrganizationsInput
+  connect?: Prisma.ActivityWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivityUpdateToOneWithWhereWithoutOrganizationsInput, Prisma.ActivityUpdateWithoutOrganizationsInput>, Prisma.ActivityUncheckedUpdateWithoutOrganizationsInput>
+}
+
+export type ActivityCreateNestedOneWithoutRegistrationsInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutRegistrationsInput, Prisma.ActivityUncheckedCreateWithoutRegistrationsInput>
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutRegistrationsInput
+  connect?: Prisma.ActivityWhereUniqueInput
+}
+
+export type ActivityUpdateOneRequiredWithoutRegistrationsNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutRegistrationsInput, Prisma.ActivityUncheckedCreateWithoutRegistrationsInput>
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutRegistrationsInput
+  upsert?: Prisma.ActivityUpsertWithoutRegistrationsInput
+  connect?: Prisma.ActivityWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivityUpdateToOneWithWhereWithoutRegistrationsInput, Prisma.ActivityUpdateWithoutRegistrationsInput>, Prisma.ActivityUncheckedUpdateWithoutRegistrationsInput>
+}
+
+export type ActivityCreateNestedManyWithoutActivitySeriesInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutActivitySeriesInput, Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput> | Prisma.ActivityCreateWithoutActivitySeriesInput[] | Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput | Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput[]
+  createMany?: Prisma.ActivityCreateManyActivitySeriesInputEnvelope
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+}
+
+export type ActivityUncheckedCreateNestedManyWithoutActivitySeriesInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutActivitySeriesInput, Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput> | Prisma.ActivityCreateWithoutActivitySeriesInput[] | Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput | Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput[]
+  createMany?: Prisma.ActivityCreateManyActivitySeriesInputEnvelope
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+}
+
+export type ActivityUpdateManyWithoutActivitySeriesNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutActivitySeriesInput, Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput> | Prisma.ActivityCreateWithoutActivitySeriesInput[] | Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput | Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput[]
+  upsert?: Prisma.ActivityUpsertWithWhereUniqueWithoutActivitySeriesInput | Prisma.ActivityUpsertWithWhereUniqueWithoutActivitySeriesInput[]
+  createMany?: Prisma.ActivityCreateManyActivitySeriesInputEnvelope
+  set?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  disconnect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  delete?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  update?: Prisma.ActivityUpdateWithWhereUniqueWithoutActivitySeriesInput | Prisma.ActivityUpdateWithWhereUniqueWithoutActivitySeriesInput[]
+  updateMany?: Prisma.ActivityUpdateManyWithWhereWithoutActivitySeriesInput | Prisma.ActivityUpdateManyWithWhereWithoutActivitySeriesInput[]
+  deleteMany?: Prisma.ActivityScalarWhereInput | Prisma.ActivityScalarWhereInput[]
+}
+
+export type ActivityUncheckedUpdateManyWithoutActivitySeriesNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutActivitySeriesInput, Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput> | Prisma.ActivityCreateWithoutActivitySeriesInput[] | Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput | Prisma.ActivityCreateOrConnectWithoutActivitySeriesInput[]
+  upsert?: Prisma.ActivityUpsertWithWhereUniqueWithoutActivitySeriesInput | Prisma.ActivityUpsertWithWhereUniqueWithoutActivitySeriesInput[]
+  createMany?: Prisma.ActivityCreateManyActivitySeriesInputEnvelope
+  set?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  disconnect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  delete?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  update?: Prisma.ActivityUpdateWithWhereUniqueWithoutActivitySeriesInput | Prisma.ActivityUpdateWithWhereUniqueWithoutActivitySeriesInput[]
+  updateMany?: Prisma.ActivityUpdateManyWithWhereWithoutActivitySeriesInput | Prisma.ActivityUpdateManyWithWhereWithoutActivitySeriesInput[]
+  deleteMany?: Prisma.ActivityScalarWhereInput | Prisma.ActivityScalarWhereInput[]
+}
+
+export type ActivityCreateNestedOneWithoutSessionsInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutSessionsInput, Prisma.ActivityUncheckedCreateWithoutSessionsInput>
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutSessionsInput
+  connect?: Prisma.ActivityWhereUniqueInput
+}
+
+export type ActivityUpdateOneRequiredWithoutSessionsNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutSessionsInput, Prisma.ActivityUncheckedCreateWithoutSessionsInput>
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutSessionsInput
+  upsert?: Prisma.ActivityUpsertWithoutSessionsInput
+  connect?: Prisma.ActivityWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivityUpdateToOneWithWhereWithoutSessionsInput, Prisma.ActivityUpdateWithoutSessionsInput>, Prisma.ActivityUncheckedUpdateWithoutSessionsInput>
+}
+
 export type NullableDecimalFieldUpdateOperationsInput = {
   set?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -729,30 +1049,50 @@ export type NullableDecimalFieldUpdateOperationsInput = {
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
 
-export type ActivityCreateNestedOneWithoutAttendancesInput = {
-  create?: Prisma.XOR<Prisma.ActivityCreateWithoutAttendancesInput, Prisma.ActivityUncheckedCreateWithoutAttendancesInput>
-  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutAttendancesInput
-  connect?: Prisma.ActivityWhereUniqueInput
+export type ActivityCreateNestedManyWithoutGovernorateInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutGovernorateInput, Prisma.ActivityUncheckedCreateWithoutGovernorateInput> | Prisma.ActivityCreateWithoutGovernorateInput[] | Prisma.ActivityUncheckedCreateWithoutGovernorateInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutGovernorateInput | Prisma.ActivityCreateOrConnectWithoutGovernorateInput[]
+  createMany?: Prisma.ActivityCreateManyGovernorateInputEnvelope
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
 }
 
-export type ActivityUpdateOneRequiredWithoutAttendancesNestedInput = {
-  create?: Prisma.XOR<Prisma.ActivityCreateWithoutAttendancesInput, Prisma.ActivityUncheckedCreateWithoutAttendancesInput>
-  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutAttendancesInput
-  upsert?: Prisma.ActivityUpsertWithoutAttendancesInput
-  connect?: Prisma.ActivityWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivityUpdateToOneWithWhereWithoutAttendancesInput, Prisma.ActivityUpdateWithoutAttendancesInput>, Prisma.ActivityUncheckedUpdateWithoutAttendancesInput>
+export type ActivityUncheckedCreateNestedManyWithoutGovernorateInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutGovernorateInput, Prisma.ActivityUncheckedCreateWithoutGovernorateInput> | Prisma.ActivityCreateWithoutGovernorateInput[] | Prisma.ActivityUncheckedCreateWithoutGovernorateInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutGovernorateInput | Prisma.ActivityCreateOrConnectWithoutGovernorateInput[]
+  createMany?: Prisma.ActivityCreateManyGovernorateInputEnvelope
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+}
+
+export type ActivityUpdateManyWithoutGovernorateNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutGovernorateInput, Prisma.ActivityUncheckedCreateWithoutGovernorateInput> | Prisma.ActivityCreateWithoutGovernorateInput[] | Prisma.ActivityUncheckedCreateWithoutGovernorateInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutGovernorateInput | Prisma.ActivityCreateOrConnectWithoutGovernorateInput[]
+  upsert?: Prisma.ActivityUpsertWithWhereUniqueWithoutGovernorateInput | Prisma.ActivityUpsertWithWhereUniqueWithoutGovernorateInput[]
+  createMany?: Prisma.ActivityCreateManyGovernorateInputEnvelope
+  set?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  disconnect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  delete?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  update?: Prisma.ActivityUpdateWithWhereUniqueWithoutGovernorateInput | Prisma.ActivityUpdateWithWhereUniqueWithoutGovernorateInput[]
+  updateMany?: Prisma.ActivityUpdateManyWithWhereWithoutGovernorateInput | Prisma.ActivityUpdateManyWithWhereWithoutGovernorateInput[]
+  deleteMany?: Prisma.ActivityScalarWhereInput | Prisma.ActivityScalarWhereInput[]
+}
+
+export type ActivityUncheckedUpdateManyWithoutGovernorateNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivityCreateWithoutGovernorateInput, Prisma.ActivityUncheckedCreateWithoutGovernorateInput> | Prisma.ActivityCreateWithoutGovernorateInput[] | Prisma.ActivityUncheckedCreateWithoutGovernorateInput[]
+  connectOrCreate?: Prisma.ActivityCreateOrConnectWithoutGovernorateInput | Prisma.ActivityCreateOrConnectWithoutGovernorateInput[]
+  upsert?: Prisma.ActivityUpsertWithWhereUniqueWithoutGovernorateInput | Prisma.ActivityUpsertWithWhereUniqueWithoutGovernorateInput[]
+  createMany?: Prisma.ActivityCreateManyGovernorateInputEnvelope
+  set?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  disconnect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  delete?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  connect?: Prisma.ActivityWhereUniqueInput | Prisma.ActivityWhereUniqueInput[]
+  update?: Prisma.ActivityUpdateWithWhereUniqueWithoutGovernorateInput | Prisma.ActivityUpdateWithWhereUniqueWithoutGovernorateInput[]
+  updateMany?: Prisma.ActivityUpdateManyWithWhereWithoutGovernorateInput | Prisma.ActivityUpdateManyWithWhereWithoutGovernorateInput[]
+  deleteMany?: Prisma.ActivityScalarWhereInput | Prisma.ActivityScalarWhereInput[]
 }
 
 export type ActivityCreateNestedManyWithoutSpecialistInput = {
@@ -804,18 +1144,28 @@ export type ActivityCreateWithoutFormConfigInput = {
   startAt: Date | string
   endAt: Date | string
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  attendances?: Prisma.ConferenceAttendanceCreateNestedManyWithoutActivityInput
+  annualSequence: number
   specialist: Prisma.SpecialistCreateNestedOneWithoutActivitiesInput
+  governorate: Prisma.GovernorateCreateNestedOneWithoutActivitiesInput
+  sessions?: Prisma.ActivitySessionCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationCreateNestedManyWithoutActivityInput
+  activitySeries: Prisma.ActivitySeriesCreateNestedOneWithoutActivitiesInput
 }
 
 export type ActivityUncheckedCreateWithoutFormConfigInput = {
@@ -824,19 +1174,29 @@ export type ActivityUncheckedCreateWithoutFormConfigInput = {
   activityType: string
   startAt: Date | string
   endAt: Date | string
+  governorateId: number
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   specialistId: bigint | number
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUncheckedCreateNestedManyWithoutActivityInput
+  activitySeriesId: bigint | number
+  annualSequence: number
+  sessions?: Prisma.ActivitySessionUncheckedCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationUncheckedCreateNestedManyWithoutActivityInput
 }
 
 export type ActivityCreateOrConnectWithoutFormConfigInput = {
@@ -874,12 +1234,18 @@ export type ActivityScalarWhereInput = {
   activityType?: Prisma.StringFilter<"Activity"> | string
   startAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   endAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
+  governorateId?: Prisma.IntFilter<"Activity"> | number
   location?: Prisma.StringFilter<"Activity"> | string
-  institution?: Prisma.StringFilter<"Activity"> | string
   latitude?: Prisma.DecimalNullableFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.DecimalNullableFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFilter<"Activity"> | string
   description?: Prisma.StringFilter<"Activity"> | string
-  points?: Prisma.IntFilter<"Activity"> | number
+  capacity?: Prisma.IntFilter<"Activity"> | number
+  registrationFeeSyp?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFilter<"Activity"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFilter<"Activity"> | string
   specialistId?: Prisma.BigIntFilter<"Activity"> | bigint | number
   formConfigId?: Prisma.BigIntFilter<"Activity"> | bigint | number
   customFields?: Prisma.JsonFilter<"Activity">
@@ -887,41 +1253,59 @@ export type ActivityScalarWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Activity"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Activity"> | Date | string | null
+  activitySeriesId?: Prisma.BigIntFilter<"Activity"> | bigint | number
+  annualSequence?: Prisma.IntFilter<"Activity"> | number
 }
 
-export type ActivityCreateWithoutAttendancesInput = {
+export type ActivityCreateWithoutOrganizationsInput = {
   id?: bigint | number
   name: string
   activityType: string
   startAt: Date | string
   endAt: Date | string
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  annualSequence: number
   specialist: Prisma.SpecialistCreateNestedOneWithoutActivitiesInput
   formConfig: Prisma.ActivityFormConfigCreateNestedOneWithoutActivitiesInput
+  governorate: Prisma.GovernorateCreateNestedOneWithoutActivitiesInput
+  sessions?: Prisma.ActivitySessionCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutActivityInput
+  activitySeries: Prisma.ActivitySeriesCreateNestedOneWithoutActivitiesInput
 }
 
-export type ActivityUncheckedCreateWithoutAttendancesInput = {
+export type ActivityUncheckedCreateWithoutOrganizationsInput = {
   id?: bigint | number
   name: string
   activityType: string
   startAt: Date | string
   endAt: Date | string
+  governorateId: number
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   specialistId: bigint | number
   formConfigId: bigint | number
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -929,57 +1313,77 @@ export type ActivityUncheckedCreateWithoutAttendancesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
+  sessions?: Prisma.ActivitySessionUncheckedCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutActivityInput
 }
 
-export type ActivityCreateOrConnectWithoutAttendancesInput = {
+export type ActivityCreateOrConnectWithoutOrganizationsInput = {
   where: Prisma.ActivityWhereUniqueInput
-  create: Prisma.XOR<Prisma.ActivityCreateWithoutAttendancesInput, Prisma.ActivityUncheckedCreateWithoutAttendancesInput>
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutOrganizationsInput, Prisma.ActivityUncheckedCreateWithoutOrganizationsInput>
 }
 
-export type ActivityUpsertWithoutAttendancesInput = {
-  update: Prisma.XOR<Prisma.ActivityUpdateWithoutAttendancesInput, Prisma.ActivityUncheckedUpdateWithoutAttendancesInput>
-  create: Prisma.XOR<Prisma.ActivityCreateWithoutAttendancesInput, Prisma.ActivityUncheckedCreateWithoutAttendancesInput>
+export type ActivityUpsertWithoutOrganizationsInput = {
+  update: Prisma.XOR<Prisma.ActivityUpdateWithoutOrganizationsInput, Prisma.ActivityUncheckedUpdateWithoutOrganizationsInput>
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutOrganizationsInput, Prisma.ActivityUncheckedCreateWithoutOrganizationsInput>
   where?: Prisma.ActivityWhereInput
 }
 
-export type ActivityUpdateToOneWithWhereWithoutAttendancesInput = {
+export type ActivityUpdateToOneWithWhereWithoutOrganizationsInput = {
   where?: Prisma.ActivityWhereInput
-  data: Prisma.XOR<Prisma.ActivityUpdateWithoutAttendancesInput, Prisma.ActivityUncheckedUpdateWithoutAttendancesInput>
+  data: Prisma.XOR<Prisma.ActivityUpdateWithoutOrganizationsInput, Prisma.ActivityUncheckedUpdateWithoutOrganizationsInput>
 }
 
-export type ActivityUpdateWithoutAttendancesInput = {
+export type ActivityUpdateWithoutOrganizationsInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
   specialist?: Prisma.SpecialistUpdateOneRequiredWithoutActivitiesNestedInput
   formConfig?: Prisma.ActivityFormConfigUpdateOneRequiredWithoutActivitiesNestedInput
+  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutActivitiesNestedInput
+  sessions?: Prisma.ActivitySessionUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUpdateManyWithoutActivityNestedInput
+  activitySeries?: Prisma.ActivitySeriesUpdateOneRequiredWithoutActivitiesNestedInput
 }
 
-export type ActivityUncheckedUpdateWithoutAttendancesInput = {
+export type ActivityUncheckedUpdateWithoutOrganizationsInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -987,6 +1391,466 @@ export type ActivityUncheckedUpdateWithoutAttendancesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.ActivitySessionUncheckedUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
+}
+
+export type ActivityCreateWithoutRegistrationsInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  annualSequence: number
+  specialist: Prisma.SpecialistCreateNestedOneWithoutActivitiesInput
+  formConfig: Prisma.ActivityFormConfigCreateNestedOneWithoutActivitiesInput
+  governorate: Prisma.GovernorateCreateNestedOneWithoutActivitiesInput
+  sessions?: Prisma.ActivitySessionCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationCreateNestedManyWithoutActivityInput
+  activitySeries: Prisma.ActivitySeriesCreateNestedOneWithoutActivitiesInput
+}
+
+export type ActivityUncheckedCreateWithoutRegistrationsInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  governorateId: number
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  specialistId: bigint | number
+  formConfigId: bigint | number
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
+  sessions?: Prisma.ActivitySessionUncheckedCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationUncheckedCreateNestedManyWithoutActivityInput
+}
+
+export type ActivityCreateOrConnectWithoutRegistrationsInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutRegistrationsInput, Prisma.ActivityUncheckedCreateWithoutRegistrationsInput>
+}
+
+export type ActivityUpsertWithoutRegistrationsInput = {
+  update: Prisma.XOR<Prisma.ActivityUpdateWithoutRegistrationsInput, Prisma.ActivityUncheckedUpdateWithoutRegistrationsInput>
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutRegistrationsInput, Prisma.ActivityUncheckedCreateWithoutRegistrationsInput>
+  where?: Prisma.ActivityWhereInput
+}
+
+export type ActivityUpdateToOneWithWhereWithoutRegistrationsInput = {
+  where?: Prisma.ActivityWhereInput
+  data: Prisma.XOR<Prisma.ActivityUpdateWithoutRegistrationsInput, Prisma.ActivityUncheckedUpdateWithoutRegistrationsInput>
+}
+
+export type ActivityUpdateWithoutRegistrationsInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutActivitiesNestedInput
+  formConfig?: Prisma.ActivityFormConfigUpdateOneRequiredWithoutActivitiesNestedInput
+  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutActivitiesNestedInput
+  sessions?: Prisma.ActivitySessionUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUpdateManyWithoutActivityNestedInput
+  activitySeries?: Prisma.ActivitySeriesUpdateOneRequiredWithoutActivitiesNestedInput
+}
+
+export type ActivityUncheckedUpdateWithoutRegistrationsInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.ActivitySessionUncheckedUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUncheckedUpdateManyWithoutActivityNestedInput
+}
+
+export type ActivityCreateWithoutActivitySeriesInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  annualSequence: number
+  specialist: Prisma.SpecialistCreateNestedOneWithoutActivitiesInput
+  formConfig: Prisma.ActivityFormConfigCreateNestedOneWithoutActivitiesInput
+  governorate: Prisma.GovernorateCreateNestedOneWithoutActivitiesInput
+  sessions?: Prisma.ActivitySessionCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationCreateNestedManyWithoutActivityInput
+}
+
+export type ActivityUncheckedCreateWithoutActivitySeriesInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  governorateId: number
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  specialistId: bigint | number
+  formConfigId: bigint | number
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  annualSequence: number
+  sessions?: Prisma.ActivitySessionUncheckedCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationUncheckedCreateNestedManyWithoutActivityInput
+}
+
+export type ActivityCreateOrConnectWithoutActivitySeriesInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutActivitySeriesInput, Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput>
+}
+
+export type ActivityCreateManyActivitySeriesInputEnvelope = {
+  data: Prisma.ActivityCreateManyActivitySeriesInput | Prisma.ActivityCreateManyActivitySeriesInput[]
+  skipDuplicates?: boolean
+}
+
+export type ActivityUpsertWithWhereUniqueWithoutActivitySeriesInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  update: Prisma.XOR<Prisma.ActivityUpdateWithoutActivitySeriesInput, Prisma.ActivityUncheckedUpdateWithoutActivitySeriesInput>
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutActivitySeriesInput, Prisma.ActivityUncheckedCreateWithoutActivitySeriesInput>
+}
+
+export type ActivityUpdateWithWhereUniqueWithoutActivitySeriesInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  data: Prisma.XOR<Prisma.ActivityUpdateWithoutActivitySeriesInput, Prisma.ActivityUncheckedUpdateWithoutActivitySeriesInput>
+}
+
+export type ActivityUpdateManyWithWhereWithoutActivitySeriesInput = {
+  where: Prisma.ActivityScalarWhereInput
+  data: Prisma.XOR<Prisma.ActivityUpdateManyMutationInput, Prisma.ActivityUncheckedUpdateManyWithoutActivitySeriesInput>
+}
+
+export type ActivityCreateWithoutSessionsInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  annualSequence: number
+  specialist: Prisma.SpecialistCreateNestedOneWithoutActivitiesInput
+  formConfig: Prisma.ActivityFormConfigCreateNestedOneWithoutActivitiesInput
+  governorate: Prisma.GovernorateCreateNestedOneWithoutActivitiesInput
+  registrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationCreateNestedManyWithoutActivityInput
+  activitySeries: Prisma.ActivitySeriesCreateNestedOneWithoutActivitiesInput
+}
+
+export type ActivityUncheckedCreateWithoutSessionsInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  governorateId: number
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  specialistId: bigint | number
+  formConfigId: bigint | number
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
+  registrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationUncheckedCreateNestedManyWithoutActivityInput
+}
+
+export type ActivityCreateOrConnectWithoutSessionsInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutSessionsInput, Prisma.ActivityUncheckedCreateWithoutSessionsInput>
+}
+
+export type ActivityUpsertWithoutSessionsInput = {
+  update: Prisma.XOR<Prisma.ActivityUpdateWithoutSessionsInput, Prisma.ActivityUncheckedUpdateWithoutSessionsInput>
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutSessionsInput, Prisma.ActivityUncheckedCreateWithoutSessionsInput>
+  where?: Prisma.ActivityWhereInput
+}
+
+export type ActivityUpdateToOneWithWhereWithoutSessionsInput = {
+  where?: Prisma.ActivityWhereInput
+  data: Prisma.XOR<Prisma.ActivityUpdateWithoutSessionsInput, Prisma.ActivityUncheckedUpdateWithoutSessionsInput>
+}
+
+export type ActivityUpdateWithoutSessionsInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutActivitiesNestedInput
+  formConfig?: Prisma.ActivityFormConfigUpdateOneRequiredWithoutActivitiesNestedInput
+  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutActivitiesNestedInput
+  registrations?: Prisma.ActivityRegistrationUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUpdateManyWithoutActivityNestedInput
+  activitySeries?: Prisma.ActivitySeriesUpdateOneRequiredWithoutActivitiesNestedInput
+}
+
+export type ActivityUncheckedUpdateWithoutSessionsInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  registrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUncheckedUpdateManyWithoutActivityNestedInput
+}
+
+export type ActivityCreateWithoutGovernorateInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  annualSequence: number
+  specialist: Prisma.SpecialistCreateNestedOneWithoutActivitiesInput
+  formConfig: Prisma.ActivityFormConfigCreateNestedOneWithoutActivitiesInput
+  sessions?: Prisma.ActivitySessionCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationCreateNestedManyWithoutActivityInput
+  activitySeries: Prisma.ActivitySeriesCreateNestedOneWithoutActivitiesInput
+}
+
+export type ActivityUncheckedCreateWithoutGovernorateInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  specialistId: bigint | number
+  formConfigId: bigint | number
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
+  sessions?: Prisma.ActivitySessionUncheckedCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationUncheckedCreateNestedManyWithoutActivityInput
+}
+
+export type ActivityCreateOrConnectWithoutGovernorateInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutGovernorateInput, Prisma.ActivityUncheckedCreateWithoutGovernorateInput>
+}
+
+export type ActivityCreateManyGovernorateInputEnvelope = {
+  data: Prisma.ActivityCreateManyGovernorateInput | Prisma.ActivityCreateManyGovernorateInput[]
+  skipDuplicates?: boolean
+}
+
+export type ActivityUpsertWithWhereUniqueWithoutGovernorateInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  update: Prisma.XOR<Prisma.ActivityUpdateWithoutGovernorateInput, Prisma.ActivityUncheckedUpdateWithoutGovernorateInput>
+  create: Prisma.XOR<Prisma.ActivityCreateWithoutGovernorateInput, Prisma.ActivityUncheckedCreateWithoutGovernorateInput>
+}
+
+export type ActivityUpdateWithWhereUniqueWithoutGovernorateInput = {
+  where: Prisma.ActivityWhereUniqueInput
+  data: Prisma.XOR<Prisma.ActivityUpdateWithoutGovernorateInput, Prisma.ActivityUncheckedUpdateWithoutGovernorateInput>
+}
+
+export type ActivityUpdateManyWithWhereWithoutGovernorateInput = {
+  where: Prisma.ActivityScalarWhereInput
+  data: Prisma.XOR<Prisma.ActivityUpdateManyMutationInput, Prisma.ActivityUncheckedUpdateManyWithoutGovernorateInput>
 }
 
 export type ActivityCreateWithoutSpecialistInput = {
@@ -996,18 +1860,28 @@ export type ActivityCreateWithoutSpecialistInput = {
   startAt: Date | string
   endAt: Date | string
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  attendances?: Prisma.ConferenceAttendanceCreateNestedManyWithoutActivityInput
+  annualSequence: number
   formConfig: Prisma.ActivityFormConfigCreateNestedOneWithoutActivitiesInput
+  governorate: Prisma.GovernorateCreateNestedOneWithoutActivitiesInput
+  sessions?: Prisma.ActivitySessionCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationCreateNestedManyWithoutActivityInput
+  activitySeries: Prisma.ActivitySeriesCreateNestedOneWithoutActivitiesInput
 }
 
 export type ActivityUncheckedCreateWithoutSpecialistInput = {
@@ -1016,19 +1890,29 @@ export type ActivityUncheckedCreateWithoutSpecialistInput = {
   activityType: string
   startAt: Date | string
   endAt: Date | string
+  governorateId: number
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   formConfigId: bigint | number
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUncheckedCreateNestedManyWithoutActivityInput
+  activitySeriesId: bigint | number
+  annualSequence: number
+  sessions?: Prisma.ActivitySessionUncheckedCreateNestedManyWithoutActivityInput
+  registrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutActivityInput
+  organizations?: Prisma.ActivityOrganizationUncheckedCreateNestedManyWithoutActivityInput
 }
 
 export type ActivityCreateOrConnectWithoutSpecialistInput = {
@@ -1063,18 +1947,26 @@ export type ActivityCreateManyFormConfigInput = {
   activityType: string
   startAt: Date | string
   endAt: Date | string
+  governorateId: number
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   specialistId: bigint | number
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
 }
 
 export type ActivityUpdateWithoutFormConfigInput = {
@@ -1084,18 +1976,28 @@ export type ActivityUpdateWithoutFormConfigInput = {
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUpdateManyWithoutActivityNestedInput
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
   specialist?: Prisma.SpecialistUpdateOneRequiredWithoutActivitiesNestedInput
+  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutActivitiesNestedInput
+  sessions?: Prisma.ActivitySessionUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUpdateManyWithoutActivityNestedInput
+  activitySeries?: Prisma.ActivitySeriesUpdateOneRequiredWithoutActivitiesNestedInput
 }
 
 export type ActivityUncheckedUpdateWithoutFormConfigInput = {
@@ -1104,19 +2006,29 @@ export type ActivityUncheckedUpdateWithoutFormConfigInput = {
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUncheckedUpdateManyWithoutActivityNestedInput
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.ActivitySessionUncheckedUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUncheckedUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivityUncheckedUpdateManyWithoutFormConfigInput = {
@@ -1125,18 +2037,262 @@ export type ActivityUncheckedUpdateManyWithoutFormConfigInput = {
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type ActivityCreateManyActivitySeriesInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  governorateId: number
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  specialistId: bigint | number
+  formConfigId: bigint | number
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  annualSequence: number
+}
+
+export type ActivityUpdateWithoutActivitySeriesInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutActivitiesNestedInput
+  formConfig?: Prisma.ActivityFormConfigUpdateOneRequiredWithoutActivitiesNestedInput
+  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutActivitiesNestedInput
+  sessions?: Prisma.ActivitySessionUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUpdateManyWithoutActivityNestedInput
+}
+
+export type ActivityUncheckedUpdateWithoutActivitySeriesInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.ActivitySessionUncheckedUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUncheckedUpdateManyWithoutActivityNestedInput
+}
+
+export type ActivityUncheckedUpdateManyWithoutActivitySeriesInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type ActivityCreateManyGovernorateInput = {
+  id?: bigint | number
+  name: string
+  activityType: string
+  startAt: Date | string
+  endAt: Date | string
+  location: string
+  latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
+  description: string
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
+  specialistId: bigint | number
+  formConfigId: bigint | number
+  customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
+}
+
+export type ActivityUpdateWithoutGovernorateInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutActivitiesNestedInput
+  formConfig?: Prisma.ActivityFormConfigUpdateOneRequiredWithoutActivitiesNestedInput
+  sessions?: Prisma.ActivitySessionUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUpdateManyWithoutActivityNestedInput
+  activitySeries?: Prisma.ActivitySeriesUpdateOneRequiredWithoutActivitiesNestedInput
+}
+
+export type ActivityUncheckedUpdateWithoutGovernorateInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.ActivitySessionUncheckedUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUncheckedUpdateManyWithoutActivityNestedInput
+}
+
+export type ActivityUncheckedUpdateManyWithoutGovernorateInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  activityType?: Prisma.StringFieldUpdateOperationsInput | string
+  startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
+  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ActivityCreateManySpecialistInput = {
@@ -1145,18 +2301,26 @@ export type ActivityCreateManySpecialistInput = {
   activityType: string
   startAt: Date | string
   endAt: Date | string
+  governorateId: number
   location: string
-  institution: string
   latitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution: string
   description: string
-  points?: number
+  capacity: number
+  registrationFeeSyp?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName: string
   formConfigId: bigint | number
   customFields: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  activitySeriesId: bigint | number
+  annualSequence: number
 }
 
 export type ActivityUpdateWithoutSpecialistInput = {
@@ -1166,18 +2330,28 @@ export type ActivityUpdateWithoutSpecialistInput = {
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUpdateManyWithoutActivityNestedInput
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
   formConfig?: Prisma.ActivityFormConfigUpdateOneRequiredWithoutActivitiesNestedInput
+  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutActivitiesNestedInput
+  sessions?: Prisma.ActivitySessionUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUpdateManyWithoutActivityNestedInput
+  activitySeries?: Prisma.ActivitySeriesUpdateOneRequiredWithoutActivitiesNestedInput
 }
 
 export type ActivityUncheckedUpdateWithoutSpecialistInput = {
@@ -1186,19 +2360,29 @@ export type ActivityUncheckedUpdateWithoutSpecialistInput = {
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  attendances?: Prisma.ConferenceAttendanceUncheckedUpdateManyWithoutActivityNestedInput
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.ActivitySessionUncheckedUpdateManyWithoutActivityNestedInput
+  registrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutActivityNestedInput
+  organizations?: Prisma.ActivityOrganizationUncheckedUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivityUncheckedUpdateManyWithoutSpecialistInput = {
@@ -1207,18 +2391,26 @@ export type ActivityUncheckedUpdateManyWithoutSpecialistInput = {
   activityType?: Prisma.StringFieldUpdateOperationsInput | string
   startAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
   location?: Prisma.StringFieldUpdateOperationsInput | string
-  institution?: Prisma.StringFieldUpdateOperationsInput | string
   latitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   longitude?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  institution?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  points?: Prisma.IntFieldUpdateOperationsInput | number
+  capacity?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationFeeSyp?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  attendanceCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  participationCpdPoints?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  minAttendancePercentage?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityPresidentName?: Prisma.StringFieldUpdateOperationsInput | string
   formConfigId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   customFields?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   formSchemaSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  activitySeriesId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  annualSequence?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -1227,11 +2419,15 @@ export type ActivityUncheckedUpdateManyWithoutSpecialistInput = {
  */
 
 export type ActivityCountOutputType = {
-  attendances: number
+  sessions: number
+  registrations: number
+  organizations: number
 }
 
 export type ActivityCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  attendances?: boolean | ActivityCountOutputTypeCountAttendancesArgs
+  sessions?: boolean | ActivityCountOutputTypeCountSessionsArgs
+  registrations?: boolean | ActivityCountOutputTypeCountRegistrationsArgs
+  organizations?: boolean | ActivityCountOutputTypeCountOrganizationsArgs
 }
 
 /**
@@ -1247,8 +2443,22 @@ export type ActivityCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Ext
 /**
  * ActivityCountOutputType without action
  */
-export type ActivityCountOutputTypeCountAttendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ConferenceAttendanceWhereInput
+export type ActivityCountOutputTypeCountSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ActivitySessionWhereInput
+}
+
+/**
+ * ActivityCountOutputType without action
+ */
+export type ActivityCountOutputTypeCountRegistrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ActivityRegistrationWhereInput
+}
+
+/**
+ * ActivityCountOutputType without action
+ */
+export type ActivityCountOutputTypeCountOrganizationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ActivityOrganizationWhereInput
 }
 
 
@@ -1258,12 +2468,18 @@ export type ActivitySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   activityType?: boolean
   startAt?: boolean
   endAt?: boolean
+  governorateId?: boolean
   location?: boolean
-  institution?: boolean
   latitude?: boolean
   longitude?: boolean
+  institution?: boolean
   description?: boolean
-  points?: boolean
+  capacity?: boolean
+  registrationFeeSyp?: boolean
+  attendanceCpdPoints?: boolean
+  participationCpdPoints?: boolean
+  minAttendancePercentage?: boolean
+  activityPresidentName?: boolean
   specialistId?: boolean
   formConfigId?: boolean
   customFields?: boolean
@@ -1271,9 +2487,15 @@ export type ActivitySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
-  attendances?: boolean | Prisma.Activity$attendancesArgs<ExtArgs>
+  activitySeriesId?: boolean
+  annualSequence?: boolean
   specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
   formConfig?: boolean | Prisma.ActivityFormConfigDefaultArgs<ExtArgs>
+  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  sessions?: boolean | Prisma.Activity$sessionsArgs<ExtArgs>
+  registrations?: boolean | Prisma.Activity$registrationsArgs<ExtArgs>
+  organizations?: boolean | Prisma.Activity$organizationsArgs<ExtArgs>
+  activitySeries?: boolean | Prisma.ActivitySeriesDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.ActivityCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["activity"]>
 
@@ -1283,12 +2505,18 @@ export type ActivitySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   activityType?: boolean
   startAt?: boolean
   endAt?: boolean
+  governorateId?: boolean
   location?: boolean
-  institution?: boolean
   latitude?: boolean
   longitude?: boolean
+  institution?: boolean
   description?: boolean
-  points?: boolean
+  capacity?: boolean
+  registrationFeeSyp?: boolean
+  attendanceCpdPoints?: boolean
+  participationCpdPoints?: boolean
+  minAttendancePercentage?: boolean
+  activityPresidentName?: boolean
   specialistId?: boolean
   formConfigId?: boolean
   customFields?: boolean
@@ -1296,8 +2524,12 @@ export type ActivitySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  activitySeriesId?: boolean
+  annualSequence?: boolean
   specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
   formConfig?: boolean | Prisma.ActivityFormConfigDefaultArgs<ExtArgs>
+  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  activitySeries?: boolean | Prisma.ActivitySeriesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["activity"]>
 
 export type ActivitySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1306,12 +2538,18 @@ export type ActivitySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   activityType?: boolean
   startAt?: boolean
   endAt?: boolean
+  governorateId?: boolean
   location?: boolean
-  institution?: boolean
   latitude?: boolean
   longitude?: boolean
+  institution?: boolean
   description?: boolean
-  points?: boolean
+  capacity?: boolean
+  registrationFeeSyp?: boolean
+  attendanceCpdPoints?: boolean
+  participationCpdPoints?: boolean
+  minAttendancePercentage?: boolean
+  activityPresidentName?: boolean
   specialistId?: boolean
   formConfigId?: boolean
   customFields?: boolean
@@ -1319,8 +2557,12 @@ export type ActivitySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  activitySeriesId?: boolean
+  annualSequence?: boolean
   specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
   formConfig?: boolean | Prisma.ActivityFormConfigDefaultArgs<ExtArgs>
+  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  activitySeries?: boolean | Prisma.ActivitySeriesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["activity"]>
 
 export type ActivitySelectScalar = {
@@ -1329,12 +2571,18 @@ export type ActivitySelectScalar = {
   activityType?: boolean
   startAt?: boolean
   endAt?: boolean
+  governorateId?: boolean
   location?: boolean
-  institution?: boolean
   latitude?: boolean
   longitude?: boolean
+  institution?: boolean
   description?: boolean
-  points?: boolean
+  capacity?: boolean
+  registrationFeeSyp?: boolean
+  attendanceCpdPoints?: boolean
+  participationCpdPoints?: boolean
+  minAttendancePercentage?: boolean
+  activityPresidentName?: boolean
   specialistId?: boolean
   formConfigId?: boolean
   customFields?: boolean
@@ -1342,30 +2590,44 @@ export type ActivitySelectScalar = {
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  activitySeriesId?: boolean
+  annualSequence?: boolean
 }
 
-export type ActivityOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "activityType" | "startAt" | "endAt" | "location" | "institution" | "latitude" | "longitude" | "description" | "points" | "specialistId" | "formConfigId" | "customFields" | "formSchemaSnapshot" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["activity"]>
+export type ActivityOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "activityType" | "startAt" | "endAt" | "governorateId" | "location" | "latitude" | "longitude" | "institution" | "description" | "capacity" | "registrationFeeSyp" | "attendanceCpdPoints" | "participationCpdPoints" | "minAttendancePercentage" | "activityPresidentName" | "specialistId" | "formConfigId" | "customFields" | "formSchemaSnapshot" | "createdAt" | "updatedAt" | "deletedAt" | "activitySeriesId" | "annualSequence", ExtArgs["result"]["activity"]>
 export type ActivityInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  attendances?: boolean | Prisma.Activity$attendancesArgs<ExtArgs>
   specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
   formConfig?: boolean | Prisma.ActivityFormConfigDefaultArgs<ExtArgs>
+  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  sessions?: boolean | Prisma.Activity$sessionsArgs<ExtArgs>
+  registrations?: boolean | Prisma.Activity$registrationsArgs<ExtArgs>
+  organizations?: boolean | Prisma.Activity$organizationsArgs<ExtArgs>
+  activitySeries?: boolean | Prisma.ActivitySeriesDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.ActivityCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ActivityIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
   formConfig?: boolean | Prisma.ActivityFormConfigDefaultArgs<ExtArgs>
+  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  activitySeries?: boolean | Prisma.ActivitySeriesDefaultArgs<ExtArgs>
 }
 export type ActivityIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
   formConfig?: boolean | Prisma.ActivityFormConfigDefaultArgs<ExtArgs>
+  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  activitySeries?: boolean | Prisma.ActivitySeriesDefaultArgs<ExtArgs>
 }
 
 export type $ActivityPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Activity"
   objects: {
-    attendances: Prisma.$ConferenceAttendancePayload<ExtArgs>[]
     specialist: Prisma.$SpecialistPayload<ExtArgs>
     formConfig: Prisma.$ActivityFormConfigPayload<ExtArgs>
+    governorate: Prisma.$GovernoratePayload<ExtArgs>
+    sessions: Prisma.$ActivitySessionPayload<ExtArgs>[]
+    registrations: Prisma.$ActivityRegistrationPayload<ExtArgs>[]
+    organizations: Prisma.$ActivityOrganizationPayload<ExtArgs>[]
+    activitySeries: Prisma.$ActivitySeriesPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -1373,12 +2635,18 @@ export type $ActivityPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     activityType: string
     startAt: Date
     endAt: Date
+    governorateId: number
     location: string
-    institution: string
     latitude: runtime.Decimal | null
     longitude: runtime.Decimal | null
+    institution: string
     description: string
-    points: number
+    capacity: number
+    registrationFeeSyp: runtime.Decimal
+    attendanceCpdPoints: runtime.Decimal
+    participationCpdPoints: runtime.Decimal
+    minAttendancePercentage: runtime.Decimal
+    activityPresidentName: string
     specialistId: bigint
     formConfigId: bigint
     customFields: runtime.JsonValue
@@ -1386,6 +2654,8 @@ export type $ActivityPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
+    activitySeriesId: bigint
+    annualSequence: number
   }, ExtArgs["result"]["activity"]>
   composites: {}
 }
@@ -1780,9 +3050,13 @@ readonly fields: ActivityFieldRefs;
  */
 export interface Prisma__ActivityClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  attendances<T extends Prisma.Activity$attendancesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activity$attendancesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConferenceAttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   specialist<T extends Prisma.SpecialistDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SpecialistDefaultArgs<ExtArgs>>): Prisma.Prisma__SpecialistClient<runtime.Types.Result.GetResult<Prisma.$SpecialistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   formConfig<T extends Prisma.ActivityFormConfigDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ActivityFormConfigDefaultArgs<ExtArgs>>): Prisma.Prisma__ActivityFormConfigClient<runtime.Types.Result.GetResult<Prisma.$ActivityFormConfigPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  governorate<T extends Prisma.GovernorateDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GovernorateDefaultArgs<ExtArgs>>): Prisma.Prisma__GovernorateClient<runtime.Types.Result.GetResult<Prisma.$GovernoratePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  sessions<T extends Prisma.Activity$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activity$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivitySessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  registrations<T extends Prisma.Activity$registrationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activity$registrationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivityRegistrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  organizations<T extends Prisma.Activity$organizationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activity$organizationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivityOrganizationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  activitySeries<T extends Prisma.ActivitySeriesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ActivitySeriesDefaultArgs<ExtArgs>>): Prisma.Prisma__ActivitySeriesClient<runtime.Types.Result.GetResult<Prisma.$ActivitySeriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1817,12 +3091,18 @@ export interface ActivityFieldRefs {
   readonly activityType: Prisma.FieldRef<"Activity", 'String'>
   readonly startAt: Prisma.FieldRef<"Activity", 'DateTime'>
   readonly endAt: Prisma.FieldRef<"Activity", 'DateTime'>
+  readonly governorateId: Prisma.FieldRef<"Activity", 'Int'>
   readonly location: Prisma.FieldRef<"Activity", 'String'>
-  readonly institution: Prisma.FieldRef<"Activity", 'String'>
   readonly latitude: Prisma.FieldRef<"Activity", 'Decimal'>
   readonly longitude: Prisma.FieldRef<"Activity", 'Decimal'>
+  readonly institution: Prisma.FieldRef<"Activity", 'String'>
   readonly description: Prisma.FieldRef<"Activity", 'String'>
-  readonly points: Prisma.FieldRef<"Activity", 'Int'>
+  readonly capacity: Prisma.FieldRef<"Activity", 'Int'>
+  readonly registrationFeeSyp: Prisma.FieldRef<"Activity", 'Decimal'>
+  readonly attendanceCpdPoints: Prisma.FieldRef<"Activity", 'Decimal'>
+  readonly participationCpdPoints: Prisma.FieldRef<"Activity", 'Decimal'>
+  readonly minAttendancePercentage: Prisma.FieldRef<"Activity", 'Decimal'>
+  readonly activityPresidentName: Prisma.FieldRef<"Activity", 'String'>
   readonly specialistId: Prisma.FieldRef<"Activity", 'BigInt'>
   readonly formConfigId: Prisma.FieldRef<"Activity", 'BigInt'>
   readonly customFields: Prisma.FieldRef<"Activity", 'Json'>
@@ -1830,6 +3110,8 @@ export interface ActivityFieldRefs {
   readonly createdAt: Prisma.FieldRef<"Activity", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Activity", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"Activity", 'DateTime'>
+  readonly activitySeriesId: Prisma.FieldRef<"Activity", 'BigInt'>
+  readonly annualSequence: Prisma.FieldRef<"Activity", 'Int'>
 }
     
 
@@ -2231,27 +3513,75 @@ export type ActivityDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
 }
 
 /**
- * Activity.attendances
+ * Activity.sessions
  */
-export type Activity$attendancesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Activity$sessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the ConferenceAttendance
+   * Select specific fields to fetch from the ActivitySession
    */
-  select?: Prisma.ConferenceAttendanceSelect<ExtArgs> | null
+  select?: Prisma.ActivitySessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the ConferenceAttendance
+   * Omit specific fields from the ActivitySession
    */
-  omit?: Prisma.ConferenceAttendanceOmit<ExtArgs> | null
+  omit?: Prisma.ActivitySessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.ConferenceAttendanceInclude<ExtArgs> | null
-  where?: Prisma.ConferenceAttendanceWhereInput
-  orderBy?: Prisma.ConferenceAttendanceOrderByWithRelationInput | Prisma.ConferenceAttendanceOrderByWithRelationInput[]
-  cursor?: Prisma.ConferenceAttendanceWhereUniqueInput
+  include?: Prisma.ActivitySessionInclude<ExtArgs> | null
+  where?: Prisma.ActivitySessionWhereInput
+  orderBy?: Prisma.ActivitySessionOrderByWithRelationInput | Prisma.ActivitySessionOrderByWithRelationInput[]
+  cursor?: Prisma.ActivitySessionWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.ConferenceAttendanceScalarFieldEnum | Prisma.ConferenceAttendanceScalarFieldEnum[]
+  distinct?: Prisma.ActivitySessionScalarFieldEnum | Prisma.ActivitySessionScalarFieldEnum[]
+}
+
+/**
+ * Activity.registrations
+ */
+export type Activity$registrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ActivityRegistration
+   */
+  select?: Prisma.ActivityRegistrationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ActivityRegistration
+   */
+  omit?: Prisma.ActivityRegistrationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ActivityRegistrationInclude<ExtArgs> | null
+  where?: Prisma.ActivityRegistrationWhereInput
+  orderBy?: Prisma.ActivityRegistrationOrderByWithRelationInput | Prisma.ActivityRegistrationOrderByWithRelationInput[]
+  cursor?: Prisma.ActivityRegistrationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ActivityRegistrationScalarFieldEnum | Prisma.ActivityRegistrationScalarFieldEnum[]
+}
+
+/**
+ * Activity.organizations
+ */
+export type Activity$organizationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ActivityOrganization
+   */
+  select?: Prisma.ActivityOrganizationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ActivityOrganization
+   */
+  omit?: Prisma.ActivityOrganizationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ActivityOrganizationInclude<ExtArgs> | null
+  where?: Prisma.ActivityOrganizationWhereInput
+  orderBy?: Prisma.ActivityOrganizationOrderByWithRelationInput | Prisma.ActivityOrganizationOrderByWithRelationInput[]
+  cursor?: Prisma.ActivityOrganizationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ActivityOrganizationScalarFieldEnum | Prisma.ActivityOrganizationScalarFieldEnum[]
 }
 
 /**

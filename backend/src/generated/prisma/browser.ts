@@ -23,30 +23,65 @@ export * from './enums.js';
  */
 export type ActivityFormConfig = Prisma.ActivityFormConfigModel
 /**
+ * Model ActivityOrganization
+ * 
+ */
+export type ActivityOrganization = Prisma.ActivityOrganizationModel
+/**
+ * Model ActivityRegistration
+ * 
+ */
+export type ActivityRegistration = Prisma.ActivityRegistrationModel
+/**
+ * Model ActivitySeries
+ * 
+ */
+export type ActivitySeries = Prisma.ActivitySeriesModel
+/**
+ * Model ActivitySession
+ * 
+ */
+export type ActivitySession = Prisma.ActivitySessionModel
+/**
  * Model Activity
  * 
  */
 export type Activity = Prisma.ActivityModel
+/**
+ * Model CertificateSettings
+ * 
+ */
+export type CertificateSettings = Prisma.CertificateSettingsModel
 /**
  * Model Certificate
  * 
  */
 export type Certificate = Prisma.CertificateModel
 /**
- * Model ConferenceAttendance
- * 
- */
-export type ConferenceAttendance = Prisma.ConferenceAttendanceModel
-/**
  * Model Doctor
  * 
  */
 export type Doctor = Prisma.DoctorModel
 /**
+ * Model Governorate
+ * 
+ */
+export type Governorate = Prisma.GovernorateModel
+/**
+ * Model Organization
+ * 
+ */
+export type Organization = Prisma.OrganizationModel
+/**
  * Model Payment
  * 
  */
 export type Payment = Prisma.PaymentModel
+/**
+ * Model SessionAttendance
+ * 
+ */
+export type SessionAttendance = Prisma.SessionAttendanceModel
 /**
  * Model Specialist
  * 

@@ -1,0 +1,10 @@
+model Governorate {
+  id     Int    @id @default(autoincrement())
+  nameAr String @unique @map("name_ar")
+  nameEn String @unique @map("name_en")
+
+  activities Activity[]
+  doctors    Doctor[]
+
+  @@map("governorates")
+}

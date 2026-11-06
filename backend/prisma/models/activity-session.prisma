@@ -1,0 +1,17 @@
+model ActivitySession {
+  id         BigInt @id @default(autoincrement())
+  activityId BigInt @map("activity_id")
+
+  startAt DateTime @map("start_at") @db.Timestamptz(3)
+  endAt   DateTime @map("end_at") @db.Timestamptz(3)
+
+  activity Activity @relation(fields: [activityId], references: [id])
+
+  attendances SessionAttendance[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([activityId])
+  @@map("activity_sessions")
+}

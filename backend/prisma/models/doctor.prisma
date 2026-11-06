@@ -1,24 +1,42 @@
 model Doctor {
-    id           BigInt @id @default(autoincrement())
-    userId       BigInt @unique @map("user_id")
-    specialistId BigInt @map("specialist_id")
+  id           BigInt      @id @default(autoincrement())
+  userId       BigInt      @unique @map("user_id")
+  specialistId BigInt      @map("specialist_id")
+  nationality  Nationality
+  doctorType   DoctorType  @map("doctor_type")
 
-    nationalId          String   @unique @map("national_id")
-    residence           String
-    clinicAddress       String   @map("clinic_address")
-    phoneNumber         String   @map("phone_number")
-    certificateIssuedAt DateTime @map("certificate_issued_at") @db.Date
-    certificateNumber   String   @map("certificate_number")
-    fatherName          String   @map("father_name")
+  nationalId     String? @unique @map("national_id")
+  passportNumber String? @map("passport_number")
+  palestinianId  String? @map("palestinian_id")
+  governorateId  Int     @map("governorate_id")
 
-    user       User       @relation(fields: [userId], references: [id])
-    specialist Specialist @relation(fields: [specialistId], references: [id])
+  clinicAddress       String   @map("clinic_address")
+  phoneNumber         String   @map("phone_number")
+  certificateIssuedAt DateTime @map("certificate_issued_at") @db.Date
+  certificateNumber   String   @map("certificate_number")
+  fatherName          String   @map("father_name")
 
-    attendances ConferenceAttendance[]
+  user        User        @relation(fields: [userId], references: [id])
+  specialist  Specialist  @relation(fields: [specialistId], references: [id])
+  governorate Governorate @relation(fields: [governorateId], references: [id])
 
-    createdAt DateTime @default(now()) @map("created_at")
-    updatedAt DateTime @updatedAt @map("updated_at")
+  activityRegistrations ActivityRegistration[]
 
-    @@index([specialistId])
-    @@map("doctors")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([governorateId])
+  @@index([specialistId])
+  @@map("doctors")
+}
+
+enum Nationality {
+  SYRIAN
+  NON_SYRIAN
+  PALESTINIAN
+}
+
+enum DoctorType {
+  RESIDENT
+  SPECIALIST
 }

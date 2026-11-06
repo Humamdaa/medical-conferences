@@ -1,0 +1,21 @@
+enum OrganizationRole {
+  PRIMARY_SPONSOR
+  EXECUTING_ORGANIZER
+  COLLABORATOR
+}
+
+model ActivityOrganization {
+  id             BigInt @id @default(autoincrement())
+  activityId     BigInt @map("activity_id")
+  organizationId BigInt @map("organization_id")
+
+  role         OrganizationRole
+  displayOrder Int              @default(0) @map("display_order")
+
+  activity     Activity     @relation(fields: [activityId], references: [id])
+  organization Organization @relation(fields: [organizationId], references: [id])
+
+  @@unique([activityId, organizationId, role])
+  @@index([organizationId])
+  @@map("activity_organizations")
+}

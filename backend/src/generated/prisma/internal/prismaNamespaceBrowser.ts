@@ -52,11 +52,18 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   ActivityFormConfig: 'ActivityFormConfig',
+  ActivityOrganization: 'ActivityOrganization',
+  ActivityRegistration: 'ActivityRegistration',
+  ActivitySeries: 'ActivitySeries',
+  ActivitySession: 'ActivitySession',
   Activity: 'Activity',
+  CertificateSettings: 'CertificateSettings',
   Certificate: 'Certificate',
-  ConferenceAttendance: 'ConferenceAttendance',
   Doctor: 'Doctor',
+  Governorate: 'Governorate',
+  Organization: 'Organization',
   Payment: 'Payment',
+  SessionAttendance: 'SessionAttendance',
   Specialist: 'Specialist',
   User: 'User'
 } as const
@@ -88,33 +95,97 @@ export const ActivityFormConfigScalarFieldEnum = {
 export type ActivityFormConfigScalarFieldEnum = (typeof ActivityFormConfigScalarFieldEnum)[keyof typeof ActivityFormConfigScalarFieldEnum]
 
 
+export const ActivityOrganizationScalarFieldEnum = {
+  id: 'id',
+  activityId: 'activityId',
+  organizationId: 'organizationId',
+  role: 'role',
+  displayOrder: 'displayOrder'
+} as const
+
+export type ActivityOrganizationScalarFieldEnum = (typeof ActivityOrganizationScalarFieldEnum)[keyof typeof ActivityOrganizationScalarFieldEnum]
+
+
+export const ActivityRegistrationScalarFieldEnum = {
+  id: 'id',
+  doctorId: 'doctorId',
+  activityId: 'activityId',
+  participationRole: 'participationRole',
+  pointsAwarded: 'pointsAwarded',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ActivityRegistrationScalarFieldEnum = (typeof ActivityRegistrationScalarFieldEnum)[keyof typeof ActivityRegistrationScalarFieldEnum]
+
+
+export const ActivitySeriesScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+} as const
+
+export type ActivitySeriesScalarFieldEnum = (typeof ActivitySeriesScalarFieldEnum)[keyof typeof ActivitySeriesScalarFieldEnum]
+
+
+export const ActivitySessionScalarFieldEnum = {
+  id: 'id',
+  activityId: 'activityId',
+  startAt: 'startAt',
+  endAt: 'endAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ActivitySessionScalarFieldEnum = (typeof ActivitySessionScalarFieldEnum)[keyof typeof ActivitySessionScalarFieldEnum]
+
+
 export const ActivityScalarFieldEnum = {
   id: 'id',
   name: 'name',
   activityType: 'activityType',
   startAt: 'startAt',
   endAt: 'endAt',
+  governorateId: 'governorateId',
   location: 'location',
-  institution: 'institution',
   latitude: 'latitude',
   longitude: 'longitude',
+  institution: 'institution',
   description: 'description',
-  points: 'points',
+  capacity: 'capacity',
+  registrationFeeSyp: 'registrationFeeSyp',
+  attendanceCpdPoints: 'attendanceCpdPoints',
+  participationCpdPoints: 'participationCpdPoints',
+  minAttendancePercentage: 'minAttendancePercentage',
+  activityPresidentName: 'activityPresidentName',
   specialistId: 'specialistId',
   formConfigId: 'formConfigId',
   customFields: 'customFields',
   formSchemaSnapshot: 'formSchemaSnapshot',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
+  deletedAt: 'deletedAt',
+  activitySeriesId: 'activitySeriesId',
+  annualSequence: 'annualSequence'
 } as const
 
 export type ActivityScalarFieldEnum = (typeof ActivityScalarFieldEnum)[keyof typeof ActivityScalarFieldEnum]
 
 
+export const CertificateSettingsScalarFieldEnum = {
+  id: 'id',
+  organizationName: 'organizationName',
+  organizationLogoPath: 'organizationLogoPath',
+  directorGeneralName: 'directorGeneralName',
+  templatePath: 'templatePath',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CertificateSettingsScalarFieldEnum = (typeof CertificateSettingsScalarFieldEnum)[keyof typeof CertificateSettingsScalarFieldEnum]
+
+
 export const CertificateScalarFieldEnum = {
   id: 'id',
-  conferenceAttendanceId: 'conferenceAttendanceId',
+  activityRegistrationId: 'activityRegistrationId',
   certificateNumber: 'certificateNumber',
   filePath: 'filePath',
   issuedAt: 'issuedAt',
@@ -125,27 +196,16 @@ export const CertificateScalarFieldEnum = {
 export type CertificateScalarFieldEnum = (typeof CertificateScalarFieldEnum)[keyof typeof CertificateScalarFieldEnum]
 
 
-export const ConferenceAttendanceScalarFieldEnum = {
-  id: 'id',
-  doctorId: 'doctorId',
-  activityId: 'activityId',
-  status: 'status',
-  participationRole: 'participationRole',
-  pointsAwarded: 'pointsAwarded',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  attendedAt: 'attendedAt'
-} as const
-
-export type ConferenceAttendanceScalarFieldEnum = (typeof ConferenceAttendanceScalarFieldEnum)[keyof typeof ConferenceAttendanceScalarFieldEnum]
-
-
 export const DoctorScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   specialistId: 'specialistId',
+  nationality: 'nationality',
+  doctorType: 'doctorType',
   nationalId: 'nationalId',
-  residence: 'residence',
+  passportNumber: 'passportNumber',
+  palestinianId: 'palestinianId',
+  governorateId: 'governorateId',
   clinicAddress: 'clinicAddress',
   phoneNumber: 'phoneNumber',
   certificateIssuedAt: 'certificateIssuedAt',
@@ -158,9 +218,29 @@ export const DoctorScalarFieldEnum = {
 export type DoctorScalarFieldEnum = (typeof DoctorScalarFieldEnum)[keyof typeof DoctorScalarFieldEnum]
 
 
+export const GovernorateScalarFieldEnum = {
+  id: 'id',
+  nameAr: 'nameAr',
+  nameEn: 'nameEn'
+} as const
+
+export type GovernorateScalarFieldEnum = (typeof GovernorateScalarFieldEnum)[keyof typeof GovernorateScalarFieldEnum]
+
+
+export const OrganizationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  logoPath: 'logoPath',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrganizationScalarFieldEnum = (typeof OrganizationScalarFieldEnum)[keyof typeof OrganizationScalarFieldEnum]
+
+
 export const PaymentScalarFieldEnum = {
   id: 'id',
-  attendanceId: 'attendanceId',
+  registrationId: 'registrationId',
   provider: 'provider',
   amount: 'amount',
   currency: 'currency',
@@ -173,10 +253,24 @@ export const PaymentScalarFieldEnum = {
 export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
 
 
+export const SessionAttendanceScalarFieldEnum = {
+  id: 'id',
+  sessionId: 'sessionId',
+  registrationId: 'registrationId',
+  checkInAt: 'checkInAt',
+  checkOutAt: 'checkOutAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SessionAttendanceScalarFieldEnum = (typeof SessionAttendanceScalarFieldEnum)[keyof typeof SessionAttendanceScalarFieldEnum]
+
+
 export const SpecialistScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
+  code: 'code',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

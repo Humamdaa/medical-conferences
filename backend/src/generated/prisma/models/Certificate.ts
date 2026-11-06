@@ -28,17 +28,17 @@ export type AggregateCertificate = {
 
 export type CertificateAvgAggregateOutputType = {
   id: number | null
-  conferenceAttendanceId: number | null
+  activityRegistrationId: number | null
 }
 
 export type CertificateSumAggregateOutputType = {
   id: bigint | null
-  conferenceAttendanceId: bigint | null
+  activityRegistrationId: bigint | null
 }
 
 export type CertificateMinAggregateOutputType = {
   id: bigint | null
-  conferenceAttendanceId: bigint | null
+  activityRegistrationId: bigint | null
   certificateNumber: string | null
   filePath: string | null
   issuedAt: Date | null
@@ -48,7 +48,7 @@ export type CertificateMinAggregateOutputType = {
 
 export type CertificateMaxAggregateOutputType = {
   id: bigint | null
-  conferenceAttendanceId: bigint | null
+  activityRegistrationId: bigint | null
   certificateNumber: string | null
   filePath: string | null
   issuedAt: Date | null
@@ -58,7 +58,7 @@ export type CertificateMaxAggregateOutputType = {
 
 export type CertificateCountAggregateOutputType = {
   id: number
-  conferenceAttendanceId: number
+  activityRegistrationId: number
   certificateNumber: number
   filePath: number
   issuedAt: number
@@ -70,17 +70,17 @@ export type CertificateCountAggregateOutputType = {
 
 export type CertificateAvgAggregateInputType = {
   id?: true
-  conferenceAttendanceId?: true
+  activityRegistrationId?: true
 }
 
 export type CertificateSumAggregateInputType = {
   id?: true
-  conferenceAttendanceId?: true
+  activityRegistrationId?: true
 }
 
 export type CertificateMinAggregateInputType = {
   id?: true
-  conferenceAttendanceId?: true
+  activityRegistrationId?: true
   certificateNumber?: true
   filePath?: true
   issuedAt?: true
@@ -90,7 +90,7 @@ export type CertificateMinAggregateInputType = {
 
 export type CertificateMaxAggregateInputType = {
   id?: true
-  conferenceAttendanceId?: true
+  activityRegistrationId?: true
   certificateNumber?: true
   filePath?: true
   issuedAt?: true
@@ -100,7 +100,7 @@ export type CertificateMaxAggregateInputType = {
 
 export type CertificateCountAggregateInputType = {
   id?: true
-  conferenceAttendanceId?: true
+  activityRegistrationId?: true
   certificateNumber?: true
   filePath?: true
   issuedAt?: true
@@ -197,7 +197,7 @@ export type CertificateGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type CertificateGroupByOutputType = {
   id: bigint
-  conferenceAttendanceId: bigint
+  activityRegistrationId: bigint
   certificateNumber: string
   filePath: string
   issuedAt: Date
@@ -230,29 +230,29 @@ export type CertificateWhereInput = {
   OR?: Prisma.CertificateWhereInput[]
   NOT?: Prisma.CertificateWhereInput | Prisma.CertificateWhereInput[]
   id?: Prisma.BigIntFilter<"Certificate"> | bigint | number
-  conferenceAttendanceId?: Prisma.BigIntFilter<"Certificate"> | bigint | number
+  activityRegistrationId?: Prisma.BigIntFilter<"Certificate"> | bigint | number
   certificateNumber?: Prisma.StringFilter<"Certificate"> | string
   filePath?: Prisma.StringFilter<"Certificate"> | string
   issuedAt?: Prisma.DateTimeFilter<"Certificate"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Certificate"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Certificate"> | Date | string
-  attendance?: Prisma.XOR<Prisma.ConferenceAttendanceScalarRelationFilter, Prisma.ConferenceAttendanceWhereInput>
+  registration?: Prisma.XOR<Prisma.ActivityRegistrationScalarRelationFilter, Prisma.ActivityRegistrationWhereInput>
 }
 
 export type CertificateOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  conferenceAttendanceId?: Prisma.SortOrder
+  activityRegistrationId?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   filePath?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  attendance?: Prisma.ConferenceAttendanceOrderByWithRelationInput
+  registration?: Prisma.ActivityRegistrationOrderByWithRelationInput
 }
 
 export type CertificateWhereUniqueInput = Prisma.AtLeast<{
   id?: bigint | number
-  conferenceAttendanceId?: bigint | number
+  activityRegistrationId?: bigint | number
   certificateNumber?: string
   AND?: Prisma.CertificateWhereInput | Prisma.CertificateWhereInput[]
   OR?: Prisma.CertificateWhereInput[]
@@ -261,12 +261,12 @@ export type CertificateWhereUniqueInput = Prisma.AtLeast<{
   issuedAt?: Prisma.DateTimeFilter<"Certificate"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Certificate"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Certificate"> | Date | string
-  attendance?: Prisma.XOR<Prisma.ConferenceAttendanceScalarRelationFilter, Prisma.ConferenceAttendanceWhereInput>
-}, "id" | "conferenceAttendanceId" | "certificateNumber">
+  registration?: Prisma.XOR<Prisma.ActivityRegistrationScalarRelationFilter, Prisma.ActivityRegistrationWhereInput>
+}, "id" | "activityRegistrationId" | "certificateNumber">
 
 export type CertificateOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  conferenceAttendanceId?: Prisma.SortOrder
+  activityRegistrationId?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   filePath?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
@@ -284,7 +284,7 @@ export type CertificateScalarWhereWithAggregatesInput = {
   OR?: Prisma.CertificateScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CertificateScalarWhereWithAggregatesInput | Prisma.CertificateScalarWhereWithAggregatesInput[]
   id?: Prisma.BigIntWithAggregatesFilter<"Certificate"> | bigint | number
-  conferenceAttendanceId?: Prisma.BigIntWithAggregatesFilter<"Certificate"> | bigint | number
+  activityRegistrationId?: Prisma.BigIntWithAggregatesFilter<"Certificate"> | bigint | number
   certificateNumber?: Prisma.StringWithAggregatesFilter<"Certificate"> | string
   filePath?: Prisma.StringWithAggregatesFilter<"Certificate"> | string
   issuedAt?: Prisma.DateTimeWithAggregatesFilter<"Certificate"> | Date | string
@@ -299,12 +299,12 @@ export type CertificateCreateInput = {
   issuedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
-  attendance: Prisma.ConferenceAttendanceCreateNestedOneWithoutCertificateInput
+  registration: Prisma.ActivityRegistrationCreateNestedOneWithoutCertificateInput
 }
 
 export type CertificateUncheckedCreateInput = {
   id?: bigint | number
-  conferenceAttendanceId: bigint | number
+  activityRegistrationId: bigint | number
   certificateNumber: string
   filePath: string
   issuedAt?: Date | string
@@ -319,12 +319,12 @@ export type CertificateUpdateInput = {
   issuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  attendance?: Prisma.ConferenceAttendanceUpdateOneRequiredWithoutCertificateNestedInput
+  registration?: Prisma.ActivityRegistrationUpdateOneRequiredWithoutCertificateNestedInput
 }
 
 export type CertificateUncheckedUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  conferenceAttendanceId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  activityRegistrationId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
   filePath?: Prisma.StringFieldUpdateOperationsInput | string
   issuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -334,7 +334,7 @@ export type CertificateUncheckedUpdateInput = {
 
 export type CertificateCreateManyInput = {
   id?: bigint | number
-  conferenceAttendanceId: bigint | number
+  activityRegistrationId: bigint | number
   certificateNumber: string
   filePath: string
   issuedAt?: Date | string
@@ -353,7 +353,7 @@ export type CertificateUpdateManyMutationInput = {
 
 export type CertificateUncheckedUpdateManyInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  conferenceAttendanceId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  activityRegistrationId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
   filePath?: Prisma.StringFieldUpdateOperationsInput | string
   issuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -361,9 +361,14 @@ export type CertificateUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+export type CertificateNullableScalarRelationFilter = {
+  is?: Prisma.CertificateWhereInput | null
+  isNot?: Prisma.CertificateWhereInput | null
+}
+
 export type CertificateCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  conferenceAttendanceId?: Prisma.SortOrder
+  activityRegistrationId?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   filePath?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
@@ -373,12 +378,12 @@ export type CertificateCountOrderByAggregateInput = {
 
 export type CertificateAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  conferenceAttendanceId?: Prisma.SortOrder
+  activityRegistrationId?: Prisma.SortOrder
 }
 
 export type CertificateMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  conferenceAttendanceId?: Prisma.SortOrder
+  activityRegistrationId?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   filePath?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
@@ -388,7 +393,7 @@ export type CertificateMaxOrderByAggregateInput = {
 
 export type CertificateMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  conferenceAttendanceId?: Prisma.SortOrder
+  activityRegistrationId?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   filePath?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
@@ -398,47 +403,42 @@ export type CertificateMinOrderByAggregateInput = {
 
 export type CertificateSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  conferenceAttendanceId?: Prisma.SortOrder
+  activityRegistrationId?: Prisma.SortOrder
 }
 
-export type CertificateNullableScalarRelationFilter = {
-  is?: Prisma.CertificateWhereInput | null
-  isNot?: Prisma.CertificateWhereInput | null
-}
-
-export type CertificateCreateNestedOneWithoutAttendanceInput = {
-  create?: Prisma.XOR<Prisma.CertificateCreateWithoutAttendanceInput, Prisma.CertificateUncheckedCreateWithoutAttendanceInput>
-  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutAttendanceInput
+export type CertificateCreateNestedOneWithoutRegistrationInput = {
+  create?: Prisma.XOR<Prisma.CertificateCreateWithoutRegistrationInput, Prisma.CertificateUncheckedCreateWithoutRegistrationInput>
+  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutRegistrationInput
   connect?: Prisma.CertificateWhereUniqueInput
 }
 
-export type CertificateUncheckedCreateNestedOneWithoutAttendanceInput = {
-  create?: Prisma.XOR<Prisma.CertificateCreateWithoutAttendanceInput, Prisma.CertificateUncheckedCreateWithoutAttendanceInput>
-  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutAttendanceInput
+export type CertificateUncheckedCreateNestedOneWithoutRegistrationInput = {
+  create?: Prisma.XOR<Prisma.CertificateCreateWithoutRegistrationInput, Prisma.CertificateUncheckedCreateWithoutRegistrationInput>
+  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutRegistrationInput
   connect?: Prisma.CertificateWhereUniqueInput
 }
 
-export type CertificateUpdateOneWithoutAttendanceNestedInput = {
-  create?: Prisma.XOR<Prisma.CertificateCreateWithoutAttendanceInput, Prisma.CertificateUncheckedCreateWithoutAttendanceInput>
-  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutAttendanceInput
-  upsert?: Prisma.CertificateUpsertWithoutAttendanceInput
+export type CertificateUpdateOneWithoutRegistrationNestedInput = {
+  create?: Prisma.XOR<Prisma.CertificateCreateWithoutRegistrationInput, Prisma.CertificateUncheckedCreateWithoutRegistrationInput>
+  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutRegistrationInput
+  upsert?: Prisma.CertificateUpsertWithoutRegistrationInput
   disconnect?: Prisma.CertificateWhereInput | boolean
   delete?: Prisma.CertificateWhereInput | boolean
   connect?: Prisma.CertificateWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CertificateUpdateToOneWithWhereWithoutAttendanceInput, Prisma.CertificateUpdateWithoutAttendanceInput>, Prisma.CertificateUncheckedUpdateWithoutAttendanceInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CertificateUpdateToOneWithWhereWithoutRegistrationInput, Prisma.CertificateUpdateWithoutRegistrationInput>, Prisma.CertificateUncheckedUpdateWithoutRegistrationInput>
 }
 
-export type CertificateUncheckedUpdateOneWithoutAttendanceNestedInput = {
-  create?: Prisma.XOR<Prisma.CertificateCreateWithoutAttendanceInput, Prisma.CertificateUncheckedCreateWithoutAttendanceInput>
-  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutAttendanceInput
-  upsert?: Prisma.CertificateUpsertWithoutAttendanceInput
+export type CertificateUncheckedUpdateOneWithoutRegistrationNestedInput = {
+  create?: Prisma.XOR<Prisma.CertificateCreateWithoutRegistrationInput, Prisma.CertificateUncheckedCreateWithoutRegistrationInput>
+  connectOrCreate?: Prisma.CertificateCreateOrConnectWithoutRegistrationInput
+  upsert?: Prisma.CertificateUpsertWithoutRegistrationInput
   disconnect?: Prisma.CertificateWhereInput | boolean
   delete?: Prisma.CertificateWhereInput | boolean
   connect?: Prisma.CertificateWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CertificateUpdateToOneWithWhereWithoutAttendanceInput, Prisma.CertificateUpdateWithoutAttendanceInput>, Prisma.CertificateUncheckedUpdateWithoutAttendanceInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CertificateUpdateToOneWithWhereWithoutRegistrationInput, Prisma.CertificateUpdateWithoutRegistrationInput>, Prisma.CertificateUncheckedUpdateWithoutRegistrationInput>
 }
 
-export type CertificateCreateWithoutAttendanceInput = {
+export type CertificateCreateWithoutRegistrationInput = {
   id?: bigint | number
   certificateNumber: string
   filePath: string
@@ -447,7 +447,7 @@ export type CertificateCreateWithoutAttendanceInput = {
   updatedAt?: Date | string
 }
 
-export type CertificateUncheckedCreateWithoutAttendanceInput = {
+export type CertificateUncheckedCreateWithoutRegistrationInput = {
   id?: bigint | number
   certificateNumber: string
   filePath: string
@@ -456,23 +456,23 @@ export type CertificateUncheckedCreateWithoutAttendanceInput = {
   updatedAt?: Date | string
 }
 
-export type CertificateCreateOrConnectWithoutAttendanceInput = {
+export type CertificateCreateOrConnectWithoutRegistrationInput = {
   where: Prisma.CertificateWhereUniqueInput
-  create: Prisma.XOR<Prisma.CertificateCreateWithoutAttendanceInput, Prisma.CertificateUncheckedCreateWithoutAttendanceInput>
+  create: Prisma.XOR<Prisma.CertificateCreateWithoutRegistrationInput, Prisma.CertificateUncheckedCreateWithoutRegistrationInput>
 }
 
-export type CertificateUpsertWithoutAttendanceInput = {
-  update: Prisma.XOR<Prisma.CertificateUpdateWithoutAttendanceInput, Prisma.CertificateUncheckedUpdateWithoutAttendanceInput>
-  create: Prisma.XOR<Prisma.CertificateCreateWithoutAttendanceInput, Prisma.CertificateUncheckedCreateWithoutAttendanceInput>
+export type CertificateUpsertWithoutRegistrationInput = {
+  update: Prisma.XOR<Prisma.CertificateUpdateWithoutRegistrationInput, Prisma.CertificateUncheckedUpdateWithoutRegistrationInput>
+  create: Prisma.XOR<Prisma.CertificateCreateWithoutRegistrationInput, Prisma.CertificateUncheckedCreateWithoutRegistrationInput>
   where?: Prisma.CertificateWhereInput
 }
 
-export type CertificateUpdateToOneWithWhereWithoutAttendanceInput = {
+export type CertificateUpdateToOneWithWhereWithoutRegistrationInput = {
   where?: Prisma.CertificateWhereInput
-  data: Prisma.XOR<Prisma.CertificateUpdateWithoutAttendanceInput, Prisma.CertificateUncheckedUpdateWithoutAttendanceInput>
+  data: Prisma.XOR<Prisma.CertificateUpdateWithoutRegistrationInput, Prisma.CertificateUncheckedUpdateWithoutRegistrationInput>
 }
 
-export type CertificateUpdateWithoutAttendanceInput = {
+export type CertificateUpdateWithoutRegistrationInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
   filePath?: Prisma.StringFieldUpdateOperationsInput | string
@@ -481,7 +481,7 @@ export type CertificateUpdateWithoutAttendanceInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CertificateUncheckedUpdateWithoutAttendanceInput = {
+export type CertificateUncheckedUpdateWithoutRegistrationInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
   filePath?: Prisma.StringFieldUpdateOperationsInput | string
@@ -494,40 +494,40 @@ export type CertificateUncheckedUpdateWithoutAttendanceInput = {
 
 export type CertificateSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  conferenceAttendanceId?: boolean
+  activityRegistrationId?: boolean
   certificateNumber?: boolean
   filePath?: boolean
   issuedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  attendance?: boolean | Prisma.ConferenceAttendanceDefaultArgs<ExtArgs>
+  registration?: boolean | Prisma.ActivityRegistrationDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["certificate"]>
 
 export type CertificateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  conferenceAttendanceId?: boolean
+  activityRegistrationId?: boolean
   certificateNumber?: boolean
   filePath?: boolean
   issuedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  attendance?: boolean | Prisma.ConferenceAttendanceDefaultArgs<ExtArgs>
+  registration?: boolean | Prisma.ActivityRegistrationDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["certificate"]>
 
 export type CertificateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  conferenceAttendanceId?: boolean
+  activityRegistrationId?: boolean
   certificateNumber?: boolean
   filePath?: boolean
   issuedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  attendance?: boolean | Prisma.ConferenceAttendanceDefaultArgs<ExtArgs>
+  registration?: boolean | Prisma.ActivityRegistrationDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["certificate"]>
 
 export type CertificateSelectScalar = {
   id?: boolean
-  conferenceAttendanceId?: boolean
+  activityRegistrationId?: boolean
   certificateNumber?: boolean
   filePath?: boolean
   issuedAt?: boolean
@@ -535,25 +535,25 @@ export type CertificateSelectScalar = {
   updatedAt?: boolean
 }
 
-export type CertificateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "conferenceAttendanceId" | "certificateNumber" | "filePath" | "issuedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["certificate"]>
+export type CertificateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "activityRegistrationId" | "certificateNumber" | "filePath" | "issuedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["certificate"]>
 export type CertificateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  attendance?: boolean | Prisma.ConferenceAttendanceDefaultArgs<ExtArgs>
+  registration?: boolean | Prisma.ActivityRegistrationDefaultArgs<ExtArgs>
 }
 export type CertificateIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  attendance?: boolean | Prisma.ConferenceAttendanceDefaultArgs<ExtArgs>
+  registration?: boolean | Prisma.ActivityRegistrationDefaultArgs<ExtArgs>
 }
 export type CertificateIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  attendance?: boolean | Prisma.ConferenceAttendanceDefaultArgs<ExtArgs>
+  registration?: boolean | Prisma.ActivityRegistrationDefaultArgs<ExtArgs>
 }
 
 export type $CertificatePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Certificate"
   objects: {
-    attendance: Prisma.$ConferenceAttendancePayload<ExtArgs>
+    registration: Prisma.$ActivityRegistrationPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
-    conferenceAttendanceId: bigint
+    activityRegistrationId: bigint
     certificateNumber: string
     filePath: string
     issuedAt: Date
@@ -953,7 +953,7 @@ readonly fields: CertificateFieldRefs;
  */
 export interface Prisma__CertificateClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  attendance<T extends Prisma.ConferenceAttendanceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ConferenceAttendanceDefaultArgs<ExtArgs>>): Prisma.Prisma__ConferenceAttendanceClient<runtime.Types.Result.GetResult<Prisma.$ConferenceAttendancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  registration<T extends Prisma.ActivityRegistrationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ActivityRegistrationDefaultArgs<ExtArgs>>): Prisma.Prisma__ActivityRegistrationClient<runtime.Types.Result.GetResult<Prisma.$ActivityRegistrationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -984,7 +984,7 @@ export interface Prisma__CertificateClient<T, Null = never, ExtArgs extends runt
  */
 export interface CertificateFieldRefs {
   readonly id: Prisma.FieldRef<"Certificate", 'BigInt'>
-  readonly conferenceAttendanceId: Prisma.FieldRef<"Certificate", 'BigInt'>
+  readonly activityRegistrationId: Prisma.FieldRef<"Certificate", 'BigInt'>
   readonly certificateNumber: Prisma.FieldRef<"Certificate", 'String'>
   readonly filePath: Prisma.FieldRef<"Certificate", 'String'>
   readonly issuedAt: Prisma.FieldRef<"Certificate", 'DateTime'>

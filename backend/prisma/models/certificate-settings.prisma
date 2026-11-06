@@ -1,0 +1,11 @@
+model CertificateSettings {
+  id                   Int     @id
+  organizationName     String  @map("organization_name")
+  organizationLogoPath String  @map("organization_logo_path")
+  directorGeneralName  String  @map("director_general_name")
+  templatePath         String? @map("template_path")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("certificate_settings")
+}

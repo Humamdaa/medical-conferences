@@ -38,6 +38,7 @@ export type SpecialistMinAggregateOutputType = {
   id: bigint | null
   name: string | null
   description: string | null
+  code: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -46,6 +47,7 @@ export type SpecialistMaxAggregateOutputType = {
   id: bigint | null
   name: string | null
   description: string | null
+  code: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -54,6 +56,7 @@ export type SpecialistCountAggregateOutputType = {
   id: number
   name: number
   description: number
+  code: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -72,6 +75,7 @@ export type SpecialistMinAggregateInputType = {
   id?: true
   name?: true
   description?: true
+  code?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -80,6 +84,7 @@ export type SpecialistMaxAggregateInputType = {
   id?: true
   name?: true
   description?: true
+  code?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -88,6 +93,7 @@ export type SpecialistCountAggregateInputType = {
   id?: true
   name?: true
   description?: true
+  code?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -183,6 +189,7 @@ export type SpecialistGroupByOutputType = {
   id: bigint
   name: string
   description: string | null
+  code: string
   createdAt: Date
   updatedAt: Date
   _count: SpecialistCountAggregateOutputType | null
@@ -214,6 +221,7 @@ export type SpecialistWhereInput = {
   id?: Prisma.BigIntFilter<"Specialist"> | bigint | number
   name?: Prisma.StringFilter<"Specialist"> | string
   description?: Prisma.StringNullableFilter<"Specialist"> | string | null
+  code?: Prisma.StringFilter<"Specialist"> | string
   createdAt?: Prisma.DateTimeFilter<"Specialist"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Specialist"> | Date | string
   doctors?: Prisma.DoctorListRelationFilter
@@ -224,6 +232,7 @@ export type SpecialistOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  code?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   doctors?: Prisma.DoctorOrderByRelationAggregateInput
@@ -233,6 +242,7 @@ export type SpecialistOrderByWithRelationInput = {
 export type SpecialistWhereUniqueInput = Prisma.AtLeast<{
   id?: bigint | number
   name?: string
+  code?: string
   AND?: Prisma.SpecialistWhereInput | Prisma.SpecialistWhereInput[]
   OR?: Prisma.SpecialistWhereInput[]
   NOT?: Prisma.SpecialistWhereInput | Prisma.SpecialistWhereInput[]
@@ -241,12 +251,13 @@ export type SpecialistWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"Specialist"> | Date | string
   doctors?: Prisma.DoctorListRelationFilter
   activities?: Prisma.ActivityListRelationFilter
-}, "id" | "name">
+}, "id" | "name" | "code">
 
 export type SpecialistOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  code?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.SpecialistCountOrderByAggregateInput
@@ -263,6 +274,7 @@ export type SpecialistScalarWhereWithAggregatesInput = {
   id?: Prisma.BigIntWithAggregatesFilter<"Specialist"> | bigint | number
   name?: Prisma.StringWithAggregatesFilter<"Specialist"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Specialist"> | string | null
+  code?: Prisma.StringWithAggregatesFilter<"Specialist"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Specialist"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Specialist"> | Date | string
 }
@@ -271,6 +283,7 @@ export type SpecialistCreateInput = {
   id?: bigint | number
   name: string
   description?: string | null
+  code: string
   createdAt?: Date | string
   updatedAt?: Date | string
   doctors?: Prisma.DoctorCreateNestedManyWithoutSpecialistInput
@@ -281,6 +294,7 @@ export type SpecialistUncheckedCreateInput = {
   id?: bigint | number
   name: string
   description?: string | null
+  code: string
   createdAt?: Date | string
   updatedAt?: Date | string
   doctors?: Prisma.DoctorUncheckedCreateNestedManyWithoutSpecialistInput
@@ -291,6 +305,7 @@ export type SpecialistUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   doctors?: Prisma.DoctorUpdateManyWithoutSpecialistNestedInput
@@ -301,6 +316,7 @@ export type SpecialistUncheckedUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   doctors?: Prisma.DoctorUncheckedUpdateManyWithoutSpecialistNestedInput
@@ -311,6 +327,7 @@ export type SpecialistCreateManyInput = {
   id?: bigint | number
   name: string
   description?: string | null
+  code: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -319,6 +336,7 @@ export type SpecialistUpdateManyMutationInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -327,6 +345,7 @@ export type SpecialistUncheckedUpdateManyInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -340,6 +359,7 @@ export type SpecialistCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  code?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -352,6 +372,7 @@ export type SpecialistMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  code?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -360,6 +381,7 @@ export type SpecialistMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  code?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -396,14 +418,11 @@ export type SpecialistUpdateOneRequiredWithoutDoctorsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SpecialistUpdateToOneWithWhereWithoutDoctorsInput, Prisma.SpecialistUpdateWithoutDoctorsInput>, Prisma.SpecialistUncheckedUpdateWithoutDoctorsInput>
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
 export type SpecialistCreateWithoutActivitiesInput = {
   id?: bigint | number
   name: string
   description?: string | null
+  code: string
   createdAt?: Date | string
   updatedAt?: Date | string
   doctors?: Prisma.DoctorCreateNestedManyWithoutSpecialistInput
@@ -413,6 +432,7 @@ export type SpecialistUncheckedCreateWithoutActivitiesInput = {
   id?: bigint | number
   name: string
   description?: string | null
+  code: string
   createdAt?: Date | string
   updatedAt?: Date | string
   doctors?: Prisma.DoctorUncheckedCreateNestedManyWithoutSpecialistInput
@@ -438,6 +458,7 @@ export type SpecialistUpdateWithoutActivitiesInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   doctors?: Prisma.DoctorUpdateManyWithoutSpecialistNestedInput
@@ -447,6 +468,7 @@ export type SpecialistUncheckedUpdateWithoutActivitiesInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   doctors?: Prisma.DoctorUncheckedUpdateManyWithoutSpecialistNestedInput
@@ -456,6 +478,7 @@ export type SpecialistCreateWithoutDoctorsInput = {
   id?: bigint | number
   name: string
   description?: string | null
+  code: string
   createdAt?: Date | string
   updatedAt?: Date | string
   activities?: Prisma.ActivityCreateNestedManyWithoutSpecialistInput
@@ -465,6 +488,7 @@ export type SpecialistUncheckedCreateWithoutDoctorsInput = {
   id?: bigint | number
   name: string
   description?: string | null
+  code: string
   createdAt?: Date | string
   updatedAt?: Date | string
   activities?: Prisma.ActivityUncheckedCreateNestedManyWithoutSpecialistInput
@@ -490,6 +514,7 @@ export type SpecialistUpdateWithoutDoctorsInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activities?: Prisma.ActivityUpdateManyWithoutSpecialistNestedInput
@@ -499,6 +524,7 @@ export type SpecialistUncheckedUpdateWithoutDoctorsInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activities?: Prisma.ActivityUncheckedUpdateManyWithoutSpecialistNestedInput
@@ -548,6 +574,7 @@ export type SpecialistSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   id?: boolean
   name?: boolean
   description?: boolean
+  code?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   doctors?: boolean | Prisma.Specialist$doctorsArgs<ExtArgs>
@@ -559,6 +586,7 @@ export type SpecialistSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   name?: boolean
   description?: boolean
+  code?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["specialist"]>
@@ -567,6 +595,7 @@ export type SpecialistSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   name?: boolean
   description?: boolean
+  code?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["specialist"]>
@@ -575,11 +604,12 @@ export type SpecialistSelectScalar = {
   id?: boolean
   name?: boolean
   description?: boolean
+  code?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SpecialistOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["specialist"]>
+export type SpecialistOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "code" | "createdAt" | "updatedAt", ExtArgs["result"]["specialist"]>
 export type SpecialistInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   doctors?: boolean | Prisma.Specialist$doctorsArgs<ExtArgs>
   activities?: boolean | Prisma.Specialist$activitiesArgs<ExtArgs>
@@ -598,6 +628,7 @@ export type $SpecialistPayload<ExtArgs extends runtime.Types.Extensions.Internal
     id: bigint
     name: string
     description: string | null
+    code: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["specialist"]>
@@ -1028,6 +1059,7 @@ export interface SpecialistFieldRefs {
   readonly id: Prisma.FieldRef<"Specialist", 'BigInt'>
   readonly name: Prisma.FieldRef<"Specialist", 'String'>
   readonly description: Prisma.FieldRef<"Specialist", 'String'>
+  readonly code: Prisma.FieldRef<"Specialist", 'String'>
   readonly createdAt: Prisma.FieldRef<"Specialist", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Specialist", 'DateTime'>
 }

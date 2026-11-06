@@ -9,13 +9,13 @@
 * 🟢 You can import this file directly.
 */
 
-export const AttendanceStatus = {
-  REGISTERED: 'REGISTERED',
-  ATTENDED: 'ATTENDED',
-  CANCELLED: 'CANCELLED'
+export const OrganizationRole = {
+  PRIMARY_SPONSOR: 'PRIMARY_SPONSOR',
+  EXECUTING_ORGANIZER: 'EXECUTING_ORGANIZER',
+  COLLABORATOR: 'COLLABORATOR'
 } as const
 
-export type AttendanceStatus = (typeof AttendanceStatus)[keyof typeof AttendanceStatus]
+export type OrganizationRole = (typeof OrganizationRole)[keyof typeof OrganizationRole]
 
 
 export const ParticipationRole = {
@@ -24,6 +24,23 @@ export const ParticipationRole = {
 } as const
 
 export type ParticipationRole = (typeof ParticipationRole)[keyof typeof ParticipationRole]
+
+
+export const Nationality = {
+  SYRIAN: 'SYRIAN',
+  NON_SYRIAN: 'NON_SYRIAN',
+  PALESTINIAN: 'PALESTINIAN'
+} as const
+
+export type Nationality = (typeof Nationality)[keyof typeof Nationality]
+
+
+export const DoctorType = {
+  RESIDENT: 'RESIDENT',
+  SPECIALIST: 'SPECIALIST'
+} as const
+
+export type DoctorType = (typeof DoctorType)[keyof typeof DoctorType]
 
 
 export const PaymentStatus = {
