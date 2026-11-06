@@ -3,7 +3,17 @@ import { http } from '../../../shared/api/http';
 export type Role = 'ADMIN' | 'SUPERVISOR' | 'DOCTOR';
 export interface AuthUser { id: string; firstName: string; lastName: string; email: string; role: Role; }
 export interface LoginPayload { email: string; password: string; }
-export interface RegisterPayload extends LoginPayload { firstName: string; lastName: string; }
+
+export interface RegisterPayload extends LoginPayload {
+  firstName: string;
+  lastName: string;
+
+  nationality: 'SYRIAN' | 'NON_SYRIAN' | 'PALESTINIAN';
+
+  nationalId: string | null;
+  passportNumber: string | null;
+  palestinianId: string | null;
+}
 export interface AuthResponse { message: string; user: AuthUser; }
 // Compatibility aliases for older auth screens; no duplicate interfaces.
 export type CurrentUser = AuthUser;

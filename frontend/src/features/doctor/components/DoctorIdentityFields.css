@@ -1,0 +1,75 @@
+.identity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 16px;
+    direction: rtl;
+}
+
+.identity-grid--single {
+    grid-template-columns: 1fr;
+}
+
+.identity-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.identity-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #18374a;
+}
+
+.identity-field label span {
+    color: #dc3545;
+}
+
+.identity-control {
+    box-sizing: border-box;
+    width: 100%;
+    height: 46px;
+    padding: 0 12px;
+    border: 1px solid #dfe8ef;
+    border-radius: 10px;
+    outline: none;
+    background: #f8fafc;
+    color: #18374a;
+    font: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.identity-control::placeholder {
+    color: #9aacb9;
+}
+
+.identity-control:focus {
+    border-color: #0d9f98;
+    box-shadow: 0 0 0 3px rgba(13, 159, 152, 0.12);
+}
+
+.identity-control[aria-invalid="true"] {
+    border-color: #df6a6a;
+}
+
+.identity-control:disabled,
+.identity-control:read-only {
+    background: #f1f4f6;
+    color: #8293a0;
+}
+
+.identity-error {
+    color: #c93b3b;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+@media (max-width: 380px) {
+    .identity-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -202,18 +202,18 @@ export type CertificateScalarFieldEnum = (typeof CertificateScalarFieldEnum)[key
 export const DoctorScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  specialistId: 'specialistId',
   nationality: 'nationality',
+  specialistId: 'specialistId',
   doctorType: 'doctorType',
-  nationalId: 'nationalId',
-  passportNumber: 'passportNumber',
-  palestinianId: 'palestinianId',
   governorateId: 'governorateId',
   clinicAddress: 'clinicAddress',
   phoneNumber: 'phoneNumber',
   certificateIssuedAt: 'certificateIssuedAt',
   certificateNumber: 'certificateNumber',
   fatherName: 'fatherName',
+  nationalId: 'nationalId',
+  passportNumber: 'passportNumber',
+  palestinianId: 'palestinianId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

@@ -355,6 +355,11 @@ export type SpecialistScalarRelationFilter = {
   isNot?: Prisma.SpecialistWhereInput
 }
 
+export type SpecialistNullableScalarRelationFilter = {
+  is?: Prisma.SpecialistWhereInput | null
+  isNot?: Prisma.SpecialistWhereInput | null
+}
+
 export type SpecialistCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -410,10 +415,12 @@ export type SpecialistCreateNestedOneWithoutDoctorsInput = {
   connect?: Prisma.SpecialistWhereUniqueInput
 }
 
-export type SpecialistUpdateOneRequiredWithoutDoctorsNestedInput = {
+export type SpecialistUpdateOneWithoutDoctorsNestedInput = {
   create?: Prisma.XOR<Prisma.SpecialistCreateWithoutDoctorsInput, Prisma.SpecialistUncheckedCreateWithoutDoctorsInput>
   connectOrCreate?: Prisma.SpecialistCreateOrConnectWithoutDoctorsInput
   upsert?: Prisma.SpecialistUpsertWithoutDoctorsInput
+  disconnect?: Prisma.SpecialistWhereInput | boolean
+  delete?: Prisma.SpecialistWhereInput | boolean
   connect?: Prisma.SpecialistWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.SpecialistUpdateToOneWithWhereWithoutDoctorsInput, Prisma.SpecialistUpdateWithoutDoctorsInput>, Prisma.SpecialistUncheckedUpdateWithoutDoctorsInput>
 }

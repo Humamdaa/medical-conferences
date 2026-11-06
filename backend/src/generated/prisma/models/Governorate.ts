@@ -295,6 +295,11 @@ export type GovernorateScalarRelationFilter = {
   isNot?: Prisma.GovernorateWhereInput
 }
 
+export type GovernorateNullableScalarRelationFilter = {
+  is?: Prisma.GovernorateWhereInput | null
+  isNot?: Prisma.GovernorateWhereInput | null
+}
+
 export type GovernorateCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nameAr?: Prisma.SortOrder
@@ -341,10 +346,12 @@ export type GovernorateCreateNestedOneWithoutDoctorsInput = {
   connect?: Prisma.GovernorateWhereUniqueInput
 }
 
-export type GovernorateUpdateOneRequiredWithoutDoctorsNestedInput = {
+export type GovernorateUpdateOneWithoutDoctorsNestedInput = {
   create?: Prisma.XOR<Prisma.GovernorateCreateWithoutDoctorsInput, Prisma.GovernorateUncheckedCreateWithoutDoctorsInput>
   connectOrCreate?: Prisma.GovernorateCreateOrConnectWithoutDoctorsInput
   upsert?: Prisma.GovernorateUpsertWithoutDoctorsInput
+  disconnect?: Prisma.GovernorateWhereInput | boolean
+  delete?: Prisma.GovernorateWhereInput | boolean
   connect?: Prisma.GovernorateWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.GovernorateUpdateToOneWithWhereWithoutDoctorsInput, Prisma.GovernorateUpdateWithoutDoctorsInput>, Prisma.GovernorateUncheckedUpdateWithoutDoctorsInput>
 }

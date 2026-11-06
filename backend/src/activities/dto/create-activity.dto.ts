@@ -1,7 +1,7 @@
 import { Transform } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import {
-  IsInt, IsISO8601, IsNumber, IsObject, IsOptional, IsString,
+  IsInt, IsISO8601, IsNotEmpty, IsNumber, IsObject, IsOptional, IsString,
   Matches, Max, MaxLength, Min, MinLength, ValidateBy,
 } from 'class-validator';
 
@@ -22,10 +22,12 @@ export class CreateActivityDto {
 
   @ApiProperty({ example: '2027-01-10T12:00:00+03:00', format: 'date-time', description: 'Must be later than startAt.' })
   @IsISO8601({ strict: true }) @Matches(/T.*(?:Z|[+-]\d{2}:\d{2})$/)
-  @ValidateBy({ name: 'endAfterStart', validator: {
-    validate: (value, args) => typeof value === 'string' && new Date(value).getTime() > new Date((args!.object as CreateActivityDto).startAt).getTime(),
-    defaultMessage: () => 'endAt must be later than startAt',
-  } })
+  @ValidateBy({
+    name: 'endAfterStart', validator: {
+      validate: (value, args) => typeof value === 'string' && new Date(value).getTime() > new Date((args!.object as CreateActivityDto).startAt).getTime(),
+      defaultMessage: () => 'endAt must be later than startAt',
+    }
+  })
   endAt: string;
 
   @ApiProperty({ example: 'Damascus', maxLength: 200 })
@@ -40,9 +42,13 @@ export class CreateActivityDto {
   @Transform(trim) @IsString() @MinLength(1) @MaxLength(10000)
   description: string;
 
-  @ApiProperty({ example: 5, minimum: 0, maximum: 2147483647 })
-  @IsInt() @Min(0) @Max(2147483647)
-  points: number;
+  @IsNumber()
+  @Min(0)
+  attendanceCpdPoints: number;
+
+  @IsNumber()
+  @Min(0)
+  participationCpdPoints: number;
 
   @ApiPropertyOptional({ example: 33.5138, minimum: -90, maximum: 90, nullable: true })
   @IsOptional() @IsNumber({ maxDecimalPlaces: 7 }) @Min(-90) @Max(90)
@@ -64,4 +70,27 @@ export class CreateActivityDto {
   @ApiProperty({ type: Object, example: {}, description: 'Values matching the published schema. {} is valid for an empty schema; include all required dynamic values otherwise. Required checkboxes must be true.' })
   @IsObject()
   customFields: Record<string, unknown>;
+
+
+  @IsString()
+  activitySeriesId: string;
+
+  @IsInt()
+  @Min(1)
+  governorateId: number;
+
+  @IsInt()
+  @Min(1)
+  capacity: number;
+
+  @IsString()
+  @IsNotEmpty()
+  activityPresidentName: string;
+
+
+
+  @IsNumber()
+  @Min(0)
+  registrationFeeSyp: number;
+
 }

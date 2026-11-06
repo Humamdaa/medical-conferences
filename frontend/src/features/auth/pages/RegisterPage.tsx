@@ -1,8 +1,10 @@
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowLeft, LockKeyhole, Mail, UserRound } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+
 import { AuthShell } from '../components/AuthShell';
 import { useAuth } from '../context/useAuth';
 import { ROLE_HOME } from '../routing/role-paths';
@@ -10,52 +12,207 @@ import { registerSchema } from '../schemas/auth.schemas';
 import type { RegisterValues } from '../schemas/auth.schemas';
 import { TextField } from '../../../shared/ui/TextField';
 
+import { DoctorIdentityFields } from '../../doctor/components/DoctorIdentityFields';
+
 export function RegisterPage() {
   const navigate = useNavigate();
   const { signUp } = useAuth();
   const [serverError, setServerError] = useState('');
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<RegisterValues>({
-    resolver: zodResolver(registerSchema),
-    defaultValues: { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' },
-  });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors, isSubmitting, isSubmitted }, } = useForm<RegisterValues>({
+      resolver: zodResolver(registerSchema),
+      defaultValues: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        nationality: 'SYRIAN',
+        nationalId: '',
+        passportNumber: '',
+        palestinianId: '',
+      },
+    });
+  const nationality = watch('nationality');
+  const nationalId = watch('nationalId');
+  const passportNumber = watch('passportNumber');
+  const palestinianId = watch('palestinianId');
 
   const onSubmit = handleSubmit(async (values) => {
     setServerError('');
+
     try {
       const user = await signUp({
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
         password: values.password,
+        nationality: values.nationality,
+        nationalId:
+          values.nationality === 'SYRIAN'
+            ? values.nationalId
+            : null,
+        passportNumber:
+          values.nationality === 'NON_SYRIAN'
+            ? values.passportNumber.trim()
+            : null,
+        palestinianId:
+          values.nationality === 'PALESTINIAN'
+            ? values.palestinianId.trim()
+            : null,
       });
+
       navigate(ROLE_HOME[user.role], { replace: true });
     } catch (error) {
-      setServerError(error instanceof Error ? error.message : 'تعذّر إنشاء الحساب.');
+      setServerError(
+        error instanceof Error
+          ? error.message
+          : 'تعذّر إنشاء الحساب.',
+      );
     }
   });
 
   return (
-    <AuthShell heading="أنشئ حسابك" subheading="خطوة واحدة للبدء في منصة المؤتمرات الطبية.">
-      {serverError && <p className="notice notice--error" role="alert">{serverError}</p>}
+    <AuthShell
+      heading="أنشئ حسابك"
+      subheading="خطوة واحدة للبدء في منصة المؤتمرات الطبية."
+    >
+      {serverError && (
+        <p className="notice notice--error" role="alert">
+          {serverError}
+        </p>
+      )}
+
       <form className="auth-form" onSubmit={onSubmit} noValidate>
         <div className="form-row">
-          <TextField label="الاسم الأول" autoComplete="given-name" placeholder="الاسم الأول"
-            icon={<UserRound size={18} />} error={errors.firstName?.message} {...register('firstName')} />
-          <TextField label="اسم العائلة" autoComplete="family-name" placeholder="اسم العائلة"
-            icon={<UserRound size={18} />} error={errors.lastName?.message} {...register('lastName')} />
+          <TextField
+            label="الاسم الأول"
+            autoComplete="given-name"
+            placeholder="الاسم الأول"
+            icon={<UserRound size={18} />}
+            error={errors.firstName?.message}
+            {...register('firstName')}
+          />
+
+          <TextField
+            label="اسم العائلة"
+            autoComplete="family-name"
+            placeholder="اسم العائلة"
+            icon={<UserRound size={18} />}
+            error={errors.lastName?.message}
+            {...register('lastName')}
+          />
         </div>
-        <TextField label="البريد الإلكتروني" type="email" dir="ltr" autoComplete="email"
-          placeholder="name@example.com" icon={<Mail size={18} />} error={errors.email?.message} {...register('email')} />
-        <TextField label="كلمة المرور" type="password" dir="ltr" autoComplete="new-password"
-          placeholder="••••••••" icon={<LockKeyhole size={18} />} error={errors.password?.message} {...register('password')} />
-        <TextField label="تأكيد كلمة المرور" type="password" dir="ltr" autoComplete="new-password"
-          placeholder="••••••••" icon={<LockKeyhole size={18} />} error={errors.confirmPassword?.message} {...register('confirmPassword')} />
-        <p className="password-hint">8 أحرف على الأقل، تتضمن حرفاً كبيراً وصغيراً ورقماً ورمزاً خاصاً.</p>
-        <button className="button button--primary" type="submit" disabled={isSubmitting}>
-          <span>{isSubmitting ? 'جارٍ إنشاء الحساب...' : 'إنشاء حساب'}</span><ArrowLeft size={19} />
+
+
+        <DoctorIdentityFields
+          value={{
+            nationality: nationality ?? '',
+            nationalId: nationalId ?? '',
+            passportNumber: passportNumber ?? '',
+            palestinianId: palestinianId ?? '',
+          }}
+          onChange={(next) => {
+            setValue(
+              'nationality',
+              next.nationality as RegisterValues['nationality'],
+              { shouldValidate: isSubmitted },
+            );
+
+            setValue('nationalId', next.nationalId, {
+              shouldValidate: isSubmitted,
+            });
+
+            setValue('passportNumber', next.passportNumber, {
+              shouldValidate: isSubmitted,
+            });
+
+            setValue('palestinianId', next.palestinianId, {
+              shouldValidate: isSubmitted,
+            });
+          }}
+          errors={isSubmitted ? {
+            nationality: errors.nationality?.message,
+            nationalId: errors.nationalId?.message,
+            passportNumber: errors.passportNumber?.message,
+            palestinianId: errors.palestinianId?.message,
+          } : undefined}
+        />
+
+
+        {[
+          errors.nationality?.message,
+          errors.nationalId?.message,
+          errors.passportNumber?.message,
+          errors.palestinianId?.message,
+        ].filter(Boolean).map((message, index) => (
+          <p
+            key={index}
+            className="notice notice--error"
+            role="alert"
+          >
+            {message}
+          </p>
+        ))}
+
+        <TextField
+          label="البريد الإلكتروني"
+          type="email"
+          dir="ltr"
+          autoComplete="email"
+          placeholder="name@example.com"
+          icon={<Mail size={18} />}
+          error={errors.email?.message}
+          {...register('email')}
+        />
+
+        <TextField
+          label="كلمة المرور"
+          type="password"
+          dir="ltr"
+          autoComplete="new-password"
+          placeholder="••••••••"
+          icon={<LockKeyhole size={18} />}
+          error={errors.password?.message}
+          {...register('password')}
+        />
+
+        <TextField
+          label="تأكيد كلمة المرور"
+          type="password"
+          dir="ltr"
+          autoComplete="new-password"
+          placeholder="••••••••"
+          icon={<LockKeyhole size={18} />}
+          error={errors.confirmPassword?.message}
+          {...register('confirmPassword')}
+        />
+
+        <p className="password-hint">
+          8 أحرف على الأقل، تتضمن حرفاً كبيراً وصغيراً
+          ورقماً ورمزاً خاصاً.
+        </p>
+
+        <button
+          className="button button--primary"
+          type="submit"
+          disabled={isSubmitting}
+        >
+          <span>
+            {isSubmitting ? 'جارٍ إنشاء الحساب...' : 'إنشاء حساب'}
+          </span>
+          <ArrowLeft size={19} />
         </button>
       </form>
-      <p className="form-switch">لديك حساب بالفعل؟ <Link to="/login">تسجيل الدخول</Link></p>
+
+      <p className="form-switch">
+        لديك حساب بالفعل؟ <Link to="/login">تسجيل الدخول</Link>
+      </p>
     </AuthShell>
   );
 }

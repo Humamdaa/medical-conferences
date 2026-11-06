@@ -1,24 +1,25 @@
 model Doctor {
-  id           BigInt      @id @default(autoincrement())
-  userId       BigInt      @unique @map("user_id")
-  specialistId BigInt      @map("specialist_id")
-  nationality  Nationality
-  doctorType   DoctorType  @map("doctor_type")
+  id          BigInt      @id @default(autoincrement())
+  userId      BigInt      @unique @map("user_id")
+  nationality Nationality
+
+  specialistId  BigInt?     @map("specialist_id")
+  doctorType    DoctorType? @map("doctor_type")
+  governorateId Int?        @map("governorate_id")
+
+  clinicAddress       String?   @map("clinic_address")
+  phoneNumber         String?   @map("phone_number")
+  certificateIssuedAt DateTime? @map("certificate_issued_at") @db.Date
+  certificateNumber   String?   @map("certificate_number")
+  fatherName          String?   @map("father_name")
 
   nationalId     String? @unique @map("national_id")
   passportNumber String? @map("passport_number")
   palestinianId  String? @map("palestinian_id")
-  governorateId  Int     @map("governorate_id")
 
-  clinicAddress       String   @map("clinic_address")
-  phoneNumber         String   @map("phone_number")
-  certificateIssuedAt DateTime @map("certificate_issued_at") @db.Date
-  certificateNumber   String   @map("certificate_number")
-  fatherName          String   @map("father_name")
-
-  user        User        @relation(fields: [userId], references: [id])
-  specialist  Specialist  @relation(fields: [specialistId], references: [id])
-  governorate Governorate @relation(fields: [governorateId], references: [id])
+  user        User         @relation(fields: [userId], references: [id])
+  specialist  Specialist?  @relation(fields: [specialistId], references: [id])
+  governorate Governorate? @relation(fields: [governorateId], references: [id])
 
   activityRegistrations ActivityRegistration[]
 

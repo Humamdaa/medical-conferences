@@ -43,18 +43,18 @@ export type DoctorSumAggregateOutputType = {
 export type DoctorMinAggregateOutputType = {
   id: bigint | null
   userId: bigint | null
-  specialistId: bigint | null
   nationality: $Enums.Nationality | null
+  specialistId: bigint | null
   doctorType: $Enums.DoctorType | null
-  nationalId: string | null
-  passportNumber: string | null
-  palestinianId: string | null
   governorateId: number | null
   clinicAddress: string | null
   phoneNumber: string | null
   certificateIssuedAt: Date | null
   certificateNumber: string | null
   fatherName: string | null
+  nationalId: string | null
+  passportNumber: string | null
+  palestinianId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -62,18 +62,18 @@ export type DoctorMinAggregateOutputType = {
 export type DoctorMaxAggregateOutputType = {
   id: bigint | null
   userId: bigint | null
-  specialistId: bigint | null
   nationality: $Enums.Nationality | null
+  specialistId: bigint | null
   doctorType: $Enums.DoctorType | null
-  nationalId: string | null
-  passportNumber: string | null
-  palestinianId: string | null
   governorateId: number | null
   clinicAddress: string | null
   phoneNumber: string | null
   certificateIssuedAt: Date | null
   certificateNumber: string | null
   fatherName: string | null
+  nationalId: string | null
+  passportNumber: string | null
+  palestinianId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -81,18 +81,18 @@ export type DoctorMaxAggregateOutputType = {
 export type DoctorCountAggregateOutputType = {
   id: number
   userId: number
-  specialistId: number
   nationality: number
+  specialistId: number
   doctorType: number
-  nationalId: number
-  passportNumber: number
-  palestinianId: number
   governorateId: number
   clinicAddress: number
   phoneNumber: number
   certificateIssuedAt: number
   certificateNumber: number
   fatherName: number
+  nationalId: number
+  passportNumber: number
+  palestinianId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -116,18 +116,18 @@ export type DoctorSumAggregateInputType = {
 export type DoctorMinAggregateInputType = {
   id?: true
   userId?: true
-  specialistId?: true
   nationality?: true
+  specialistId?: true
   doctorType?: true
-  nationalId?: true
-  passportNumber?: true
-  palestinianId?: true
   governorateId?: true
   clinicAddress?: true
   phoneNumber?: true
   certificateIssuedAt?: true
   certificateNumber?: true
   fatherName?: true
+  nationalId?: true
+  passportNumber?: true
+  palestinianId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -135,18 +135,18 @@ export type DoctorMinAggregateInputType = {
 export type DoctorMaxAggregateInputType = {
   id?: true
   userId?: true
-  specialistId?: true
   nationality?: true
+  specialistId?: true
   doctorType?: true
-  nationalId?: true
-  passportNumber?: true
-  palestinianId?: true
   governorateId?: true
   clinicAddress?: true
   phoneNumber?: true
   certificateIssuedAt?: true
   certificateNumber?: true
   fatherName?: true
+  nationalId?: true
+  passportNumber?: true
+  palestinianId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -154,18 +154,18 @@ export type DoctorMaxAggregateInputType = {
 export type DoctorCountAggregateInputType = {
   id?: true
   userId?: true
-  specialistId?: true
   nationality?: true
+  specialistId?: true
   doctorType?: true
-  nationalId?: true
-  passportNumber?: true
-  palestinianId?: true
   governorateId?: true
   clinicAddress?: true
   phoneNumber?: true
   certificateIssuedAt?: true
   certificateNumber?: true
   fatherName?: true
+  nationalId?: true
+  passportNumber?: true
+  palestinianId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -260,18 +260,18 @@ export type DoctorGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type DoctorGroupByOutputType = {
   id: bigint
   userId: bigint
-  specialistId: bigint
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  specialistId: bigint | null
+  doctorType: $Enums.DoctorType | null
+  governorateId: number | null
+  clinicAddress: string | null
+  phoneNumber: string | null
+  certificateIssuedAt: Date | null
+  certificateNumber: string | null
+  fatherName: string | null
   nationalId: string | null
   passportNumber: string | null
   palestinianId: string | null
-  governorateId: number
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date
-  certificateNumber: string
-  fatherName: string
   createdAt: Date
   updatedAt: Date
   _count: DoctorCountAggregateOutputType | null
@@ -302,41 +302,41 @@ export type DoctorWhereInput = {
   NOT?: Prisma.DoctorWhereInput | Prisma.DoctorWhereInput[]
   id?: Prisma.BigIntFilter<"Doctor"> | bigint | number
   userId?: Prisma.BigIntFilter<"Doctor"> | bigint | number
-  specialistId?: Prisma.BigIntFilter<"Doctor"> | bigint | number
   nationality?: Prisma.EnumNationalityFilter<"Doctor"> | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFilter<"Doctor"> | $Enums.DoctorType
+  specialistId?: Prisma.BigIntNullableFilter<"Doctor"> | bigint | number | null
+  doctorType?: Prisma.EnumDoctorTypeNullableFilter<"Doctor"> | $Enums.DoctorType | null
+  governorateId?: Prisma.IntNullableFilter<"Doctor"> | number | null
+  clinicAddress?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  phoneNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  certificateIssuedAt?: Prisma.DateTimeNullableFilter<"Doctor"> | Date | string | null
+  certificateNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  fatherName?: Prisma.StringNullableFilter<"Doctor"> | string | null
   nationalId?: Prisma.StringNullableFilter<"Doctor"> | string | null
   passportNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
   palestinianId?: Prisma.StringNullableFilter<"Doctor"> | string | null
-  governorateId?: Prisma.IntFilter<"Doctor"> | number
-  clinicAddress?: Prisma.StringFilter<"Doctor"> | string
-  phoneNumber?: Prisma.StringFilter<"Doctor"> | string
-  certificateIssuedAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
-  certificateNumber?: Prisma.StringFilter<"Doctor"> | string
-  fatherName?: Prisma.StringFilter<"Doctor"> | string
   createdAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  specialist?: Prisma.XOR<Prisma.SpecialistScalarRelationFilter, Prisma.SpecialistWhereInput>
-  governorate?: Prisma.XOR<Prisma.GovernorateScalarRelationFilter, Prisma.GovernorateWhereInput>
+  specialist?: Prisma.XOR<Prisma.SpecialistNullableScalarRelationFilter, Prisma.SpecialistWhereInput> | null
+  governorate?: Prisma.XOR<Prisma.GovernorateNullableScalarRelationFilter, Prisma.GovernorateWhereInput> | null
   activityRegistrations?: Prisma.ActivityRegistrationListRelationFilter
 }
 
 export type DoctorOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  specialistId?: Prisma.SortOrder
   nationality?: Prisma.SortOrder
-  doctorType?: Prisma.SortOrder
+  specialistId?: Prisma.SortOrderInput | Prisma.SortOrder
+  doctorType?: Prisma.SortOrderInput | Prisma.SortOrder
+  governorateId?: Prisma.SortOrderInput | Prisma.SortOrder
+  clinicAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  phoneNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  certificateIssuedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  certificateNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  fatherName?: Prisma.SortOrderInput | Prisma.SortOrder
   nationalId?: Prisma.SortOrderInput | Prisma.SortOrder
   passportNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   palestinianId?: Prisma.SortOrderInput | Prisma.SortOrder
-  governorateId?: Prisma.SortOrder
-  clinicAddress?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
-  certificateIssuedAt?: Prisma.SortOrder
-  certificateNumber?: Prisma.SortOrder
-  fatherName?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -352,40 +352,40 @@ export type DoctorWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.DoctorWhereInput | Prisma.DoctorWhereInput[]
   OR?: Prisma.DoctorWhereInput[]
   NOT?: Prisma.DoctorWhereInput | Prisma.DoctorWhereInput[]
-  specialistId?: Prisma.BigIntFilter<"Doctor"> | bigint | number
   nationality?: Prisma.EnumNationalityFilter<"Doctor"> | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFilter<"Doctor"> | $Enums.DoctorType
+  specialistId?: Prisma.BigIntNullableFilter<"Doctor"> | bigint | number | null
+  doctorType?: Prisma.EnumDoctorTypeNullableFilter<"Doctor"> | $Enums.DoctorType | null
+  governorateId?: Prisma.IntNullableFilter<"Doctor"> | number | null
+  clinicAddress?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  phoneNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  certificateIssuedAt?: Prisma.DateTimeNullableFilter<"Doctor"> | Date | string | null
+  certificateNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  fatherName?: Prisma.StringNullableFilter<"Doctor"> | string | null
   passportNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
   palestinianId?: Prisma.StringNullableFilter<"Doctor"> | string | null
-  governorateId?: Prisma.IntFilter<"Doctor"> | number
-  clinicAddress?: Prisma.StringFilter<"Doctor"> | string
-  phoneNumber?: Prisma.StringFilter<"Doctor"> | string
-  certificateIssuedAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
-  certificateNumber?: Prisma.StringFilter<"Doctor"> | string
-  fatherName?: Prisma.StringFilter<"Doctor"> | string
   createdAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  specialist?: Prisma.XOR<Prisma.SpecialistScalarRelationFilter, Prisma.SpecialistWhereInput>
-  governorate?: Prisma.XOR<Prisma.GovernorateScalarRelationFilter, Prisma.GovernorateWhereInput>
+  specialist?: Prisma.XOR<Prisma.SpecialistNullableScalarRelationFilter, Prisma.SpecialistWhereInput> | null
+  governorate?: Prisma.XOR<Prisma.GovernorateNullableScalarRelationFilter, Prisma.GovernorateWhereInput> | null
   activityRegistrations?: Prisma.ActivityRegistrationListRelationFilter
 }, "id" | "userId" | "nationalId">
 
 export type DoctorOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  specialistId?: Prisma.SortOrder
   nationality?: Prisma.SortOrder
-  doctorType?: Prisma.SortOrder
+  specialistId?: Prisma.SortOrderInput | Prisma.SortOrder
+  doctorType?: Prisma.SortOrderInput | Prisma.SortOrder
+  governorateId?: Prisma.SortOrderInput | Prisma.SortOrder
+  clinicAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  phoneNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  certificateIssuedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  certificateNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  fatherName?: Prisma.SortOrderInput | Prisma.SortOrder
   nationalId?: Prisma.SortOrderInput | Prisma.SortOrder
   passportNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   palestinianId?: Prisma.SortOrderInput | Prisma.SortOrder
-  governorateId?: Prisma.SortOrder
-  clinicAddress?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
-  certificateIssuedAt?: Prisma.SortOrder
-  certificateNumber?: Prisma.SortOrder
-  fatherName?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.DoctorCountOrderByAggregateInput
@@ -401,18 +401,18 @@ export type DoctorScalarWhereWithAggregatesInput = {
   NOT?: Prisma.DoctorScalarWhereWithAggregatesInput | Prisma.DoctorScalarWhereWithAggregatesInput[]
   id?: Prisma.BigIntWithAggregatesFilter<"Doctor"> | bigint | number
   userId?: Prisma.BigIntWithAggregatesFilter<"Doctor"> | bigint | number
-  specialistId?: Prisma.BigIntWithAggregatesFilter<"Doctor"> | bigint | number
   nationality?: Prisma.EnumNationalityWithAggregatesFilter<"Doctor"> | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeWithAggregatesFilter<"Doctor"> | $Enums.DoctorType
+  specialistId?: Prisma.BigIntNullableWithAggregatesFilter<"Doctor"> | bigint | number | null
+  doctorType?: Prisma.EnumDoctorTypeNullableWithAggregatesFilter<"Doctor"> | $Enums.DoctorType | null
+  governorateId?: Prisma.IntNullableWithAggregatesFilter<"Doctor"> | number | null
+  clinicAddress?: Prisma.StringNullableWithAggregatesFilter<"Doctor"> | string | null
+  phoneNumber?: Prisma.StringNullableWithAggregatesFilter<"Doctor"> | string | null
+  certificateIssuedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Doctor"> | Date | string | null
+  certificateNumber?: Prisma.StringNullableWithAggregatesFilter<"Doctor"> | string | null
+  fatherName?: Prisma.StringNullableWithAggregatesFilter<"Doctor"> | string | null
   nationalId?: Prisma.StringNullableWithAggregatesFilter<"Doctor"> | string | null
   passportNumber?: Prisma.StringNullableWithAggregatesFilter<"Doctor"> | string | null
   palestinianId?: Prisma.StringNullableWithAggregatesFilter<"Doctor"> | string | null
-  governorateId?: Prisma.IntWithAggregatesFilter<"Doctor"> | number
-  clinicAddress?: Prisma.StringWithAggregatesFilter<"Doctor"> | string
-  phoneNumber?: Prisma.StringWithAggregatesFilter<"Doctor"> | string
-  certificateIssuedAt?: Prisma.DateTimeWithAggregatesFilter<"Doctor"> | Date | string
-  certificateNumber?: Prisma.StringWithAggregatesFilter<"Doctor"> | string
-  fatherName?: Prisma.StringWithAggregatesFilter<"Doctor"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Doctor"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Doctor"> | Date | string
 }
@@ -420,38 +420,38 @@ export type DoctorScalarWhereWithAggregatesInput = {
 export type DoctorCreateInput = {
   id?: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  doctorType?: $Enums.DoctorType | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutDoctorInput
-  specialist: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
-  governorate: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
+  specialist?: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
+  governorate?: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
   activityRegistrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutDoctorInput
 }
 
 export type DoctorUncheckedCreateInput = {
   id?: bigint | number
   userId: bigint | number
-  specialistId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  specialistId?: bigint | number | null
+  doctorType?: $Enums.DoctorType | null
+  governorateId?: number | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  governorateId: number
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutDoctorInput
@@ -460,38 +460,38 @@ export type DoctorUncheckedCreateInput = {
 export type DoctorUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutDoctorNestedInput
-  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutDoctorsNestedInput
-  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutDoctorsNestedInput
+  specialist?: Prisma.SpecialistUpdateOneWithoutDoctorsNestedInput
+  governorate?: Prisma.GovernorateUpdateOneWithoutDoctorsNestedInput
   activityRegistrations?: Prisma.ActivityRegistrationUpdateManyWithoutDoctorNestedInput
 }
 
 export type DoctorUncheckedUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   userId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  specialistId?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  governorateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutDoctorNestedInput
@@ -500,18 +500,18 @@ export type DoctorUncheckedUpdateInput = {
 export type DoctorCreateManyInput = {
   id?: bigint | number
   userId: bigint | number
-  specialistId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  specialistId?: bigint | number | null
+  doctorType?: $Enums.DoctorType | null
+  governorateId?: number | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  governorateId: number
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -519,15 +519,15 @@ export type DoctorCreateManyInput = {
 export type DoctorUpdateManyMutationInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -535,18 +535,18 @@ export type DoctorUpdateManyMutationInput = {
 export type DoctorUncheckedUpdateManyInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   userId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  specialistId?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  governorateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -559,18 +559,18 @@ export type DoctorScalarRelationFilter = {
 export type DoctorCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  specialistId?: Prisma.SortOrder
   nationality?: Prisma.SortOrder
+  specialistId?: Prisma.SortOrder
   doctorType?: Prisma.SortOrder
-  nationalId?: Prisma.SortOrder
-  passportNumber?: Prisma.SortOrder
-  palestinianId?: Prisma.SortOrder
   governorateId?: Prisma.SortOrder
   clinicAddress?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   certificateIssuedAt?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   fatherName?: Prisma.SortOrder
+  nationalId?: Prisma.SortOrder
+  passportNumber?: Prisma.SortOrder
+  palestinianId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -585,18 +585,18 @@ export type DoctorAvgOrderByAggregateInput = {
 export type DoctorMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  specialistId?: Prisma.SortOrder
   nationality?: Prisma.SortOrder
+  specialistId?: Prisma.SortOrder
   doctorType?: Prisma.SortOrder
-  nationalId?: Prisma.SortOrder
-  passportNumber?: Prisma.SortOrder
-  palestinianId?: Prisma.SortOrder
   governorateId?: Prisma.SortOrder
   clinicAddress?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   certificateIssuedAt?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   fatherName?: Prisma.SortOrder
+  nationalId?: Prisma.SortOrder
+  passportNumber?: Prisma.SortOrder
+  palestinianId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -604,18 +604,18 @@ export type DoctorMaxOrderByAggregateInput = {
 export type DoctorMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  specialistId?: Prisma.SortOrder
   nationality?: Prisma.SortOrder
+  specialistId?: Prisma.SortOrder
   doctorType?: Prisma.SortOrder
-  nationalId?: Prisma.SortOrder
-  passportNumber?: Prisma.SortOrder
-  palestinianId?: Prisma.SortOrder
   governorateId?: Prisma.SortOrder
   clinicAddress?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   certificateIssuedAt?: Prisma.SortOrder
   certificateNumber?: Prisma.SortOrder
   fatherName?: Prisma.SortOrder
+  nationalId?: Prisma.SortOrder
+  passportNumber?: Prisma.SortOrder
+  palestinianId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -660,8 +660,24 @@ export type EnumNationalityFieldUpdateOperationsInput = {
   set?: $Enums.Nationality
 }
 
-export type EnumDoctorTypeFieldUpdateOperationsInput = {
-  set?: $Enums.DoctorType
+export type NullableEnumDoctorTypeFieldUpdateOperationsInput = {
+  set?: $Enums.DoctorType | null
+}
+
+export type NullableBigIntFieldUpdateOperationsInput = {
+  set?: bigint | number | null
+  increment?: bigint | number
+  decrement?: bigint | number
+  multiply?: bigint | number
+  divide?: bigint | number
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type DoctorCreateNestedManyWithoutGovernorateInput = {
@@ -783,37 +799,37 @@ export type DoctorUncheckedUpdateOneWithoutUserNestedInput = {
 export type DoctorCreateWithoutActivityRegistrationsInput = {
   id?: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  doctorType?: $Enums.DoctorType | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutDoctorInput
-  specialist: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
-  governorate: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
+  specialist?: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
+  governorate?: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
 }
 
 export type DoctorUncheckedCreateWithoutActivityRegistrationsInput = {
   id?: bigint | number
   userId: bigint | number
-  specialistId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  specialistId?: bigint | number | null
+  doctorType?: $Enums.DoctorType | null
+  governorateId?: number | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  governorateId: number
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -837,37 +853,37 @@ export type DoctorUpdateToOneWithWhereWithoutActivityRegistrationsInput = {
 export type DoctorUpdateWithoutActivityRegistrationsInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutDoctorNestedInput
-  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutDoctorsNestedInput
-  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutDoctorsNestedInput
+  specialist?: Prisma.SpecialistUpdateOneWithoutDoctorsNestedInput
+  governorate?: Prisma.GovernorateUpdateOneWithoutDoctorsNestedInput
 }
 
 export type DoctorUncheckedUpdateWithoutActivityRegistrationsInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   userId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  specialistId?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  governorateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -875,36 +891,36 @@ export type DoctorUncheckedUpdateWithoutActivityRegistrationsInput = {
 export type DoctorCreateWithoutGovernorateInput = {
   id?: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  doctorType?: $Enums.DoctorType | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutDoctorInput
-  specialist: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
+  specialist?: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
   activityRegistrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutDoctorInput
 }
 
 export type DoctorUncheckedCreateWithoutGovernorateInput = {
   id?: bigint | number
   userId: bigint | number
-  specialistId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  specialistId?: bigint | number | null
+  doctorType?: $Enums.DoctorType | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutDoctorInput
@@ -942,18 +958,18 @@ export type DoctorScalarWhereInput = {
   NOT?: Prisma.DoctorScalarWhereInput | Prisma.DoctorScalarWhereInput[]
   id?: Prisma.BigIntFilter<"Doctor"> | bigint | number
   userId?: Prisma.BigIntFilter<"Doctor"> | bigint | number
-  specialistId?: Prisma.BigIntFilter<"Doctor"> | bigint | number
   nationality?: Prisma.EnumNationalityFilter<"Doctor"> | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFilter<"Doctor"> | $Enums.DoctorType
+  specialistId?: Prisma.BigIntNullableFilter<"Doctor"> | bigint | number | null
+  doctorType?: Prisma.EnumDoctorTypeNullableFilter<"Doctor"> | $Enums.DoctorType | null
+  governorateId?: Prisma.IntNullableFilter<"Doctor"> | number | null
+  clinicAddress?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  phoneNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  certificateIssuedAt?: Prisma.DateTimeNullableFilter<"Doctor"> | Date | string | null
+  certificateNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
+  fatherName?: Prisma.StringNullableFilter<"Doctor"> | string | null
   nationalId?: Prisma.StringNullableFilter<"Doctor"> | string | null
   passportNumber?: Prisma.StringNullableFilter<"Doctor"> | string | null
   palestinianId?: Prisma.StringNullableFilter<"Doctor"> | string | null
-  governorateId?: Prisma.IntFilter<"Doctor"> | number
-  clinicAddress?: Prisma.StringFilter<"Doctor"> | string
-  phoneNumber?: Prisma.StringFilter<"Doctor"> | string
-  certificateIssuedAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
-  certificateNumber?: Prisma.StringFilter<"Doctor"> | string
-  fatherName?: Prisma.StringFilter<"Doctor"> | string
   createdAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Doctor"> | Date | string
 }
@@ -961,19 +977,19 @@ export type DoctorScalarWhereInput = {
 export type DoctorCreateWithoutSpecialistInput = {
   id?: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  doctorType?: $Enums.DoctorType | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutDoctorInput
-  governorate: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
+  governorate?: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
   activityRegistrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutDoctorInput
 }
 
@@ -981,16 +997,16 @@ export type DoctorUncheckedCreateWithoutSpecialistInput = {
   id?: bigint | number
   userId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  doctorType?: $Enums.DoctorType | null
+  governorateId?: number | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  governorateId: number
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutDoctorInput
@@ -1025,36 +1041,36 @@ export type DoctorUpdateManyWithWhereWithoutSpecialistInput = {
 export type DoctorCreateWithoutUserInput = {
   id?: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  doctorType?: $Enums.DoctorType | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  specialist: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
-  governorate: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
+  specialist?: Prisma.SpecialistCreateNestedOneWithoutDoctorsInput
+  governorate?: Prisma.GovernorateCreateNestedOneWithoutDoctorsInput
   activityRegistrations?: Prisma.ActivityRegistrationCreateNestedManyWithoutDoctorInput
 }
 
 export type DoctorUncheckedCreateWithoutUserInput = {
   id?: bigint | number
-  specialistId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  specialistId?: bigint | number | null
+  doctorType?: $Enums.DoctorType | null
+  governorateId?: number | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  governorateId: number
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedCreateNestedManyWithoutDoctorInput
@@ -1079,36 +1095,36 @@ export type DoctorUpdateToOneWithWhereWithoutUserInput = {
 export type DoctorUpdateWithoutUserInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutDoctorsNestedInput
-  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutDoctorsNestedInput
+  specialist?: Prisma.SpecialistUpdateOneWithoutDoctorsNestedInput
+  governorate?: Prisma.GovernorateUpdateOneWithoutDoctorsNestedInput
   activityRegistrations?: Prisma.ActivityRegistrationUpdateManyWithoutDoctorNestedInput
 }
 
 export type DoctorUncheckedUpdateWithoutUserInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  specialistId?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  governorateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutDoctorNestedInput
@@ -1117,17 +1133,17 @@ export type DoctorUncheckedUpdateWithoutUserInput = {
 export type DoctorCreateManyGovernorateInput = {
   id?: bigint | number
   userId: bigint | number
-  specialistId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  specialistId?: bigint | number | null
+  doctorType?: $Enums.DoctorType | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1135,36 +1151,36 @@ export type DoctorCreateManyGovernorateInput = {
 export type DoctorUpdateWithoutGovernorateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutDoctorNestedInput
-  specialist?: Prisma.SpecialistUpdateOneRequiredWithoutDoctorsNestedInput
+  specialist?: Prisma.SpecialistUpdateOneWithoutDoctorsNestedInput
   activityRegistrations?: Prisma.ActivityRegistrationUpdateManyWithoutDoctorNestedInput
 }
 
 export type DoctorUncheckedUpdateWithoutGovernorateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   userId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  specialistId?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutDoctorNestedInput
@@ -1173,17 +1189,17 @@ export type DoctorUncheckedUpdateWithoutGovernorateInput = {
 export type DoctorUncheckedUpdateManyWithoutGovernorateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   userId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  specialistId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  specialistId?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1192,16 +1208,16 @@ export type DoctorCreateManySpecialistInput = {
   id?: bigint | number
   userId: bigint | number
   nationality: $Enums.Nationality
-  doctorType: $Enums.DoctorType
+  doctorType?: $Enums.DoctorType | null
+  governorateId?: number | null
+  clinicAddress?: string | null
+  phoneNumber?: string | null
+  certificateIssuedAt?: Date | string | null
+  certificateNumber?: string | null
+  fatherName?: string | null
   nationalId?: string | null
   passportNumber?: string | null
   palestinianId?: string | null
-  governorateId: number
-  clinicAddress: string
-  phoneNumber: string
-  certificateIssuedAt: Date | string
-  certificateNumber: string
-  fatherName: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1209,19 +1225,19 @@ export type DoctorCreateManySpecialistInput = {
 export type DoctorUpdateWithoutSpecialistInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutDoctorNestedInput
-  governorate?: Prisma.GovernorateUpdateOneRequiredWithoutDoctorsNestedInput
+  governorate?: Prisma.GovernorateUpdateOneWithoutDoctorsNestedInput
   activityRegistrations?: Prisma.ActivityRegistrationUpdateManyWithoutDoctorNestedInput
 }
 
@@ -1229,16 +1245,16 @@ export type DoctorUncheckedUpdateWithoutSpecialistInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   userId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  governorateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activityRegistrations?: Prisma.ActivityRegistrationUncheckedUpdateManyWithoutDoctorNestedInput
@@ -1248,16 +1264,16 @@ export type DoctorUncheckedUpdateManyWithoutSpecialistInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   userId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   nationality?: Prisma.EnumNationalityFieldUpdateOperationsInput | $Enums.Nationality
-  doctorType?: Prisma.EnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType
+  doctorType?: Prisma.NullableEnumDoctorTypeFieldUpdateOperationsInput | $Enums.DoctorType | null
+  governorateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  clinicAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  certificateIssuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  certificateNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nationalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   palestinianId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  governorateId?: Prisma.IntFieldUpdateOperationsInput | number
-  clinicAddress?: Prisma.StringFieldUpdateOperationsInput | string
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  certificateIssuedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  certificateNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  fatherName?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1296,23 +1312,23 @@ export type DoctorCountOutputTypeCountActivityRegistrationsArgs<ExtArgs extends 
 export type DoctorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  specialistId?: boolean
   nationality?: boolean
+  specialistId?: boolean
   doctorType?: boolean
-  nationalId?: boolean
-  passportNumber?: boolean
-  palestinianId?: boolean
   governorateId?: boolean
   clinicAddress?: boolean
   phoneNumber?: boolean
   certificateIssuedAt?: boolean
   certificateNumber?: boolean
   fatherName?: boolean
+  nationalId?: boolean
+  passportNumber?: boolean
+  palestinianId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
-  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  specialist?: boolean | Prisma.Doctor$specialistArgs<ExtArgs>
+  governorate?: boolean | Prisma.Doctor$governorateArgs<ExtArgs>
   activityRegistrations?: boolean | Prisma.Doctor$activityRegistrationsArgs<ExtArgs>
   _count?: boolean | Prisma.DoctorCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["doctor"]>
@@ -1320,108 +1336,108 @@ export type DoctorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
 export type DoctorSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  specialistId?: boolean
   nationality?: boolean
+  specialistId?: boolean
   doctorType?: boolean
-  nationalId?: boolean
-  passportNumber?: boolean
-  palestinianId?: boolean
   governorateId?: boolean
   clinicAddress?: boolean
   phoneNumber?: boolean
   certificateIssuedAt?: boolean
   certificateNumber?: boolean
   fatherName?: boolean
+  nationalId?: boolean
+  passportNumber?: boolean
+  palestinianId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
-  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  specialist?: boolean | Prisma.Doctor$specialistArgs<ExtArgs>
+  governorate?: boolean | Prisma.Doctor$governorateArgs<ExtArgs>
 }, ExtArgs["result"]["doctor"]>
 
 export type DoctorSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  specialistId?: boolean
   nationality?: boolean
+  specialistId?: boolean
   doctorType?: boolean
-  nationalId?: boolean
-  passportNumber?: boolean
-  palestinianId?: boolean
   governorateId?: boolean
   clinicAddress?: boolean
   phoneNumber?: boolean
   certificateIssuedAt?: boolean
   certificateNumber?: boolean
   fatherName?: boolean
+  nationalId?: boolean
+  passportNumber?: boolean
+  palestinianId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
-  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  specialist?: boolean | Prisma.Doctor$specialistArgs<ExtArgs>
+  governorate?: boolean | Prisma.Doctor$governorateArgs<ExtArgs>
 }, ExtArgs["result"]["doctor"]>
 
 export type DoctorSelectScalar = {
   id?: boolean
   userId?: boolean
-  specialistId?: boolean
   nationality?: boolean
+  specialistId?: boolean
   doctorType?: boolean
-  nationalId?: boolean
-  passportNumber?: boolean
-  palestinianId?: boolean
   governorateId?: boolean
   clinicAddress?: boolean
   phoneNumber?: boolean
   certificateIssuedAt?: boolean
   certificateNumber?: boolean
   fatherName?: boolean
+  nationalId?: boolean
+  passportNumber?: boolean
+  palestinianId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type DoctorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "specialistId" | "nationality" | "doctorType" | "nationalId" | "passportNumber" | "palestinianId" | "governorateId" | "clinicAddress" | "phoneNumber" | "certificateIssuedAt" | "certificateNumber" | "fatherName" | "createdAt" | "updatedAt", ExtArgs["result"]["doctor"]>
+export type DoctorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "nationality" | "specialistId" | "doctorType" | "governorateId" | "clinicAddress" | "phoneNumber" | "certificateIssuedAt" | "certificateNumber" | "fatherName" | "nationalId" | "passportNumber" | "palestinianId" | "createdAt" | "updatedAt", ExtArgs["result"]["doctor"]>
 export type DoctorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
-  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  specialist?: boolean | Prisma.Doctor$specialistArgs<ExtArgs>
+  governorate?: boolean | Prisma.Doctor$governorateArgs<ExtArgs>
   activityRegistrations?: boolean | Prisma.Doctor$activityRegistrationsArgs<ExtArgs>
   _count?: boolean | Prisma.DoctorCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DoctorIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
-  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  specialist?: boolean | Prisma.Doctor$specialistArgs<ExtArgs>
+  governorate?: boolean | Prisma.Doctor$governorateArgs<ExtArgs>
 }
 export type DoctorIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  specialist?: boolean | Prisma.SpecialistDefaultArgs<ExtArgs>
-  governorate?: boolean | Prisma.GovernorateDefaultArgs<ExtArgs>
+  specialist?: boolean | Prisma.Doctor$specialistArgs<ExtArgs>
+  governorate?: boolean | Prisma.Doctor$governorateArgs<ExtArgs>
 }
 
 export type $DoctorPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Doctor"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
-    specialist: Prisma.$SpecialistPayload<ExtArgs>
-    governorate: Prisma.$GovernoratePayload<ExtArgs>
+    specialist: Prisma.$SpecialistPayload<ExtArgs> | null
+    governorate: Prisma.$GovernoratePayload<ExtArgs> | null
     activityRegistrations: Prisma.$ActivityRegistrationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
     userId: bigint
-    specialistId: bigint
     nationality: $Enums.Nationality
-    doctorType: $Enums.DoctorType
+    specialistId: bigint | null
+    doctorType: $Enums.DoctorType | null
+    governorateId: number | null
+    clinicAddress: string | null
+    phoneNumber: string | null
+    certificateIssuedAt: Date | null
+    certificateNumber: string | null
+    fatherName: string | null
     nationalId: string | null
     passportNumber: string | null
     palestinianId: string | null
-    governorateId: number
-    clinicAddress: string
-    phoneNumber: string
-    certificateIssuedAt: Date
-    certificateNumber: string
-    fatherName: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["doctor"]>
@@ -1819,8 +1835,8 @@ readonly fields: DoctorFieldRefs;
 export interface Prisma__DoctorClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  specialist<T extends Prisma.SpecialistDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SpecialistDefaultArgs<ExtArgs>>): Prisma.Prisma__SpecialistClient<runtime.Types.Result.GetResult<Prisma.$SpecialistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  governorate<T extends Prisma.GovernorateDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GovernorateDefaultArgs<ExtArgs>>): Prisma.Prisma__GovernorateClient<runtime.Types.Result.GetResult<Prisma.$GovernoratePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  specialist<T extends Prisma.Doctor$specialistArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Doctor$specialistArgs<ExtArgs>>): Prisma.Prisma__SpecialistClient<runtime.Types.Result.GetResult<Prisma.$SpecialistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  governorate<T extends Prisma.Doctor$governorateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Doctor$governorateArgs<ExtArgs>>): Prisma.Prisma__GovernorateClient<runtime.Types.Result.GetResult<Prisma.$GovernoratePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   activityRegistrations<T extends Prisma.Doctor$activityRegistrationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Doctor$activityRegistrationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivityRegistrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1853,18 +1869,18 @@ export interface Prisma__DoctorClient<T, Null = never, ExtArgs extends runtime.T
 export interface DoctorFieldRefs {
   readonly id: Prisma.FieldRef<"Doctor", 'BigInt'>
   readonly userId: Prisma.FieldRef<"Doctor", 'BigInt'>
-  readonly specialistId: Prisma.FieldRef<"Doctor", 'BigInt'>
   readonly nationality: Prisma.FieldRef<"Doctor", 'Nationality'>
+  readonly specialistId: Prisma.FieldRef<"Doctor", 'BigInt'>
   readonly doctorType: Prisma.FieldRef<"Doctor", 'DoctorType'>
-  readonly nationalId: Prisma.FieldRef<"Doctor", 'String'>
-  readonly passportNumber: Prisma.FieldRef<"Doctor", 'String'>
-  readonly palestinianId: Prisma.FieldRef<"Doctor", 'String'>
   readonly governorateId: Prisma.FieldRef<"Doctor", 'Int'>
   readonly clinicAddress: Prisma.FieldRef<"Doctor", 'String'>
   readonly phoneNumber: Prisma.FieldRef<"Doctor", 'String'>
   readonly certificateIssuedAt: Prisma.FieldRef<"Doctor", 'DateTime'>
   readonly certificateNumber: Prisma.FieldRef<"Doctor", 'String'>
   readonly fatherName: Prisma.FieldRef<"Doctor", 'String'>
+  readonly nationalId: Prisma.FieldRef<"Doctor", 'String'>
+  readonly passportNumber: Prisma.FieldRef<"Doctor", 'String'>
+  readonly palestinianId: Prisma.FieldRef<"Doctor", 'String'>
   readonly createdAt: Prisma.FieldRef<"Doctor", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Doctor", 'DateTime'>
 }
@@ -2265,6 +2281,44 @@ export type DoctorDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Limit how many Doctors to delete.
    */
   limit?: number
+}
+
+/**
+ * Doctor.specialist
+ */
+export type Doctor$specialistArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Specialist
+   */
+  select?: Prisma.SpecialistSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Specialist
+   */
+  omit?: Prisma.SpecialistOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SpecialistInclude<ExtArgs> | null
+  where?: Prisma.SpecialistWhereInput
+}
+
+/**
+ * Doctor.governorate
+ */
+export type Doctor$governorateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Governorate
+   */
+  select?: Prisma.GovernorateSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Governorate
+   */
+  omit?: Prisma.GovernorateOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GovernorateInclude<ExtArgs> | null
+  where?: Prisma.GovernorateWhereInput
 }
 
 /**
