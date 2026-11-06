@@ -45,6 +45,7 @@ export class SpecialistsService {
         const specialist = await this.prisma.specialist.create({
             data: {
                 name: dto.name,
+                code: dto.code,
                 description: dto.description,
             },
         });

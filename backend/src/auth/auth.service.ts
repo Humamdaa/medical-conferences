@@ -1,5 +1,9 @@
 
-import { Injectable } from '@nestjs/common';
+import {
+    BadRequestException,
+    ConflictException,
+    Injectable
+} from '@nestjs/common';
 import { hash } from 'argon2';
 
 import { PrismaService } from '../prisma/prisma.service';
@@ -8,6 +12,8 @@ import { AppError } from '../common/errors/app-error';
 import { Role } from '../generated/prisma/client';
 import { verify } from 'argon2';
 import { LoginDto } from './dto/login.dto';
+import { validateDoctorIdentity } from '../doctor-profile/doctor-identity.validator';
+
 
 @Injectable()
 export class AuthService {
@@ -17,6 +23,8 @@ export class AuthService {
 
 
     async register(dto: RegisterDto): Promise<AuthUser> {
+        const identity = validateDoctorIdentity(dto);
+
         const email = dto.email.trim().toLowerCase();
 
         const existingUser = await this.prisma.user.findUnique({
@@ -31,6 +39,7 @@ export class AuthService {
             );
         }
 
+        // Atomic nested write: create User and Doctor together.
         const user = await this.prisma.user.create({
             data: {
                 firstName: dto.firstName.trim(),
@@ -38,7 +47,17 @@ export class AuthService {
                 email,
                 password: await hash(dto.password),
                 role: Role.DOCTOR,
+
+                doctor: {
+                    create: {
+                        nationality: identity.nationality,
+                        nationalId: identity.nationalId,
+                        passportNumber: identity.passportNumber,
+                        palestinianId: identity.palestinianId,
+                    },
+                },
             },
+
             select: {
                 id: true,
                 firstName: true,
@@ -50,6 +69,7 @@ export class AuthService {
 
         return this.toAuthUser(user);
     }
+
 
     async login(dto: LoginDto): Promise<AuthUser> {
         const email = dto.email.trim().toLowerCase();
@@ -88,7 +108,6 @@ export class AuthService {
         return this.toAuthUser(user);
 
     }
-
 
     async getCurrentUser(userId: string) {
         const user = await this.prisma.user.findUnique({
@@ -134,7 +153,6 @@ export class AuthService {
         };
     }
 }
-
 
 export type AuthUser = {
     id: string;

@@ -392,14 +392,6 @@ export type EnumOrganizationRoleFieldUpdateOperationsInput = {
   set?: $Enums.OrganizationRole
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type ActivityOrganizationCreateNestedManyWithoutActivityInput = {
   create?: Prisma.XOR<Prisma.ActivityOrganizationCreateWithoutActivityInput, Prisma.ActivityOrganizationUncheckedCreateWithoutActivityInput> | Prisma.ActivityOrganizationCreateWithoutActivityInput[] | Prisma.ActivityOrganizationUncheckedCreateWithoutActivityInput[]
   connectOrCreate?: Prisma.ActivityOrganizationCreateOrConnectWithoutActivityInput | Prisma.ActivityOrganizationCreateOrConnectWithoutActivityInput[]

@@ -5,6 +5,7 @@ import {
     IsNotEmpty,
     IsOptional,
     IsString,
+    MaxLength,
 } from 'class-validator';
 
 export class CreateSpecialistDto {
@@ -25,4 +26,9 @@ export class CreateSpecialistDto {
     @IsOptional()
     @IsString()
     description?: string | null;
+
+    @IsString()
+    @IsNotEmpty()
+    @MaxLength(30)
+    code: string;
 }
