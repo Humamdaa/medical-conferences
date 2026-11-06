@@ -16,12 +16,16 @@ CREATE TYPE "Role" AS ENUM ('SUPERVISOR', 'ADMIN', 'DOCTOR');
 -- CreateTable
 CREATE TABLE "activity_form_configs" (
     "id" BIGSERIAL NOT NULL,
+    "template_key" TEXT NOT NULL,
+    "version" INTEGER NOT NULL DEFAULT 1,
     "supervisor_id" BIGINT NOT NULL,
     "form_name" TEXT NOT NULL,
     "fields_schema" JSONB NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "activity_form_configs_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "activity_form_configs_pkey" PRIMARY KEY ("id"),
+    CONSTRAINT "activity_form_configs_version_positive" CHECK ("version" >= 1)
 );
 
 -- CreateTable
@@ -133,6 +137,9 @@ CREATE TABLE "users" (
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "activity_form_configs_template_key_key" ON "activity_form_configs"("template_key");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "certificates_conference_attendance_id_key" ON "certificates"("conference_attendance_id");

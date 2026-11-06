@@ -112,3 +112,14 @@
 .admin-demo-section{margin:0 0 28px}
 .admin-demo-section h2{font-size:18px;color:#26485a;margin:0 0 14px}
 @media(max-width:740px){.admin-form-grid{grid-template-columns:1fr}.admin-form-grid .admin-field--full{grid-column:auto}}
+
+/* Persisted Activity creation and explicit template review */
+.admin-create-fieldset{border:0;margin:0;padding:0;min-width:0}
+.admin-create-fieldset:disabled{opacity:.7}
+.admin-draft-json{direction:ltr;text-align:left;background:#102f3d;color:#d9f0ed;padding:16px;border-radius:10px;max-height:300px;overflow:auto;font:12px/1.7 monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.admin-detail-panel details{margin:16px 0}
+.admin-detail-panel summary{cursor:pointer;font-size:13px;font-weight:650}
+.admin-detail-panel>p{line-height:1.9;font-size:13px}
+.admin-detail-panel>button,.admin-detail-panel>div>button{margin:10px 0}
+.admin-sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.admin-field button.admin-text-link{background:transparent;border:0;cursor:pointer;text-align:start;padding:4px 0}

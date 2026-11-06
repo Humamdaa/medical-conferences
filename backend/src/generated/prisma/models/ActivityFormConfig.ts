@@ -28,68 +28,90 @@ export type AggregateActivityFormConfig = {
 
 export type ActivityFormConfigAvgAggregateOutputType = {
   id: number | null
+  version: number | null
   supervisorId: number | null
 }
 
 export type ActivityFormConfigSumAggregateOutputType = {
   id: bigint | null
+  version: number | null
   supervisorId: bigint | null
 }
 
 export type ActivityFormConfigMinAggregateOutputType = {
   id: bigint | null
+  templateKey: string | null
+  version: number | null
   supervisorId: bigint | null
   formName: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ActivityFormConfigMaxAggregateOutputType = {
   id: bigint | null
+  templateKey: string | null
+  version: number | null
   supervisorId: bigint | null
   formName: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ActivityFormConfigCountAggregateOutputType = {
   id: number
+  templateKey: number
+  version: number
   supervisorId: number
   formName: number
   fieldsSchema: number
   createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type ActivityFormConfigAvgAggregateInputType = {
   id?: true
+  version?: true
   supervisorId?: true
 }
 
 export type ActivityFormConfigSumAggregateInputType = {
   id?: true
+  version?: true
   supervisorId?: true
 }
 
 export type ActivityFormConfigMinAggregateInputType = {
   id?: true
+  templateKey?: true
+  version?: true
   supervisorId?: true
   formName?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type ActivityFormConfigMaxAggregateInputType = {
   id?: true
+  templateKey?: true
+  version?: true
   supervisorId?: true
   formName?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type ActivityFormConfigCountAggregateInputType = {
   id?: true
+  templateKey?: true
+  version?: true
   supervisorId?: true
   formName?: true
   fieldsSchema?: true
   createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -181,10 +203,13 @@ export type ActivityFormConfigGroupByArgs<ExtArgs extends runtime.Types.Extensio
 
 export type ActivityFormConfigGroupByOutputType = {
   id: bigint
+  templateKey: string
+  version: number
   supervisorId: bigint
   formName: string
   fieldsSchema: runtime.JsonValue
   createdAt: Date
+  updatedAt: Date
   _count: ActivityFormConfigCountAggregateOutputType | null
   _avg: ActivityFormConfigAvgAggregateOutputType | null
   _sum: ActivityFormConfigSumAggregateOutputType | null
@@ -212,43 +237,55 @@ export type ActivityFormConfigWhereInput = {
   OR?: Prisma.ActivityFormConfigWhereInput[]
   NOT?: Prisma.ActivityFormConfigWhereInput | Prisma.ActivityFormConfigWhereInput[]
   id?: Prisma.BigIntFilter<"ActivityFormConfig"> | bigint | number
+  templateKey?: Prisma.StringFilter<"ActivityFormConfig"> | string
+  version?: Prisma.IntFilter<"ActivityFormConfig"> | number
   supervisorId?: Prisma.BigIntFilter<"ActivityFormConfig"> | bigint | number
   formName?: Prisma.StringFilter<"ActivityFormConfig"> | string
   fieldsSchema?: Prisma.JsonFilter<"ActivityFormConfig">
   createdAt?: Prisma.DateTimeFilter<"ActivityFormConfig"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ActivityFormConfig"> | Date | string
   activities?: Prisma.ActivityListRelationFilter
   supervisor?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type ActivityFormConfigOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  templateKey?: Prisma.SortOrder
+  version?: Prisma.SortOrder
   supervisorId?: Prisma.SortOrder
   formName?: Prisma.SortOrder
   fieldsSchema?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   activities?: Prisma.ActivityOrderByRelationAggregateInput
   supervisor?: Prisma.UserOrderByWithRelationInput
 }
 
 export type ActivityFormConfigWhereUniqueInput = Prisma.AtLeast<{
   id?: bigint | number
+  templateKey?: string
   AND?: Prisma.ActivityFormConfigWhereInput | Prisma.ActivityFormConfigWhereInput[]
   OR?: Prisma.ActivityFormConfigWhereInput[]
   NOT?: Prisma.ActivityFormConfigWhereInput | Prisma.ActivityFormConfigWhereInput[]
+  version?: Prisma.IntFilter<"ActivityFormConfig"> | number
   supervisorId?: Prisma.BigIntFilter<"ActivityFormConfig"> | bigint | number
   formName?: Prisma.StringFilter<"ActivityFormConfig"> | string
   fieldsSchema?: Prisma.JsonFilter<"ActivityFormConfig">
   createdAt?: Prisma.DateTimeFilter<"ActivityFormConfig"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ActivityFormConfig"> | Date | string
   activities?: Prisma.ActivityListRelationFilter
   supervisor?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id">
+}, "id" | "templateKey">
 
 export type ActivityFormConfigOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  templateKey?: Prisma.SortOrder
+  version?: Prisma.SortOrder
   supervisorId?: Prisma.SortOrder
   formName?: Prisma.SortOrder
   fieldsSchema?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.ActivityFormConfigCountOrderByAggregateInput
   _avg?: Prisma.ActivityFormConfigAvgOrderByAggregateInput
   _max?: Prisma.ActivityFormConfigMaxOrderByAggregateInput
@@ -261,100 +298,135 @@ export type ActivityFormConfigScalarWhereWithAggregatesInput = {
   OR?: Prisma.ActivityFormConfigScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ActivityFormConfigScalarWhereWithAggregatesInput | Prisma.ActivityFormConfigScalarWhereWithAggregatesInput[]
   id?: Prisma.BigIntWithAggregatesFilter<"ActivityFormConfig"> | bigint | number
+  templateKey?: Prisma.StringWithAggregatesFilter<"ActivityFormConfig"> | string
+  version?: Prisma.IntWithAggregatesFilter<"ActivityFormConfig"> | number
   supervisorId?: Prisma.BigIntWithAggregatesFilter<"ActivityFormConfig"> | bigint | number
   formName?: Prisma.StringWithAggregatesFilter<"ActivityFormConfig"> | string
   fieldsSchema?: Prisma.JsonWithAggregatesFilter<"ActivityFormConfig">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ActivityFormConfig"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ActivityFormConfig"> | Date | string
 }
 
 export type ActivityFormConfigCreateInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
   activities?: Prisma.ActivityCreateNestedManyWithoutFormConfigInput
   supervisor: Prisma.UserCreateNestedOneWithoutFormConfigsInput
 }
 
 export type ActivityFormConfigUncheckedCreateInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   supervisorId: bigint | number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
   activities?: Prisma.ActivityUncheckedCreateNestedManyWithoutFormConfigInput
 }
 
 export type ActivityFormConfigUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activities?: Prisma.ActivityUpdateManyWithoutFormConfigNestedInput
   supervisor?: Prisma.UserUpdateOneRequiredWithoutFormConfigsNestedInput
 }
 
 export type ActivityFormConfigUncheckedUpdateInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   supervisorId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activities?: Prisma.ActivityUncheckedUpdateManyWithoutFormConfigNestedInput
 }
 
 export type ActivityFormConfigCreateManyInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   supervisorId: bigint | number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ActivityFormConfigUpdateManyMutationInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ActivityFormConfigUncheckedUpdateManyInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   supervisorId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ActivityFormConfigCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  templateKey?: Prisma.SortOrder
+  version?: Prisma.SortOrder
   supervisorId?: Prisma.SortOrder
   formName?: Prisma.SortOrder
   fieldsSchema?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ActivityFormConfigAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  version?: Prisma.SortOrder
   supervisorId?: Prisma.SortOrder
 }
 
 export type ActivityFormConfigMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  templateKey?: Prisma.SortOrder
+  version?: Prisma.SortOrder
   supervisorId?: Prisma.SortOrder
   formName?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ActivityFormConfigMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  templateKey?: Prisma.SortOrder
+  version?: Prisma.SortOrder
   supervisorId?: Prisma.SortOrder
   formName?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ActivityFormConfigSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  version?: Prisma.SortOrder
   supervisorId?: Prisma.SortOrder
 }
 
@@ -383,6 +455,14 @@ export type BigIntFieldUpdateOperationsInput = {
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -447,18 +527,24 @@ export type ActivityFormConfigUncheckedUpdateManyWithoutSupervisorNestedInput = 
 
 export type ActivityFormConfigCreateWithoutActivitiesInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
   supervisor: Prisma.UserCreateNestedOneWithoutFormConfigsInput
 }
 
 export type ActivityFormConfigUncheckedCreateWithoutActivitiesInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   supervisorId: bigint | number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ActivityFormConfigCreateOrConnectWithoutActivitiesInput = {
@@ -479,33 +565,45 @@ export type ActivityFormConfigUpdateToOneWithWhereWithoutActivitiesInput = {
 
 export type ActivityFormConfigUpdateWithoutActivitiesInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supervisor?: Prisma.UserUpdateOneRequiredWithoutFormConfigsNestedInput
 }
 
 export type ActivityFormConfigUncheckedUpdateWithoutActivitiesInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   supervisorId?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ActivityFormConfigCreateWithoutSupervisorInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
   activities?: Prisma.ActivityCreateNestedManyWithoutFormConfigInput
 }
 
 export type ActivityFormConfigUncheckedCreateWithoutSupervisorInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
   activities?: Prisma.ActivityUncheckedCreateNestedManyWithoutFormConfigInput
 }
 
@@ -540,40 +638,55 @@ export type ActivityFormConfigScalarWhereInput = {
   OR?: Prisma.ActivityFormConfigScalarWhereInput[]
   NOT?: Prisma.ActivityFormConfigScalarWhereInput | Prisma.ActivityFormConfigScalarWhereInput[]
   id?: Prisma.BigIntFilter<"ActivityFormConfig"> | bigint | number
+  templateKey?: Prisma.StringFilter<"ActivityFormConfig"> | string
+  version?: Prisma.IntFilter<"ActivityFormConfig"> | number
   supervisorId?: Prisma.BigIntFilter<"ActivityFormConfig"> | bigint | number
   formName?: Prisma.StringFilter<"ActivityFormConfig"> | string
   fieldsSchema?: Prisma.JsonFilter<"ActivityFormConfig">
   createdAt?: Prisma.DateTimeFilter<"ActivityFormConfig"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ActivityFormConfig"> | Date | string
 }
 
 export type ActivityFormConfigCreateManySupervisorInput = {
   id?: bigint | number
+  templateKey: string
+  version?: number
   formName: string
   fieldsSchema: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ActivityFormConfigUpdateWithoutSupervisorInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activities?: Prisma.ActivityUpdateManyWithoutFormConfigNestedInput
 }
 
 export type ActivityFormConfigUncheckedUpdateWithoutSupervisorInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activities?: Prisma.ActivityUncheckedUpdateManyWithoutFormConfigNestedInput
 }
 
 export type ActivityFormConfigUncheckedUpdateManyWithoutSupervisorInput = {
   id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  templateKey?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
   formName?: Prisma.StringFieldUpdateOperationsInput | string
   fieldsSchema?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -609,10 +722,13 @@ export type ActivityFormConfigCountOutputTypeCountActivitiesArgs<ExtArgs extends
 
 export type ActivityFormConfigSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  templateKey?: boolean
+  version?: boolean
   supervisorId?: boolean
   formName?: boolean
   fieldsSchema?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   activities?: boolean | Prisma.ActivityFormConfig$activitiesArgs<ExtArgs>
   supervisor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.ActivityFormConfigCountOutputTypeDefaultArgs<ExtArgs>
@@ -620,31 +736,40 @@ export type ActivityFormConfigSelect<ExtArgs extends runtime.Types.Extensions.In
 
 export type ActivityFormConfigSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  templateKey?: boolean
+  version?: boolean
   supervisorId?: boolean
   formName?: boolean
   fieldsSchema?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   supervisor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["activityFormConfig"]>
 
 export type ActivityFormConfigSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  templateKey?: boolean
+  version?: boolean
   supervisorId?: boolean
   formName?: boolean
   fieldsSchema?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   supervisor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["activityFormConfig"]>
 
 export type ActivityFormConfigSelectScalar = {
   id?: boolean
+  templateKey?: boolean
+  version?: boolean
   supervisorId?: boolean
   formName?: boolean
   fieldsSchema?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type ActivityFormConfigOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "supervisorId" | "formName" | "fieldsSchema" | "createdAt", ExtArgs["result"]["activityFormConfig"]>
+export type ActivityFormConfigOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "templateKey" | "version" | "supervisorId" | "formName" | "fieldsSchema" | "createdAt" | "updatedAt", ExtArgs["result"]["activityFormConfig"]>
 export type ActivityFormConfigInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   activities?: boolean | Prisma.ActivityFormConfig$activitiesArgs<ExtArgs>
   supervisor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -665,10 +790,13 @@ export type $ActivityFormConfigPayload<ExtArgs extends runtime.Types.Extensions.
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
+    templateKey: string
+    version: number
     supervisorId: bigint
     formName: string
     fieldsSchema: runtime.JsonValue
     createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["activityFormConfig"]>
   composites: {}
 }
@@ -1095,10 +1223,13 @@ export interface Prisma__ActivityFormConfigClient<T, Null = never, ExtArgs exten
  */
 export interface ActivityFormConfigFieldRefs {
   readonly id: Prisma.FieldRef<"ActivityFormConfig", 'BigInt'>
+  readonly templateKey: Prisma.FieldRef<"ActivityFormConfig", 'String'>
+  readonly version: Prisma.FieldRef<"ActivityFormConfig", 'Int'>
   readonly supervisorId: Prisma.FieldRef<"ActivityFormConfig", 'BigInt'>
   readonly formName: Prisma.FieldRef<"ActivityFormConfig", 'String'>
   readonly fieldsSchema: Prisma.FieldRef<"ActivityFormConfig", 'Json'>
   readonly createdAt: Prisma.FieldRef<"ActivityFormConfig", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"ActivityFormConfig", 'DateTime'>
 }
     
 

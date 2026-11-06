@@ -57,6 +57,10 @@ async function bootstrap() {
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Medical Conferences API')
     .setVersion('1.0')
+    .addCookieAuth('medical.sid', {
+      type: 'apiKey', in: 'cookie',
+      description: 'Session cookie issued by POST /auth/login. Log in on the same origin so the browser sends the HttpOnly cookie; Swagger cannot manually set the Cookie header.',
+    }, 'medical.sid')
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);

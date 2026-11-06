@@ -1,4 +1,15 @@
 import { http } from '../../../shared/api/http';
+import { z } from 'zod';
+
+export type CustomValue = string | number | boolean;
+export interface CreateActivityInput {
+  name: string; activityType: string; startAt: string; endAt: string;
+  location: string; institution: string; description: string; points: number;
+  latitude: number | null; longitude: number | null; specialistId: string;
+  expectedFormVersion: number; customFields: Record<string, CustomValue>;
+}
+const specialistOptions = z.array(z.object({ id: z.string().regex(/^[1-9]\d*$/), name: z.string() }));
+export type SpecialistOption = z.infer<typeof specialistOptions>[number];
 
 export interface AdminProfile {
   id: string;
@@ -35,6 +46,14 @@ export interface AdminActivityList {
 }
 
 export const adminApi = {
+  createActivity: (data: CreateActivityInput) => http<AdminActivityDetails>('/activities', {
+    method: 'POST', body: JSON.stringify(data),
+  }),
+  specialists: async (signal?: AbortSignal): Promise<SpecialistOption[]> => {
+    const result = specialistOptions.safeParse(await http<unknown>('/specialists', { signal }));
+    if (!result.success) throw new Error('استجابة الاختصاصات غير صالحة. أعد التحميل.');
+    return result.data;
+  },
   getProfile: () => http<AdminProfile>('/admin-profile/me'),
   updateProfile: (data: { firstName?: string; lastName?: string }) =>
     http<AdminProfile>('/admin-profile/me', {
